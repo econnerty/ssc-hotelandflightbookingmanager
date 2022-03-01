@@ -22,7 +22,7 @@ public class Utilities {
 
     private Utilities() {
 
-        try { md = MessageDigest.getInstance("SHA-256");} 
+        try {md = MessageDigest.getInstance("SHA-256");} 
         catch (NoSuchAlgorithmException e) {e.printStackTrace();}
 
         JSONParser = new JSONParser();
