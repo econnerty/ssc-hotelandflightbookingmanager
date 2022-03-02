@@ -1,6 +1,6 @@
 package java;
 
-public class BookingManager {
+public class BookingManager implements Manager{
 
     private static BookingManager bookingManager;
 

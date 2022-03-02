@@ -1,6 +1,6 @@
 package java;
 
-public class ApplicationManager {
+public class ApplicationManager implements Manager{
 
     private static ApplicationManager appManager;
 
