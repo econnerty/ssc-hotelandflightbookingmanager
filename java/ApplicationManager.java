@@ -8,14 +8,13 @@ public class ApplicationManager implements Manager{
 
     }
 
-    public ApplicationManager getInstance() {
+    public static ApplicationManager getInstance() {
 
         if (appManager == null)
             appManager = new ApplicationManager();
 
         return appManager;
         
-
     }
     
 }

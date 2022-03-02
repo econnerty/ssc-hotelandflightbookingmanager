@@ -8,7 +8,7 @@ public class BookingManager implements Manager{
 
     }
 
-    public BookingManager getInstance() {
+    public static BookingManager getInstance() {
 
         if (bookingManager == null)
             bookingManager = new BookingManager();

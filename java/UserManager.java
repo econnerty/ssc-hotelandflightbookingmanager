@@ -15,7 +15,6 @@ public class UserManager implements Manager {
 
         return userManager;
         
-
     }
     
 }
