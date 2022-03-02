@@ -3,6 +3,7 @@ package src;
 public class UserManager implements Manager {
 
     private static UserManager userManager;
+    private static Users currentUser;
 
     private UserManager(){
 
