@@ -13,8 +13,7 @@ public class BookingManager implements Manager{
         if (bookingManager == null)
             bookingManager = new BookingManager();
 
-        return bookingManager;
-        
+        return bookingManager;   
 
     }
     
