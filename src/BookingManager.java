@@ -6,8 +6,8 @@ public class BookingManager implements Manager{
 
     private static BookingManager bookingManager;
 
-    private ArrayList<Plane> planes; //We will store all the planes in this arraylist
-    private ArrayList<Hotel> hotels; //We will store all the hotels in this arraylist
+    private static ArrayList<Plane> planes; //We will store all the planes in this arraylist
+    private static ArrayList<Hotel> hotels; //We will store all the hotels in this arraylist
 
 
     private BookingManager(){
