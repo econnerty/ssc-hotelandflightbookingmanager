@@ -25,9 +25,6 @@ public abstract class Booking {
 
     public class HotelBooking extends Booking {
 
-        //Index for room
-        private int[] index = new int[3];
-
         public HotelBooking(String uuid, int[] index){
             super(uuid);
             if (index.length == 3)
