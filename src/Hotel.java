@@ -11,7 +11,7 @@ public class Hotel {
     private String uuid;
     
 
-    private int availableRooms = FLOORS*LENGTH*WIDTH; //Max seats available
+    private int availableRooms = FLOORS*LENGTH*WIDTH; //Max rooms available
     private Hotels hotel; //Enum for hotel
     private double price; //Price for each room in the Hotel
 
