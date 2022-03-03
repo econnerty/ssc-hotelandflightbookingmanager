@@ -11,11 +11,11 @@ public class Driver {
     
     public static void main(String args[]) {
 
-        ApplicationManager app = ApplicationManager.getInstance();
+        Utilities.getInstance(); //Call init on Utilities
 
         while(run() == true);
 
-        
+
 
         
             
