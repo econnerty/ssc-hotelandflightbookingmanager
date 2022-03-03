@@ -36,5 +36,17 @@ public class Utilities {
         return Utilities.utilities;
         
     }
+
+    public static HashMap<String, Users> loadUsers(){
+        return new HashMap<String,Users>();
+    }
+
+    public static HashMap<String, Plane> loadPlanes(){
+        return new HashMap<String,Plane>();
+    }
+
+    public static HashMap<String, Hotel> loadHotels(){
+        return new HashMap<String,Hotel>();
+    }
     
 }

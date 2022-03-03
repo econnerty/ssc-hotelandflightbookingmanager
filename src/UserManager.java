@@ -11,6 +11,8 @@ public class UserManager implements Manager {
 
     private UserManager(){
 
+        users = Utilities.loadUsers(); //This should load all Users from the JSON into the HashMap.
+
     }
 
     public static UserManager getInstance() {
