@@ -9,7 +9,7 @@ public abstract class Users {
 
     protected String name;
     protected Date date;
-    protected  Pair<String, int[]> bookings;
+    protected Pair<String, int[]> bookings;
 
     public class RegisteredUser extends Users {
 
