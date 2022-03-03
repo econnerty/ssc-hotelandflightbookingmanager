@@ -13,6 +13,8 @@ public class Driver {
 
         Utilities.getInstance(); //Call init on Utilities
 
+        System.out.println(Utilities.hashPassword("password","salt"));
+
         while(run() == true);
 
         
