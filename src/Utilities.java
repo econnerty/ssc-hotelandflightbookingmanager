@@ -26,6 +26,8 @@ public class Utilities {
         catch (NoSuchAlgorithmException e) {e.printStackTrace();}
 
         JSONParser = new JSONParser();
+
+        System.out.println("Utils succesfully initialized");
     }
 
     public static Utilities getInstance() {

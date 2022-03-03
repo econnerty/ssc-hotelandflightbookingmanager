@@ -12,7 +12,7 @@ public class Hotel {
     
 
     private int availableRooms = FLOORS*LENGTH*WIDTH; //Max seats available
-    private Hotels hotel; //Enum for airlines
+    private Hotels hotel; //Enum for hotel
     private double price; //Price for each room in the Hotel
 
     private boolean[][][] rooms = new boolean[LENGTH][WIDTH][FLOORS]; //Keeps track of all the available rooms whether they are booked or not
