@@ -23,5 +23,29 @@ public class UserManager implements Manager {
         return userManager;
         
     }
+
+    public void saveUser(User user) {
+        //TODO
+    }
+
+    public void login(String username, String password) {
+        //TODO
+    }
+
+    public void creatAccount() {
+        //TODO
+    }
+
+    public void initialize() {
+        //TODO
+    }
+
+    public void logout() {
+        //TODO
+    }
+
+    public void changePassword() {
+        //TODO
+    }
     
 }

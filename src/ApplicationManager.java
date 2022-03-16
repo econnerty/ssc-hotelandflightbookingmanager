@@ -19,5 +19,10 @@ public class ApplicationManager implements Manager{
         return appManager;
         
     }
+
+    public boolean print() {
+        //TODO
+        return false;
+    }
     
 }
