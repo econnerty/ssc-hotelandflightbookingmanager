@@ -1,0 +1,24 @@
+[
+    {
+        "hotel":"Mariott Marquis",
+        "rooms":103,
+        "city":"San Francisco",
+        "price":171.55,
+        "smoking":true,
+        "petsAllowed":true
+    },{
+        "hotel":"Hilton Garden Inn",
+        "rooms":382,
+        "city":"New York City",
+        "price":157.88,
+        "smoking":true,
+        "petsAllowed":true
+    },{
+        "hotel":"Kimpton Saint George",
+        "rooms":467,
+        "city":"Toronto",
+        "price":172.30,
+        "smoking":true,
+        "petsAllowed":true
+      }
+  ]

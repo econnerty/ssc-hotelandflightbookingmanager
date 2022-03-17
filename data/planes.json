@@ -1,0 +1,36 @@
+[
+    {
+        "plane":"lightning",
+        "destination":"San Francisco",
+        "seats":103,
+        "seatsBooked":13,
+        "origin":"San Francisco",
+        "departureTime":21.00,
+        "arrivalTime":17.00,
+        "price":171.55,
+        "smoking":false,
+        "petsAllowed":true
+    },{
+        "plane":"Delta",
+        "destination":"San Francisco",
+        "seats":382,
+        "seatsBooked":13,
+        "origin":"New York City",
+        "departureTime":21.00,
+        "arrivalTime":17.00,
+        "price":157.88,
+        "smoking":false,
+        "petsAllowed":true
+    },{
+        "plane":"Flying Titanic",
+        "destination":"San Francisco",
+        "seats":467,
+        "seatsBooked":13,
+        "origin":"Toronto",
+        "departureTime":21.00,
+        "arrivalTime":17.00,
+        "price":172.30,
+        "smoking":false,
+        "petsAllowed":true
+      }
+  ]
