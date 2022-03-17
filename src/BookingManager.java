@@ -3,7 +3,7 @@ package src;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class BookingManager implements Manager{
+public class BookingManager {
 
     private static BookingManager bookingManager;
 

@@ -3,7 +3,7 @@ package src;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class UserManager implements Manager {
+public class UserManager {
 
     private static UserManager userManager;
     private static Users currentUser;

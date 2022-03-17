@@ -1,6 +1,6 @@
 package src;
 
-public class ApplicationManager implements Manager{
+public class ApplicationManager {
 
     private static ApplicationManager appManager;
     private static UserManager userManager;
