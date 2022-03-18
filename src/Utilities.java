@@ -108,8 +108,12 @@ public class Utilities {
         return users;
     }
 
-    public static HashMap<UUID, Plane> loadPlanes(){
-        return new HashMap<UUID,Plane>();
+    public static HashMap<UUID, Plane> loadPlanes() throws FileNotFoundException, IOException, ParseException{
+
+        JSONArray jsonArray = (JSONArray) JSONParser.parse(new FileReader(PLANE_JSON_PATH));
+        HashMap<UUID, Plane> planes = new HashMap<>();
+
+        return planes;
     }
 
     public static HashMap<UUID, Hotel> loadHotels(){
