@@ -68,11 +68,11 @@ public class Utilities {
                 Pair<String, int[]>[] flightBookings;
                 Pair<String, int[]>[] hotelBookings;
 
-                for(int i = 0; i < jsonFlightBookings.size(); i+=2) { //the way the json is stored, we have to jump forward by 2 to get to the next uuid
+                for(int i = 0; i < jsonFlightBookings.size(); i+=3) { //the way the json is stored, we have to jump forward by 3 to get to the next uuid
                     
                 }
 
-                for(int i = 0; i < jsonHotelBookings.size(); i+=3) { //the way the json is stored, we have to jump forward by 3 to get to the next uuid
+                for(int i = 0; i < jsonHotelBookings.size(); i+=4) { //the way the json is stored, we have to jump forward by 4 to get to the next uuid
                     
                 }
 
