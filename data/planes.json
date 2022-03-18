@@ -1,5 +1,6 @@
 [
     {
+        "uuid":"186f6815-a348-4cf9-9c0d-494606529a06",
         "plane":"lightning",
         "destination":"San Francisco",
         "seats":103,
@@ -11,6 +12,7 @@
         "smoking":false,
         "petsAllowed":true
     },{
+        "uuid":"99450473-e501-4895-9594-59497377dff9",
         "plane":"Delta",
         "destination":"San Francisco",
         "seats":382,
@@ -22,6 +24,7 @@
         "smoking":false,
         "petsAllowed":true
     },{
+        "uuid":"dd3d88ea-b353-42d9-a2a9-61b6d579bbed",
         "plane":"Flying Titanic",
         "destination":"San Francisco",
         "seats":467,
