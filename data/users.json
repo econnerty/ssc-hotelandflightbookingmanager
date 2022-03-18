@@ -6,8 +6,8 @@
         "creationDate":"10/10/2019 14:30:04Z",
         "password":"gUrii4J;",
         "dob":"06/17/1970",
-        "flightBookings":["uuid","1","2"],
-        "hotelBookings":["uuid","1","2","3"],
+        "flightBookings":["186f6815-a348-4cf9-9c0d-494606529a06","1","2"],
+        "hotelBookings":["6ac5567a-4644-4cba-a909-f49ffa97b790","1","2","3"],
         "preferences":["hates bugs", "hates babies", "likes dogs"]
     },{
         "uuid":"3fa4e87f-7434-4a81-b133-bf665065c2ea",
@@ -16,8 +16,8 @@
         "creationDate":"01/22/2019 07:44:50Z",
         "password":"faM66IlyFarm330",
         "dob":"11/04/1990",
-        "flightBookings":["uuid","1","2"],
-        "hotelBookings":["uuid","1","2","3"],
+        "flightBookings":["99450473-e501-4895-9594-59497377dff9","1","2"],
+        "hotelBookings":["86c7904c-ad29-4819-afb3-209478d3c1d6","1","2","3"],
         "preferences":["hates bugs", "hates babies", "likes dogs"]
     },{
         "uuid":"59923c74-751c-4053-8e36-d97dcde7084",

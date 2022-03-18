@@ -65,16 +65,22 @@ public class Utilities {
                 JSONArray jsonFlightBookings = (JSONArray) jsonObject.get("flightBookings");
                 JSONArray jsonHotelBookings = (JSONArray) jsonObject.get("hotelBookings");
                 
-                Pair<String, int[]>[] flightBookings;
-                Pair<String, int[]>[] hotelBookings;
+                ArrayList<FlightBooking> flightBookings = new ArrayList<>();
+                ArrayList<HotelBooking> hotelBookings = new ArrayList<>();
+
+                String[] preferences = new String[5]; //TODO Parse preferences
 
                 for(int i = 0; i < jsonFlightBookings.size(); i+=3) { //the way the json is stored, we have to jump forward by 3 to get to the next uuid
-                    
+                    int [] index = {Integer.parseInt(jsonFlightBookings.get(i+1).toString()), Integer.parseInt(jsonFlightBookings.get(i+2).toString())};
+                    flightBookings.add(new FlightBooking(UUID.fromString(jsonFlightBookings.get(i).toString()), index));
                 }
 
                 for(int i = 0; i < jsonHotelBookings.size(); i+=4) { //the way the json is stored, we have to jump forward by 4 to get to the next uuid
-                    
+                    int [] index = {Integer.parseInt(jsonHotelBookings.get(i+1).toString()), Integer.parseInt(jsonHotelBookings.get(i+2).toString()), Integer.parseInt(jsonHotelBookings.get(i+3).toString())};
+                    hotelBookings.add(new HotelBooking(UUID.fromString(jsonHotelBookings.get(i).toString()), index));
                 }
+
+                users.put(name, new RegisteredUser(name, password, creationDate, flightBookings, hotelBookings, preferences));
 
 
             }
