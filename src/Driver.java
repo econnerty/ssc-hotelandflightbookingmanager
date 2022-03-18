@@ -18,7 +18,7 @@ public class Driver {
     
     public static void main(String args[]) throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
 
-        ApplicationManager.getInstance();
+        ApplicationManager appManager = ApplicationManager.getInstance();
 
         while(run());
 
