@@ -11,8 +11,8 @@ public class Plane {
 
     private UUID uuid;
 
-    private int availableSeats = SEAT_COLUMNS*SEAT_ROWS; //Max seats available
     private Airlines airline; //Enum for airlines
+    private int availableSeats = SEAT_COLUMNS*SEAT_ROWS; //Max seats available
     private double price; //Price for each seat on the plane. This can be expanded later for different classes
 
     private Date departureDate;
@@ -24,7 +24,25 @@ public class Plane {
     private boolean[][] seats = new boolean[SEAT_ROWS][SEAT_COLUMNS]; //Keeps track of all the available seats whether they are booked or not
 
 
+    public Plane(UUID uuid) {
+        this.uuid = uuid;
+        clearSeats();
+    }
+
+    public Plane(UUID uuid, Airlines airline, int availableSeats, double price, Date departureDate, Date arrivalDate, String departureCity, String arrivalCity, boolean[][] seats) {
+        this.uuid = uuid;
+        this.airline = airline;
+        this.availableSeats = availableSeats;
+        this.price = price;
+        this.departureDate = departureDate;
+        this.arrivalDate = arrivalDate;
+        this.departureCity = departureCity;
+        this.arrivalCity = arrivalCity;
+        this.seats = seats;
+    }
+
     public void bookSeat(int[] index) {
+        
         this.seats[index[0]][index[1]] = true;
         availableSeats--;
     }
