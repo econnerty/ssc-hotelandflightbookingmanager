@@ -53,7 +53,6 @@ public class Utilities {
 
             JSONObject jsonObject = (JSONObject) object;
 
-            //UUID uuid = UUID.fromString(jsonObject.get("uuid").toString());
             String name = jsonObject.get("username").toString();
             String password = jsonObject.get("password").toString();
             Date creationDate = format.parse(jsonObject.get("creationDate").toString());
