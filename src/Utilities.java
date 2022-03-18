@@ -108,12 +108,12 @@ public class Utilities {
         return users;
     }
 
-    public static HashMap<String, Plane> loadPlanes(){
-        return new HashMap<String,Plane>();
+    public static HashMap<UUID, Plane> loadPlanes(){
+        return new HashMap<UUID,Plane>();
     }
 
-    public static HashMap<String, Hotel> loadHotels(){
-        return new HashMap<String,Hotel>();
+    public static HashMap<UUID, Hotel> loadHotels(){
+        return new HashMap<UUID,Hotel>();
     }
     
 }
