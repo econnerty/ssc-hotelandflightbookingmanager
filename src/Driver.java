@@ -18,8 +18,6 @@ public class Driver {
     
     public static void main(String args[]) throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
 
-
-        Utilities.getInstance(); //Call init on Utilities
         ApplicationManager.getInstance();
 
         while(run());
