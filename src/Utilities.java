@@ -6,6 +6,7 @@ import java.io.*;
 
 import java.text.SimpleDateFormat;
 
+import org.javatuples.Pair;
 import org.json.simple.*;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -52,7 +53,7 @@ public class Utilities {
 
             JSONObject jsonObject = (JSONObject) object;
 
-            UUID uuid = UUID.fromString(jsonObject.get("uuid").toString());
+            //UUID uuid = UUID.fromString(jsonObject.get("uuid").toString());
             String name = jsonObject.get("username").toString();
             String password = jsonObject.get("password").toString();
             Date creationDate = format.parse(jsonObject.get("creationDate").toString());
@@ -60,11 +61,39 @@ public class Utilities {
 
 
             if (type.equalsIgnoreCase("registered")) {
+
+                JSONArray jsonFlightBookings = (JSONArray) jsonObject.get("flightBookings");
+                JSONArray jsonHotelBookings = (JSONArray) jsonObject.get("hotelBookings");
                 
+                Pair<String, int[]>[] flightBookings;
+                Pair<String, int[]>[] hotelBookings;
+
+                for(int i = 0; i < jsonFlightBookings.size(); i+=2) { //the way the json is stored, we have to jump forward by 2 to get to the next uuid
+                    
+                }
+
+                for(int i = 0; i < jsonHotelBookings.size(); i+=3) { //the way the json is stored, we have to jump forward by 3 to get to the next uuid
+                    
+                }
+
 
             }
             else if (type.equalsIgnoreCase("business")) {
 
+                JSONArray jsonAirlines = (JSONArray) jsonObject.get("airlines");
+                JSONArray jsonHotels = (JSONArray) jsonObject.get("hotels");
+                Airlines[] airlines = new Airlines[jsonAirlines.size()];
+                Hotels[] hotels = new Hotels[jsonHotels.size()];
+
+                for(int i = 0; i < jsonAirlines.size(); i++) {
+                    airlines[i] = Airlines.valueOf(jsonAirlines.get(i).toString());
+                }
+
+                for(int i = 0; i < jsonHotels.size(); i++) {
+                    hotels[i] = Hotels.valueOf(jsonHotels.get(i).toString());
+                }
+
+                users.put(name, new BusinessUser(name, password, creationDate, airlines, hotels));
             }
 
             
@@ -72,7 +101,10 @@ public class Utilities {
             
         }
 
-        return new HashMap<String,Users>();
+        for (String key : users.keySet())
+            System.out.println(key);
+
+        return users;
     }
 
     public static HashMap<String, Plane> loadPlanes(){

@@ -12,6 +12,7 @@ public class ApplicationManager {
     private static BookingManager bookingManager;
 
     private ApplicationManager() throws FileNotFoundException, IOException, ParseException, java.text.ParseException{
+        Utilities.getInstance();
         userManager = UserManager.getInstance();
         bookingManager = BookingManager.getInstance();
     }

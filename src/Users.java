@@ -7,13 +7,13 @@ import java.util.UUID;
 
 public abstract class Users {
 
-    protected UUID uuid;
+    //protected UUID uuid; //why do we need uuid if all the usernames are unique
     protected String name;
     protected String password; //This should be the hashed password if we have time for that
     protected Date creationDate; //Date the user was created
 
 
-    public Users(UUID uuid, String name, String password, Date creationDate) {
+    public Users(String name, String password, Date creationDate) {
 
     }
     
