@@ -16,7 +16,7 @@ public class HotelBooking extends Booking {
     }
 
     public String toString() {
-        return this.uuid.toString();
+        return this.uuid.toString() + " " + index.toString();
     }
     
 

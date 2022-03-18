@@ -10,15 +10,18 @@ import java.util.UUID;
 public class Driver {
 
     private static String currentUser = "";
+    private static ApplicationManager appManager;
 
     private static boolean run(){
 
+        //TODO
+        //Do the stuff
         return false;
     }
     
     public static void main(String args[]) throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
 
-        ApplicationManager appManager = ApplicationManager.getInstance();
+        appManager = ApplicationManager.getInstance();
 
         while(run());
 
