@@ -1,22 +1,41 @@
 [
     {
+        "uuid":"2946c061-02ee-4496-a7aa-14dbe210af96",
+        "type":"registered",
         "username":"MarkTanner3",
         "creationDate":"10/10/2019 14:30:04Z",
         "password":"gUrii4J;",
         "dob":"06/17/1970",
-        "preferences":"hates bugs, hates babies, likes dogs"
+        "flightBookings":["uuid","1","2"],
+        "hotelBookings":["uuid","1","2","3"],
+        "preferences":["hates bugs", "hates babies", "likes dogs"]
     },{
+        "uuid":"3fa4e87f-7434-4a81-b133-bf665065c2ea",
+        "type":"registered",
         "username":"MaryS330",
         "creationDate":"01/22/2019 07:44:50Z",
         "password":"faM66IlyFarm330",
         "dob":"11/04/1990",
-        "preferences":"hates bugs, hates babies, likes dogs"
+        "flightBookings":["uuid","1","2"],
+        "hotelBookings":["uuid","1","2","3"],
+        "preferences":["hates bugs", "hates babies", "likes dogs"]
     },{
+        "uuid":"59923c74-751c-4053-8e36-d97dcde7084",
+        "type":"business",
         "username":"JoeRon11",
         "creationDate":"03/08/2019 19:07:22Z",
         "password":"eGGdrOPs0up995",
         "dob":"02/02/1992",
-        "preferences":"hates bugs, hates babies, likes dogs",
-        "business":["Delta"]
+        "airlines":["Delta"],
+        "hotels":[]
+    },{
+        "uuid":"145e8914-569c-4326-82ad-6f2c9c6eebbd",
+        "type":"business",
+        "username":"JoeRon12",
+        "creationDate":"03/08/2020 19:07:22Z",
+        "password":"eGGdrOPs0up32423",
+        "dob":"02/02/1994",
+        "airlines":[],
+        "hotels":["Marriott"]
       }
   ]

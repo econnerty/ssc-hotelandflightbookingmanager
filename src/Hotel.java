@@ -8,7 +8,7 @@ public class Hotel {
     private static final int LENGTH = 50; //Hard Coded Hotel size
     private static final int WIDTH = 2; //Hard Coded Hotel size
 
-    private String uuid;
+    private UUID uuid;
     
 
     private int availableRooms = FLOORS*LENGTH*WIDTH; //Max rooms available

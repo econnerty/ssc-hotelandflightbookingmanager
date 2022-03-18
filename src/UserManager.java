@@ -1,7 +1,11 @@
 package src;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import org.json.simple.parser.ParseException;
 
 public class UserManager {
 
@@ -9,13 +13,13 @@ public class UserManager {
     private static Users currentUser;
     private static HashMap<String, Users> users; //We will store all the users inside this hashmap. The UUID will be the key.
 
-    private UserManager(){
+    private UserManager() throws FileNotFoundException, IOException, ParseException, java.text.ParseException{
 
         users = Utilities.loadUsers(); //This should load all Users from the JSON into the HashMap.
 
     }
 
-    public static UserManager getInstance() {
+    public static UserManager getInstance() throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
 
         if (userManager == null)
             userManager = new UserManager();

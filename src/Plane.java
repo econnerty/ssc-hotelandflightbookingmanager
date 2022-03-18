@@ -7,7 +7,7 @@ public class Plane {
     private static final int SEAT_COLUMNS = 6; //Hard Coded Plane Size
     private static final int SEAT_ROWS = 50; //Hard Coded plane size
 
-    private String uuid;
+    private UUID uuid;
 
     private int availableSeats = SEAT_COLUMNS*SEAT_ROWS; //Max seats available
     private Airlines airline; //Enum for airlines
