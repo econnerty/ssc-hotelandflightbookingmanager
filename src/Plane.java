@@ -29,7 +29,9 @@ public class Plane {
         clearSeats();
     }
 
-    public Plane(UUID uuid, Airlines airline, int availableSeats, double price, Date departureDate, Date arrivalDate, String departureCity, String arrivalCity, boolean[][] seats) {
+    public Plane(UUID uuid, Airlines airline, int availableSeats, double price, Date departureDate, Date arrivalDate, 
+        String departureCity, String arrivalCity, boolean[][] seats) {
+            
         this.uuid = uuid;
         this.airline = airline;
         this.availableSeats = availableSeats;
