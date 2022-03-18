@@ -12,11 +12,11 @@ public class RegisteredUser extends Users {
         //TODO
     }
 
-    public void addBooking(Booking booking) {
+    public void addBooking() {
         //TODO
     }
 
-    public void cancelBooking(Booking booking) {
+    public void cancelBooking() {
         //TODO
     }
 

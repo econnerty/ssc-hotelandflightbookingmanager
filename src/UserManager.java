@@ -24,7 +24,7 @@ public class UserManager {
         
     }
 
-    public void saveUser(User user) {
+    public void saveUser(Users user) {
         //TODO
     }
 
