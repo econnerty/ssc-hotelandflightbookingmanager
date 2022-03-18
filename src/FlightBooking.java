@@ -13,5 +13,9 @@ public class FlightBooking extends Booking {
             this.index = index;
 
     }
+
+    public String toString() {
+        return this.uuid.toString();
+    }
     
 }

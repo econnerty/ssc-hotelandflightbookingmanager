@@ -14,7 +14,13 @@ public abstract class Users {
 
 
     public Users(String name, String password, Date creationDate) {
+        this.name = name;
+        this.password = password;
+        this.creationDate = creationDate;
+    }
 
+    public String toString() {
+        return this.name + " " + this.password + " " + this.creationDate.toString();
     }
     
 }

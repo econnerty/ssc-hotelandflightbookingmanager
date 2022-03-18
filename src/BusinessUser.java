@@ -14,6 +14,11 @@ public class BusinessUser extends Users {
         this.hotels = hotels;
     }
 
+    
+    public String toString() {
+        return this.name + " " + this.password + " " + this.creationDate.toString() + " " + airlines.toString() + " "  + hotels.toString();
+    }
+
     public void setAirlines(Airlines[] airlines){
         this.airlines = airlines;
     }

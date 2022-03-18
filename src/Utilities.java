@@ -102,12 +102,8 @@ public class Utilities {
             }
 
             
-
-            
         }
 
-        for (String key : users.keySet())
-            System.out.println(key);
 
         return users;
     }

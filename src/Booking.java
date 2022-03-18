@@ -8,5 +8,10 @@ public abstract class Booking {
     public Booking(UUID uuid){
         this.uuid = uuid;
     }
+
+    public String toString() {
+        return this.uuid.toString();
+    }
+    
     
 }

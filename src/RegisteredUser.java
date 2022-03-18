@@ -2,6 +2,8 @@ package src;
 
 import java.util.Date;
 import java.util.UUID;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.ArrayList;
 
 import org.javatuples.*;
@@ -17,6 +19,18 @@ public class RegisteredUser extends Users {
         this.flightBookings = flightBookings;
         this.hotelBookings = hotelBookings;
         this.preferences = preferences;
+    }
+
+    public String toString() {
+        String ret = this.name + " " + this.password + " " + this.creationDate.toString() + " ";
+
+        for (FlightBooking f : flightBookings)
+            ret += f.toString() +" ";
+        
+        for (HotelBooking f : hotelBookings)
+            ret += f.toString() + " ";
+
+        return ret;
     }
 
     public void setPreferences() {
