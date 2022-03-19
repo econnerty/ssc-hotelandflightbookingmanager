@@ -21,18 +21,6 @@ public class RegisteredUser extends Users {
         this.preferences = preferences;
     }
 
-    public String toString() {
-        String ret = this.name + " " + this.password + " " + this.creationDate.toString() + " ";
-
-        for (FlightBooking f : flightBookings)
-            ret += f.toString() +" ";
-        
-        for (HotelBooking f : hotelBookings)
-            ret += f.toString() + " ";
-
-        return ret;
-    }
-
     public void setPreferences() {
         //TODO
     }
@@ -43,6 +31,19 @@ public class RegisteredUser extends Users {
 
     public void cancelBooking() {
         //TODO
+    }
+
+    
+    public String toString() {
+        String ret = this.name + " " + this.password + " " + this.creationDate.toString() + " ";
+
+        for (FlightBooking f : flightBookings)
+            ret += f.toString() +" ";
+        
+        for (HotelBooking f : hotelBookings)
+            ret += f.toString() + " ";
+
+        return ret;
     }
 
 }

@@ -31,7 +31,7 @@ public class Plane {
 
     public Plane(UUID uuid, Airlines airline, int availableSeats, double price, Date departureDate, Date arrivalDate, 
         String departureCity, String arrivalCity, boolean[][] seats) {
-            
+
         this.uuid = uuid;
         this.airline = airline;
         this.availableSeats = availableSeats;
@@ -43,9 +43,9 @@ public class Plane {
         this.seats = seats;
     }
 
-    public void bookSeat(int[] index) {
+    public void bookSeat(FlightBooking booking) {
         
-        this.seats[index[0]][index[1]] = true;
+        this.seats[booking.getIndex()[0]][booking.getIndex()[1]] = true;
         availableSeats--;
     }
 

@@ -17,6 +17,13 @@ public class Hotel {
 
     private boolean[][][] rooms = new boolean[LENGTH][WIDTH][FLOORS]; //Keeps track of all the available rooms whether they are booked or not
 
+
+    public void bookRoom(HotelBooking booking) {
+        
+        this.rooms[booking.getIndex()[0]][booking.getIndex()[1]][booking.getIndex()[2]] = true; //this needs to be fixed.
+        availableRooms--;
+    }
+
     //TODO Print out all the available rooms, whether they are booked or not, and the index that they are located at
     public String toString() {
         return "";
