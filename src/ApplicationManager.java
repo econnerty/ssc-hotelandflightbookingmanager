@@ -26,6 +26,14 @@ public class ApplicationManager {
         
     }
 
+    public boolean login(String username, String password) {
+        return (userManager.login(username, password));
+    }
+
+    public Users getCurrentUser() {
+        return userManager.getCurrentUser();
+    }
+
     public boolean print() {
         //TODO
         return false;

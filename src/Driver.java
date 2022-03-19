@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class Driver {
 
-    private static String currentUser = "";
+    private static Users currentUser;
     private static ApplicationManager appManager;
 
     private static boolean run(){
