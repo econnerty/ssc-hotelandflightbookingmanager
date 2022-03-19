@@ -18,8 +18,11 @@ public class Plane {
     private Date departureDate;
     private Date arrivalDate;
 
+    private String destinationCity;
     private String departureCity;
-    private String arrivalCity;
+
+    private boolean smoking;
+    private boolean petsAllowed;
 
     private boolean[][] seats = new boolean[SEAT_ROWS][SEAT_COLUMNS]; //Keeps track of all the available seats whether they are booked or not
 
@@ -30,7 +33,21 @@ public class Plane {
     }
 
     public Plane(UUID uuid, Airlines airline, int availableSeats, double price, Date departureDate, Date arrivalDate, 
-        String departureCity, String arrivalCity, boolean[][] seats) {
+    String departureCity, String destinationCity) {
+
+    this.uuid = uuid;
+    this.airline = airline;
+    this.availableSeats = availableSeats;
+    this.price = price;
+    this.departureDate = departureDate;
+    this.arrivalDate = arrivalDate;
+    this.destinationCity = destinationCity;
+    this.departureCity = departureCity;
+    clearSeats();
+}
+
+    public Plane(UUID uuid, Airlines airline, int availableSeats, double price, Date departureDate, Date arrivalDate, 
+        String departureCity, String destinationCity,boolean smoking, boolean petsAllowed, boolean[][] seats) {
 
         this.uuid = uuid;
         this.airline = airline;
@@ -38,9 +55,11 @@ public class Plane {
         this.price = price;
         this.departureDate = departureDate;
         this.arrivalDate = arrivalDate;
+        this.destinationCity = destinationCity;
         this.departureCity = departureCity;
-        this.arrivalCity = arrivalCity;
         this.seats = seats;
+        this.smoking = smoking;
+        this.petsAllowed = petsAllowed;
     }
 
     public void bookSeat(FlightBooking booking) {
@@ -64,12 +83,12 @@ public class Plane {
         this.price = price;
     }
 
-    public void setDepartureCity(String city) {
-        this.departureCity = city;
+    public void setdestinationCity(String city) {
+        this.destinationCity = city;
     }
     
-    public void setArrivalCity(String city) {
-        this.arrivalCity = city;
+    public void setdepartureCity(String city) {
+        this.departureCity = city;
     }
     
     public void setDepartureDate(Date date) {
@@ -80,10 +99,18 @@ public class Plane {
         this.arrivalDate = date;
     }
 
+    public static int[] getSize() {
+        return new int[]{Plane.SEAT_COLUMNS, Plane.SEAT_ROWS};
+    }
 
-    //TODO Print out all the available seats, whether they are booked or not, and the index that they are located at
+
+    //TODO Print all the plane's seats and whether they are booked.
+    @Override
     public String toString() {
-        return "";
+        return "Plane [airline=" + airline + ", arrivalDate=" + arrivalDate + ", availableSeats=" + availableSeats
+                + ", departureCity=" + departureCity + ", departureDate=" + departureDate + ", destinationCity="
+                + destinationCity + ", petsAllowed=" + petsAllowed + ", price=" + price + ", seats="
+                + Arrays.toString(seats) + ", smoking=" + smoking + ", uuid=" + uuid + "]";
     }
 
 }

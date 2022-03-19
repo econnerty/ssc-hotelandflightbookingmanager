@@ -1,5 +1,5 @@
 package src;
 
 public enum Airlines {
-    DELTA
+    DELTA, JET_BLUE
 }

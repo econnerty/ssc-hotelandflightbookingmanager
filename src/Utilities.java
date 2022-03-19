@@ -17,6 +17,7 @@ public class Utilities {
     private static final String USER_JSON_PATH = "data/users.json";
     private static final String PLANE_JSON_PATH = "data/planes.json";
     private static final String HOTEL_JSON_PATH = "data/hotels.json";
+
     private static final String DOB_FORMAT = "MM/dd/yyyy";
     private static final String DATE_FORMAT = "MM/dd/yyyy' 'HH:mm:ss'Z'";
 
@@ -110,16 +111,60 @@ public class Utilities {
         return users;
     }
 
-    public static HashMap<UUID, Plane> loadPlanes() throws FileNotFoundException, IOException, ParseException{
+    public static HashMap<UUID, Plane> loadPlanes() throws FileNotFoundException, IOException, ParseException, java.text.ParseException{
 
         JSONArray jsonArray = (JSONArray) JSONParser.parse(new FileReader(PLANE_JSON_PATH));
         HashMap<UUID, Plane> planes = new HashMap<>();
 
+        for (Object object : jsonArray) {
+
+            JSONObject jsonObject = (JSONObject) object;
+
+            UUID uuid = UUID.fromString(jsonObject.get("uuid").toString());
+            System.out.println(uuid.toString());
+            Airlines airline = Airlines.valueOf(jsonObject.get("airline").toString());
+            int availableSeats=Integer.parseInt(jsonObject.get("availableSeats").toString());
+            boolean[][] seats = new boolean[Plane.getSize()[0]][Plane.getSize()[1]];
+            String destinationCity = jsonObject.get("destinationCity").toString();
+            String departureCity = jsonObject.get("departureCity").toString();
+            Date departureDate = dateFormat.parse(jsonObject.get("departureDate").toString()); //this is supposed to be a date tho i hate u :pensive:
+            //i am sad why it red
+            Date arrivalDate = dateFormat.parse(jsonObject.get("arrivalDate").toString());
+            Double price = Double.parseDouble(jsonObject.get("price").toString());
+            boolean smoking = Boolean.parseBoolean(jsonObject.get("smoking").toString());
+//stop follow me :pensive: girl
+            boolean petsAllowed = Boolean.parseBoolean(jsonObject.get("petsAllowed").toString());
+
+            planes.put(uuid, new Plane(uuid, airline, availableSeats, price, departureDate, arrivalDate, departureCity, destinationCity, smoking, petsAllowed, seats));
+            System.out.println(planes.get(uuid).toString() + "\n\n\n");
+
+        }
+        
+ 
         return planes;
     }
 
-    public static HashMap<UUID, Hotel> loadHotels(){
-        return new HashMap<UUID,Hotel>();
-    }
+    public static HashMap<UUID, Hotel> loadHotels() throws FileNotFoundException, IOException, ParseException, java.text.ParseException{
+        
+        JSONArray jsonArray = (JSONArray) JSONParser.parse(new FileReader(HOTEL_JSON_PATH));
+        HashMap<UUID, Hotel> hotels = new HashMap<>();
+
+        for (Object object : jsonArray) {
+
+            JSONObject jsonObject = (JSONObject) object;
+
+            UUID uuid=UUID.fromString(jsonObject.get("uuid").toString());
+            Hotels hotel=Hotels.valueOf(jsonObject.get("hotel").toString());
+            int availableRooms=Integer.parseInt(jsonObject.get("availableRooms").toString());
+            boolean[][][] rooms;
+            String city = jsonObject.get("city").toString();
+            double price=Double.parseDouble(jsonObject.get("price").toString());
+            boolean smoking=Boolean.parseBoolean(jsonObject.get("smoking").toString());
+            boolean petsAllowed=Boolean.parseBoolean(jsonObject.get("petsAllowed").toString());
+
+        }
+
+        return hotels;
+    } 
     
 }
