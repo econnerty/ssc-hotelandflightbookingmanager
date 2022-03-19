@@ -56,6 +56,10 @@ public class UserManager {
 
         Users user = users.get(username);
 
+        if (user == null) {
+            return false;
+        }
+
         if (user.checkPassword(password)) {
             this.currentUser = user;
             return true;
