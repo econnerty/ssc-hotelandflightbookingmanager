@@ -2,11 +2,8 @@ package src;
 
 import java.util.Date;
 import java.util.UUID;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 import java.util.ArrayList;
 
-import org.javatuples.*;
 
 public class RegisteredUser extends Users {
 

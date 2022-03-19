@@ -19,6 +19,11 @@ public abstract class Users {
         this.creationDate = creationDate;
     }
 
+
+    public boolean checkPassword(String password) {
+        return (password.equals(this.password)) ? true : false;
+    }
+
     public String toString() {
         return this.name + " " + this.password + " " + this.creationDate.toString();
     }

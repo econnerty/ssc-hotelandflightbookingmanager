@@ -6,7 +6,6 @@ import java.io.*;
 
 import java.text.SimpleDateFormat;
 
-import org.javatuples.Pair;
 import org.json.simple.*;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;

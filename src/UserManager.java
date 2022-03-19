@@ -28,12 +28,40 @@ public class UserManager {
         
     }
 
+    /**
+     * Returns the current user
+     * @return The user
+     */
+    public Users getCurrentUser(){
+
+        if (this.currentUser == null) {
+            System.out.println("You need to login first.");
+            return null;
+        }
+
+        return this.currentUser;
+    }
+
     public void saveUser(Users user) {
         //TODO
     }
 
-    public void login(String username, String password) {
-        //TODO
+    /**
+     * Logins and returns whether the login was successful
+     * @param username
+     * @param password
+     * @return
+     */
+    public boolean login(String username, String password) {
+
+        Users user = users.get(username);
+
+        if (user.checkPassword(password)) {
+            this.currentUser = user;
+            return true;
+        }
+        return false;
+
     }
 
     public void creatAccount() {

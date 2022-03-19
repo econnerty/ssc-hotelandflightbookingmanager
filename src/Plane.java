@@ -49,7 +49,7 @@ public class Plane {
         availableSeats--;
     }
 
-    public void clearSeats() {
+    private void clearSeats() {
         for (boolean[] seat : seats) 
             Arrays.fill(seat, false);
 
@@ -72,11 +72,11 @@ public class Plane {
         this.arrivalCity = city;
     }
     
-    public void departureDate(Date date) {
+    public void setDepartureDate(Date date) {
         this.departureDate = date;
     }
 
-    public void arrivalDate(Date date) {
+    public void setArrivalDate(Date date) {
         this.arrivalDate = date;
     }
 
