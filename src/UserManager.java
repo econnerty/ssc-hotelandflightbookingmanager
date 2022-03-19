@@ -72,15 +72,12 @@ public class UserManager {
         //TODO
     }
 
-    public void initialize() {
-        //TODO
-    }
-
     public void logout() {
         //TODO
+        this.currentUser = null;
     }
 
-    public void changePassword() {
+    public void changePassword(String password) {
         //TODO
     }
     
