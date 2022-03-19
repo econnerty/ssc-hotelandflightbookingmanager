@@ -30,7 +30,7 @@ public class UserManager {
 
     /**
      * Returns the current user
-     * @return The user
+     * @return The
      */
     public Users getCurrentUser(){
 
