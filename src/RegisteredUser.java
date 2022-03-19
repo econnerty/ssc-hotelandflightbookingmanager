@@ -11,8 +11,8 @@ public class RegisteredUser extends Users {
     private ArrayList<HotelBooking> hotelBookings; //Bookings can just be a tuple array in users. The string will be the uuid to the plane or hotel. The int array will hold the coordinates to the room or the plane's seat
     private String[] preferences;
 
-    public RegisteredUser(String name, String password, Date creationDate, ArrayList<FlightBooking> flightBookings, ArrayList<HotelBooking> hotelBookings, String[] preferences) {
-        super(name, password, creationDate);
+    public RegisteredUser(String name, String password, Date dob, Date creationDate, ArrayList<FlightBooking> flightBookings, ArrayList<HotelBooking> hotelBookings, String[] preferences) {
+        super(name, password, dob, creationDate);
         this.flightBookings = flightBookings;
         this.hotelBookings = hotelBookings;
         this.preferences = preferences;

@@ -17,9 +17,11 @@ public class Utilities {
     private static final String USER_JSON_PATH = "data/users.json";
     private static final String PLANE_JSON_PATH = "data/planes.json";
     private static final String HOTEL_JSON_PATH = "data/hotels.json";
+    private static final String DOB_FORMAT = "MM/dd/yyyy";
     private static final String DATE_FORMAT = "MM/dd/yyyy' 'HH:mm:ss'Z'";
 
-    private static SimpleDateFormat format = new SimpleDateFormat(DATE_FORMAT);
+    private static SimpleDateFormat dobFormat = new SimpleDateFormat(DOB_FORMAT);
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
 
     private static MessageDigest md;
     private static JSONParser JSONParser;
@@ -54,7 +56,8 @@ public class Utilities {
 
             String name = jsonObject.get("username").toString();
             String password = jsonObject.get("password").toString();
-            Date creationDate = format.parse(jsonObject.get("creationDate").toString());
+            Date dob = dobFormat.parse(jsonObject.get("dob").toString());
+            Date creationDate = dateFormat.parse(jsonObject.get("creationDate").toString());
             String type = jsonObject.get("type").toString();          
 
 
@@ -78,7 +81,7 @@ public class Utilities {
                     hotelBookings.add(new HotelBooking(UUID.fromString(jsonHotelBookings.get(i).toString()), index));
                 }
 
-                users.put(name, new RegisteredUser(name, password, creationDate, flightBookings, hotelBookings, preferences));
+                users.put(name, new RegisteredUser(name, password, dob, creationDate, flightBookings, hotelBookings, preferences));
 
 
             }
@@ -97,7 +100,7 @@ public class Utilities {
                     hotels[i] = Hotels.valueOf(jsonHotels.get(i).toString());
                 }
 
-                users.put(name, new BusinessUser(name, password, creationDate, airlines, hotels));
+                users.put(name, new BusinessUser(name, password, dob,creationDate, airlines, hotels));
             }
 
             
