@@ -38,7 +38,7 @@ public class Driver {
         while(run());
         long end = System.nanoTime();
 
-        System.out.println("Execution took " + (end-start)/1000000);
+        System.out.println("Execution took " + (end-start)/1000000 + " ms");
 
         
             

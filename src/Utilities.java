@@ -258,7 +258,7 @@ public class Utilities {
                 jsonObject.put("password", user.getPassword());
                 
                 String dob = dobFormat.format(user.getDob());
-                System.out.println(dob);
+                //System.out.println(dob);
                 jsonObject.put("dob", dob);
 
                 JSONArray jsonFlight = new JSONArray();
@@ -302,7 +302,7 @@ public class Utilities {
                 for (Hotels hotel : busUser.getHotels()) {
                     jsonHotels.add(hotel.toString());
                 }
-                System.out.println(jsonAirlines.toJSONString());
+                //System.out.println(jsonAirlines.toJSONString());
 
                 jsonObject.put("airlines", jsonAirlines);
                 jsonObject.put("hotels", jsonHotels);
