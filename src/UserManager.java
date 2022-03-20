@@ -34,12 +34,12 @@ public class UserManager {
      */
     public Users getCurrentUser(){
 
-        if (this.currentUser == null) {
+        if (UserManager.currentUser == null) {
             System.out.println("You need to login first.");
             return null;
         }
 
-        return this.currentUser;
+        return UserManager.currentUser;
     }
 
     public void saveUser(Users user) {
@@ -61,7 +61,7 @@ public class UserManager {
         }
 
         if (user.checkPassword(password)) {
-            this.currentUser = user;
+            UserManager.currentUser = user;
             return true;
         }
         return false;
