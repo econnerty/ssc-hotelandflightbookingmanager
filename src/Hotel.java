@@ -87,6 +87,10 @@ public class Hotel {
         this.petsAllowed=petsAllowed;
     }
 
+    public static int[] getSize() {
+        return new int[]{Hotel.FLOORS, Hotel.LENGTH, Hotel.WIDTH};
+    }
+
     //TODO Print out all the available rooms, whether they are booked or not, and the index that they are located at
     public String toString() {
         return "";

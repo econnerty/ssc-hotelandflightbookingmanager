@@ -156,11 +156,13 @@ public class Utilities {
             UUID uuid=UUID.fromString(jsonObject.get("uuid").toString());
             Hotels hotel=Hotels.valueOf(jsonObject.get("hotel").toString());
             int availableRooms=Integer.parseInt(jsonObject.get("availableRooms").toString());
-            boolean[][][] rooms;
+            boolean[][][] rooms=new boolean[Hotel.getSize()[0]][Hotel.getSize()[1]][Hotel.getSize()[2]];
             String city = jsonObject.get("city").toString();
             double price=Double.parseDouble(jsonObject.get("price").toString());
             boolean smoking=Boolean.parseBoolean(jsonObject.get("smoking").toString());
             boolean petsAllowed=Boolean.parseBoolean(jsonObject.get("petsAllowed").toString());
+
+            hotels.put(uuid, new Hotel(uuid, hotel, availableRooms, rooms, city, price, smoking, petsAllowed, rooms));
 
         }
 
