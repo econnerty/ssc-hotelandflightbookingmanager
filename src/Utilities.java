@@ -463,7 +463,9 @@ public class Utilities {
 
         }
 
-        new FileWriter("data/test.json").write(jsonFlights.toJSONString().replace("},{", "},\n{"));
+        FileWriter f = new FileWriter("data/test.json");
+        f.write(jsonFlights.toJSONString().replace("},{", "},\n{"));
+        f.flush();
     }
     
 }
