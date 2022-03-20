@@ -27,7 +27,7 @@ public class Driver {
         long start = System.nanoTime();
         appManager = ApplicationManager.getInstance();
 
-        //Utilities.generateFlights();
+        Utilities.generateFlights();
 
         HashMap<String, Users> user = new HashMap();
 

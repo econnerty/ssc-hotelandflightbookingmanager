@@ -295,8 +295,9 @@ public class Utilities {
                 JSONArray jsonAirlines = new JSONArray();
                 JSONArray jsonHotels = new JSONArray();
 
-                for (Airlines airline : busUser.getAirlines())
+                for (Airlines airline : busUser.getAirlines()) {
                     jsonAirlines.add(airline.toString());
+                }
 
                 
                 for (Hotels hotel : busUser.getHotels()) {
@@ -339,10 +340,10 @@ public class Utilities {
 
             Date arrivalDate = calendar.getTime();
 
-            boolean seats[][] = new boolean[Plane.getSize()[0]][Plane.getSize()[1]];
+            int seats[][] = new int[Plane.getSize()[0]][Plane.getSize()[1]];
 
-            for (boolean[] seat : seats) 
-                Arrays.fill(seat, false);
+            for (int[] seat : seats) 
+                Arrays.fill(seat, 0);
 
 
             jsonObject.put("uuid", UUID.randomUUID().toString());
@@ -375,10 +376,10 @@ public class Utilities {
 
             Date arrivalDate = calendar.getTime();
 
-            boolean seats[][] = new boolean[Plane.getSize()[0]][Plane.getSize()[1]];
+            int seats[][] = new int[Plane.getSize()[0]][Plane.getSize()[1]];
 
-            for (boolean[] seat : seats) 
-                Arrays.fill(seat, false);
+            for (int[] seat : seats) 
+                Arrays.fill(seat, 0);
 
 
             jsonObject.put("uuid", UUID.randomUUID().toString());
@@ -410,10 +411,10 @@ public class Utilities {
 
             Date arrivalDate = calendar.getTime();
 
-            boolean seats[][] = new boolean[Plane.getSize()[0]][Plane.getSize()[1]];
+            int seats[][] = new int[Plane.getSize()[0]][Plane.getSize()[1]];
 
-            for (boolean[] seat : seats) 
-                Arrays.fill(seat, false);
+            for (int[] seat : seats) 
+                Arrays.fill(seat, 0);
 
 
             jsonObject.put("uuid", UUID.randomUUID().toString());
@@ -444,10 +445,10 @@ public class Utilities {
 
             Double price = Double.parseDouble(new DecimalFormat("#.##").format(ThreadLocalRandom.current().nextDouble(800.00,1650.00)));
 
-            boolean seats[][] = new boolean[Plane.getSize()[0]][Plane.getSize()[1]];
+            int seats[][] = new int[Plane.getSize()[0]][Plane.getSize()[1]];
 
-            for (boolean[] seat : seats) 
-                Arrays.fill(seat, false);
+            for (int[] seat : seats) 
+                Arrays.fill(seat, 0);
 
 
             jsonObject.put("uuid", UUID.randomUUID().toString());
@@ -479,10 +480,10 @@ public class Utilities {
 
             Double price = Double.parseDouble(new DecimalFormat("#.##").format(ThreadLocalRandom.current().nextDouble(800.00,1650.00)));
 
-            boolean seats[][] = new boolean[Plane.getSize()[0]][Plane.getSize()[1]];
+            int seats[][] = new int[Plane.getSize()[0]][Plane.getSize()[1]];
 
-            for (boolean[] seat : seats) 
-                Arrays.fill(seat, false);
+            for (int[] seat : seats) 
+                Arrays.fill(seat, 0);
 
 
             jsonObject.put("uuid", UUID.randomUUID().toString());
@@ -513,10 +514,10 @@ public class Utilities {
 
             Double price = Double.parseDouble(new DecimalFormat("#.##").format(ThreadLocalRandom.current().nextDouble(800.00,1650.00)));
 
-            boolean seats[][] = new boolean[Plane.getSize()[0]][Plane.getSize()[1]];
+            int seats[][] = new int[Plane.getSize()[0]][Plane.getSize()[1]];
 
-            for (boolean[] seat : seats) 
-                Arrays.fill(seat, false);
+            for (int[] seat : seats) 
+                Arrays.fill(seat, 0);
 
 
             jsonObject.put("uuid", UUID.randomUUID().toString());
@@ -549,10 +550,10 @@ public class Utilities {
 
             Double price = Double.parseDouble(new DecimalFormat("#.##").format(ThreadLocalRandom.current().nextDouble(800.00,1650.00)));
 
-            boolean seats[][] = new boolean[Plane.getSize()[0]][Plane.getSize()[1]];
+            int seats[][] = new int[Plane.getSize()[0]][Plane.getSize()[1]];
 
-            for (boolean[] seat : seats) 
-                Arrays.fill(seat, false);
+            for (int[] seat : seats) 
+                Arrays.fill(seat, 0);
 
 
             jsonObject.put("uuid", UUID.randomUUID().toString());
