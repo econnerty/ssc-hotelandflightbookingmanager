@@ -273,7 +273,7 @@ public class Utilities {
                     jsonFlight.add(String.valueOf(booking.getIndex()[1]));
                     jsonFlight.add(String.valueOf(booking.getIndex()[2]));
                 }
-                jsonObject.put("flightBookings", jsonFlight.toString());
+                jsonObject.put("hotelBookings", jsonHotel.toString());
                 
                
             }
