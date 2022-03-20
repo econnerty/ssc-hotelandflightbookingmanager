@@ -280,8 +280,8 @@ public class Utilities {
             jsonObject.put("departureDate", departureDate.toString());
             jsonObject.put("arrivalDate", arrivalDate.toString());
             jsonObject.put("price", price);
-            jsonObject.put("smoking", (r.nextInt(1) < 10 ? true : false));
-            jsonObject.put("petsAllowed", (r.nextInt(1) < 5 ? true : false));
+            jsonObject.put("smoking", (r.nextInt(10) < 1) ? true : false);
+            jsonObject.put("petsAllowed", (r.nextInt(5) < 1) ? true : false);
             jsonObject.put("seats", Arrays.deepToString(seats));
 
             jsonFlights.add(jsonObject);
@@ -316,8 +316,8 @@ public class Utilities {
             jsonObject.put("departureDate", departureDate.toString());
             jsonObject.put("arrivalDate", arrivalDate.toString());
             jsonObject.put("price", price);
-            jsonObject.put("smoking", (r.nextInt(1) < 10 ? true : false));
-            jsonObject.put("petsAllowed", (r.nextInt(1) < 5 ? true : false));
+            jsonObject.put("smoking", (r.nextInt(10) < 1) ? true : false);
+            jsonObject.put("petsAllowed", (r.nextInt(5) < 1) ? true : false);
             jsonObject.put("seats", Arrays.deepToString(seats));
 
             jsonFlights.add(jsonObject);
@@ -351,8 +351,8 @@ public class Utilities {
             jsonObject.put("departureDate", departureDate.toString());
             jsonObject.put("arrivalDate", arrivalDate.toString());
             jsonObject.put("price", price);
-            jsonObject.put("smoking", (r.nextInt(1) < 10 ? true : false));
-            jsonObject.put("petsAllowed", (r.nextInt(1) < 5 ? true : false));
+            jsonObject.put("smoking", (r.nextInt(10) < 1) ? true : false);
+            jsonObject.put("petsAllowed", (r.nextInt(5) < 1) ? true : false);
             jsonObject.put("seats", Arrays.deepToString(seats));
 
             jsonFlights.add(jsonObject);
@@ -385,8 +385,8 @@ public class Utilities {
             jsonObject.put("departureDate", departureDate.toString());
             jsonObject.put("arrivalDate", arrivalDate.toString());
             jsonObject.put("price", price);
-            jsonObject.put("smoking", (r.nextInt(1) < 10 ? true : false));
-            jsonObject.put("petsAllowed", (r.nextInt(1) < 5 ? true : false));
+            jsonObject.put("smoking", (r.nextInt(10) < 1) ? true : false);
+            jsonObject.put("petsAllowed", (r.nextInt(5) < 1) ? true : false);
             jsonObject.put("seats", Arrays.deepToString(seats));
 
             jsonFlights.add(jsonObject);
@@ -420,8 +420,8 @@ public class Utilities {
             jsonObject.put("departureDate", departureDate.toString());
             jsonObject.put("arrivalDate", arrivalDate.toString());
             jsonObject.put("price", price);
-            jsonObject.put("smoking", (r.nextInt(1) < 10 ? true : false));
-            jsonObject.put("petsAllowed", (r.nextInt(1) < 5 ? true : false));
+            jsonObject.put("smoking", (r.nextInt(10) < 1) ? true : false);
+            jsonObject.put("petsAllowed", (r.nextInt(5) < 1) ? true : false);
             jsonObject.put("seats", Arrays.deepToString(seats));
 
             jsonFlights.add(jsonObject);
@@ -454,8 +454,8 @@ public class Utilities {
             jsonObject.put("departureDate", departureDate.toString());
             jsonObject.put("arrivalDate", arrivalDate.toString());
             jsonObject.put("price", price);
-            jsonObject.put("smoking", (r.nextInt(1) < 10 ? true : false));
-            jsonObject.put("petsAllowed", (r.nextInt(1) < 5 ? true : false));
+            jsonObject.put("smoking", (r.nextInt(10) < 1) ? true : false);
+            jsonObject.put("petsAllowed", (r.nextInt(5) < 1) ? true : false);
             jsonObject.put("seats", Arrays.deepToString(seats));
 
             jsonFlights.add(jsonObject);
@@ -490,8 +490,8 @@ public class Utilities {
             jsonObject.put("departureDate", departureDate.toString());
             jsonObject.put("arrivalDate", arrivalDate.toString());
             jsonObject.put("price", price);
-            jsonObject.put("smoking", (r.nextInt(1) < 10 ? true : false));
-            jsonObject.put("petsAllowed", (r.nextInt(1) < 5 ? true : false));
+            jsonObject.put("smoking", (r.nextInt(10) < 1) ? true : false);
+            jsonObject.put("petsAllowed", (r.nextInt(5) < 1) ? true : false);
             jsonObject.put("seats", Arrays.deepToString(seats));
 
             jsonFlights.add(jsonObject);
