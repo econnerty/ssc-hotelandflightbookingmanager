@@ -188,7 +188,6 @@ public class Utilities {
             JSONObject jsonObject = (JSONObject) object;
 
             UUID uuid = UUID.fromString(jsonObject.get("uuid").toString());
-            System.out.println(uuid.toString());
             Airlines airline = Airlines.valueOf(jsonObject.get("airline").toString());
             int availableSeats=Integer.parseInt(jsonObject.get("availableSeats").toString());
             boolean[][] seats = new boolean[Plane.getSize()[0]][Plane.getSize()[1]];
@@ -203,7 +202,7 @@ public class Utilities {
             boolean petsAllowed = Boolean.parseBoolean(jsonObject.get("petsAllowed").toString());
 
             planes.put(uuid, new Plane(uuid, airline, availableSeats, price, departureDate, arrivalDate, departureCity, destinationCity, smoking, petsAllowed, seats));
-            System.out.println(planes.get(uuid).toString());
+            //System.out.println(planes.get(uuid).toString());
 
         }
         

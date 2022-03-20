@@ -21,11 +21,16 @@ public class Driver {
     
     public static void main(String args[]) throws FileNotFoundException, IOException, ParseException, java.text.ParseException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 
+        long start = System.nanoTime();
         appManager = ApplicationManager.getInstance();
 
-        Utilities.generateFlights();
+        //Utilities.generateFlights();
+
 
         while(run());
+        long end = System.nanoTime();
+
+        System.out.println("Execution took " + (end-start)/1000000);
 
         
             
