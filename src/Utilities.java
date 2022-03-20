@@ -24,7 +24,8 @@ public class Utilities {
     private static final String HOTEL_JSON_PATH = "data/hotels.json";
 
     private static final String DOB_FORMAT = "MM/dd/yyyy";
-    private static final String DATE_FORMAT = "MM/dd/yyyy' 'HH:mm:ss'Z'";
+    //private static final String DATE_FORMAT = "MM/dd/yyyy' 'HH:mm:ss'Z'";
+    private static final String DATE_FORMAT = "EEE MMM dd HH:mm:ss zzz yyyy";
 
     private static SimpleDateFormat dobFormat = new SimpleDateFormat(DOB_FORMAT);
     private static SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
@@ -88,6 +89,18 @@ public class Utilities {
     }
 
     public static HashMap<String, Users> loadUsers() throws FileNotFoundException, IOException, ParseException, java.text.ParseException{
+
+        File file = new File(USER_JSON_PATH);
+
+        if (!file.exists()) {
+            file.createNewFile();
+            FileWriter f = new FileWriter(USER_JSON_PATH);
+            f.write("[]");
+            f.flush();
+            f.close();
+            
+        }
+
 
         JSONArray jsonArray = (JSONArray) JSONParser.parse(new FileReader(USER_JSON_PATH));
         HashMap<String, Users> users = new HashMap<>();
@@ -154,6 +167,19 @@ public class Utilities {
 
     public static HashMap<UUID, Plane> loadPlanes() throws FileNotFoundException, IOException, ParseException, java.text.ParseException{
 
+
+        File file = new File(PLANE_JSON_PATH);
+
+        if (!file.exists()) {
+            file.createNewFile();
+
+            FileWriter f = new FileWriter(PLANE_JSON_PATH);
+            f.write("[]");
+            f.flush();
+            f.close();
+            
+        }
+
         JSONArray jsonArray = (JSONArray) JSONParser.parse(new FileReader(PLANE_JSON_PATH));
         HashMap<UUID, Plane> planes = new HashMap<>();
 
@@ -177,7 +203,7 @@ public class Utilities {
             boolean petsAllowed = Boolean.parseBoolean(jsonObject.get("petsAllowed").toString());
 
             planes.put(uuid, new Plane(uuid, airline, availableSeats, price, departureDate, arrivalDate, departureCity, destinationCity, smoking, petsAllowed, seats));
-            System.out.println(planes.get(uuid).toString() + "\n\n\n");
+            System.out.println(planes.get(uuid).toString());
 
         }
         
@@ -186,6 +212,16 @@ public class Utilities {
     }
 
     public static HashMap<UUID, Hotel> loadHotels() throws FileNotFoundException, IOException, ParseException, java.text.ParseException{
+
+        File file = new File(HOTEL_JSON_PATH);
+
+        if (!file.exists()) {
+            file.createNewFile();
+            FileWriter f = new FileWriter(HOTEL_JSON_PATH);
+            f.write("[]");
+            f.flush();
+            f.close();
+        }
         
         JSONArray jsonArray = (JSONArray) JSONParser.parse(new FileReader(HOTEL_JSON_PATH));
         HashMap<UUID, Hotel> hotels = new HashMap<>();
@@ -204,7 +240,6 @@ public class Utilities {
             boolean petsAllowed = Boolean.parseBoolean(jsonObject.get("petsAllowed").toString());
 
             hotels.put(uuid, new Hotel(uuid, availableRooms, hotel, price, city, smoking, petsAllowed, rooms));
-            System.out.println(hotels.get(uuid).toString() + "\n\n\n");
 
         }
 
@@ -217,7 +252,7 @@ public class Utilities {
         Date between1 = new Date();
         Date between2 = dobFormat.parse("07/31/2022");
 
-        for (int i = 0; i < 50; i++) { //want to create 500 flight
+        for (int i = 0; i < 500; i++) { //want to create 500 flight
 
             Map jsonObject = new LinkedHashMap<>();
 
@@ -238,12 +273,12 @@ public class Utilities {
 
 
             jsonObject.put("uuid", UUID.randomUUID().toString());
-            jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)]);
+            jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)].toString());
             jsonObject.put("availableSeats", Plane.getSize()[0]*Plane.getSize()[1]);
             jsonObject.put("departureCity", Utilities.cities[r.nextInt(Utilities.cities.length)]);
             jsonObject.put("destinationCity",Utilities.cities[r.nextInt(Utilities.cities.length)]);
-            jsonObject.put("departureDate", departureDate);
-            jsonObject.put("arrivalDate", arrivalDate);
+            jsonObject.put("departureDate", departureDate.toString());
+            jsonObject.put("arrivalDate", arrivalDate.toString());
             jsonObject.put("price", price);
             jsonObject.put("smoking", (r.nextInt(1) < 10 ? true : false));
             jsonObject.put("petsAllowed", (r.nextInt(1) < 5 ? true : false));
@@ -253,7 +288,7 @@ public class Utilities {
 
         }
 
-        for (int i = 0; i < 10; i++) { //want to create 500 flight
+        for (int i = 0; i < 100; i++) { //want to create 500 flight
 
             Map jsonObject = new LinkedHashMap<>();
 
@@ -274,12 +309,12 @@ public class Utilities {
 
 
             jsonObject.put("uuid", UUID.randomUUID().toString());
-            jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)]);
+            jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)].toString());
             jsonObject.put("availableSeats", Plane.getSize()[0]*Plane.getSize()[1]);
             jsonObject.put("departureCity", "New York City");
             jsonObject.put("destinationCity",Utilities.international[r.nextInt(Utilities.international.length)]);
-            jsonObject.put("departureDate", departureDate);
-            jsonObject.put("arrivalDate", arrivalDate);
+            jsonObject.put("departureDate", departureDate.toString());
+            jsonObject.put("arrivalDate", arrivalDate.toString());
             jsonObject.put("price", price);
             jsonObject.put("smoking", (r.nextInt(1) < 10 ? true : false));
             jsonObject.put("petsAllowed", (r.nextInt(1) < 5 ? true : false));
@@ -289,7 +324,7 @@ public class Utilities {
 
         }
 
-        for (int i = 0; i < 10; i++) { //want to create 500 flight
+        for (int i = 0; i < 100; i++) { //want to create 500 flight
 
             Map jsonObject = new LinkedHashMap<>();
 
@@ -309,12 +344,12 @@ public class Utilities {
 
 
             jsonObject.put("uuid", UUID.randomUUID().toString());
-            jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)]);
+            jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)].toString());
             jsonObject.put("availableSeats", Plane.getSize()[0]*Plane.getSize()[1]);
             jsonObject.put("departureCity", "Los Angeles");
             jsonObject.put("destinationCity",Utilities.international[r.nextInt(Utilities.international.length)]);
-            jsonObject.put("departureDate", departureDate);
-            jsonObject.put("arrivalDate", arrivalDate);
+            jsonObject.put("departureDate", departureDate.toString());
+            jsonObject.put("arrivalDate", arrivalDate.toString());
             jsonObject.put("price", price);
             jsonObject.put("smoking", (r.nextInt(1) < 10 ? true : false));
             jsonObject.put("petsAllowed", (r.nextInt(1) < 5 ? true : false));
@@ -323,7 +358,7 @@ public class Utilities {
             jsonFlights.add(jsonObject);
 
         }
-        for (int i = 0; i < 10; i++) { //want to create 500 flight
+        for (int i = 0; i < 100; i++) { //want to create 500 flight
 
             Map jsonObject = new LinkedHashMap<>();
 
@@ -343,12 +378,12 @@ public class Utilities {
 
 
             jsonObject.put("uuid", UUID.randomUUID().toString());
-            jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)]);
+            jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)].toString());
             jsonObject.put("availableSeats", Plane.getSize()[0]*Plane.getSize()[1]);
             jsonObject.put("departureCity", "Atlanta");
             jsonObject.put("destinationCity",Utilities.international[r.nextInt(Utilities.international.length)]);
-            jsonObject.put("departureDate", departureDate);
-            jsonObject.put("arrivalDate", arrivalDate);
+            jsonObject.put("departureDate", departureDate.toString());
+            jsonObject.put("arrivalDate", arrivalDate.toString());
             jsonObject.put("price", price);
             jsonObject.put("smoking", (r.nextInt(1) < 10 ? true : false));
             jsonObject.put("petsAllowed", (r.nextInt(1) < 5 ? true : false));
@@ -358,7 +393,7 @@ public class Utilities {
 
         }
 
-        for (int i = 0; i < 10; i++) { //want to create 500 flight
+        for (int i = 0; i < 100; i++) { //want to create 500 flight
 
             Map jsonObject = new LinkedHashMap<>();
 
@@ -378,12 +413,12 @@ public class Utilities {
 
 
             jsonObject.put("uuid", UUID.randomUUID().toString());
-            jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)]);
+            jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)].toString());
             jsonObject.put("availableSeats", Plane.getSize()[0]*Plane.getSize()[1]);
             jsonObject.put("departureCity", "Detroit");
             jsonObject.put("destinationCity",Utilities.international[r.nextInt(Utilities.international.length)]);
-            jsonObject.put("departureDate", departureDate);
-            jsonObject.put("arrivalDate", arrivalDate);
+            jsonObject.put("departureDate", departureDate.toString());
+            jsonObject.put("arrivalDate", arrivalDate.toString());
             jsonObject.put("price", price);
             jsonObject.put("smoking", (r.nextInt(1) < 10 ? true : false));
             jsonObject.put("petsAllowed", (r.nextInt(1) < 5 ? true : false));
@@ -392,7 +427,7 @@ public class Utilities {
             jsonFlights.add(jsonObject);
 
         }
-        for (int i = 0; i < 10; i++) { //want to create 500 flight
+        for (int i = 0; i < 100; i++) { //want to create 500 flight
 
             Map jsonObject = new LinkedHashMap<>();
 
@@ -412,12 +447,12 @@ public class Utilities {
 
 
             jsonObject.put("uuid", UUID.randomUUID().toString());
-            jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)]);
+            jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)].toString());
             jsonObject.put("availableSeats", Plane.getSize()[0]*Plane.getSize()[1]);
             jsonObject.put("departureCity", "Chicago");
             jsonObject.put("destinationCity",Utilities.international[r.nextInt(Utilities.international.length)]);
-            jsonObject.put("departureDate", departureDate);
-            jsonObject.put("arrivalDate", arrivalDate);
+            jsonObject.put("departureDate", departureDate.toString());
+            jsonObject.put("arrivalDate", arrivalDate.toString());
             jsonObject.put("price", price);
             jsonObject.put("smoking", (r.nextInt(1) < 10 ? true : false));
             jsonObject.put("petsAllowed", (r.nextInt(1) < 5 ? true : false));
@@ -427,7 +462,7 @@ public class Utilities {
 
         }
 
-        for (int i = 0; i < 10; i++) { //want to create 500 flight
+        for (int i = 0; i < 100; i++) { //want to create 500 flight
 
             Map jsonObject = new LinkedHashMap<>();
 
@@ -448,12 +483,12 @@ public class Utilities {
 
 
             jsonObject.put("uuid", UUID.randomUUID().toString());
-            jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)]);
+            jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)].toString());
             jsonObject.put("availableSeats", Plane.getSize()[0]*Plane.getSize()[1]);
             jsonObject.put("departureCity", Utilities.international[r.nextInt(Utilities.international.length)]);
             jsonObject.put("destinationCity",Utilities.international[r.nextInt(Utilities.international.length)]);
-            jsonObject.put("departureDate", departureDate);
-            jsonObject.put("arrivalDate", arrivalDate);
+            jsonObject.put("departureDate", departureDate.toString());
+            jsonObject.put("arrivalDate", arrivalDate.toString());
             jsonObject.put("price", price);
             jsonObject.put("smoking", (r.nextInt(1) < 10 ? true : false));
             jsonObject.put("petsAllowed", (r.nextInt(1) < 5 ? true : false));
@@ -463,7 +498,7 @@ public class Utilities {
 
         }
 
-        FileWriter f = new FileWriter("data/test.json");
+        FileWriter f = new FileWriter(PLANE_JSON_PATH);
         f.write(jsonFlights.toJSONString().replace("},{", "},\n{"));
         f.flush();
     }

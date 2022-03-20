@@ -23,7 +23,7 @@ public class Driver {
 
         appManager = ApplicationManager.getInstance();
 
-        Utilities.generateFlights();
+        //Utilities.generateFlights();
 
         while(run());
 
