@@ -32,9 +32,9 @@ public class Driver {
         HashMap<String, Users> user = new HashMap();
 
         user.put("tomjon", new RegisteredUser("tomjon", "jj", new Date(), new Date(), new ArrayList<FlightBooking>(), new ArrayList<HotelBooking>(), new String[]{}));
-        user.put("tomjon2", new BusinessUser("tomjon2", "jj", new Date(), new Date(), new Airlines[]{}, new Hotels[]{}));
+        user.put("tomjon2", new BusinessUser("tomjon2", "jj", new Date(), new Date(), new Airlines[]{Airlines.DELTA}, new Hotels[]{Hotels.AVARI}));
 
-        Utilities.saveUsers(user);
+        //Utilities.saveUsers(user);
         while(run());
         long end = System.nanoTime();
 

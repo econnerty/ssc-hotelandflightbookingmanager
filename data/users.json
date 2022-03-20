@@ -1,2 +1,2 @@
-[{"type":"business","username":"tomjon2","creationDate":"Sun Mar 20 02:57:33 EDT 2022","password":"tomjon2","dob":"03\/20\/2022","airlines":"[Lsrc.Airlines;@7921b0a2","hotels":"[Lsrc.Hotels;@174d20a"},
-{"type":"registered","username":"tomjon","creationDate":"Sun Mar 20 02:57:33 EDT 2022","password":"tomjon","dob":"03\/20\/2022","flightBookings":"[]"}]
+[{"type":"business","username":"tomjon2","creationDate":"Sun Mar 20 03:28:30 EDT 2022","password":"tomjon2","dob":"03\/20\/2022","airlines":["DELTA"],"hotels":["AVARI"]},
+{"type":"registered","username":"tomjon","creationDate":"Sun Mar 20 03:28:30 EDT 2022","password":"tomjon","dob":"03\/20\/2022","flightBookings":[],"hotelBookings":[]}]
