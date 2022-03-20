@@ -1,6 +1,9 @@
 package src;
 
 import java.util.*;
+
+import javax.swing.RowFilter.ComparisonType;
+
 import java.security.*;
 import java.io.*;
 
@@ -28,7 +31,41 @@ public class Utilities {
     private static JSONParser JSONParser;
 
     private static Utilities utilities;
-
+    private String[] cities = new String[]{"San Francisco", "New York City", "Los Angeles", "Austin", 
+    "Chicago", "Denver", "Portland", "Seattle", "Washington D.C.", "Atlanta", "Raleigh", "New Orleans",
+    "San Diego", "Jacksonville", "Tallahasee", "Charlotte", "Columbia", "San Antonio", "Baltimore", "Kansas City",
+    "Philadelphia", "Detroit", "Indianapolis", "San Jose", "Milwaukee", "Louisville", "Sacramento",
+    "Memphis", "Oklahoma City", "Tucson", "El Paso", "Tulsa", "Fort Worth", "Mesa", "Arlington", "Bakersfield",
+    "Houston", "Phoenix", "Dallas", "Columbus", "Nashville", "Fresno", "Omaha", "Long Beach", "Virginia Beach",
+    "Miami", "Oakland", "Minneapolis", "Wichita", "Tampa", "Aurora", "Honolulu", "Anaheim", "Lexington",
+    "Stockton", "Corpus Christi", "Henderson", "Riverside", "Newark", "Saint Paul", "Santa Ana", "Cincinnati",
+    "Irvine", "Boston", "Pittsburgh", "Orlando", "Greensboro", "Jersey City", "Anchorage", "Lincoln", "Plano", "Durham",
+    "Buffalo", "Chandler", "Chula Vista", "Toledo"};
+    
+    private String[] international = new String[]{"Madis","Tokyo", "Paris", "London", "Bangkok", "Sydney", "Amsterdam",
+    "Dubai", "Auckland", "Frankfurt", "Hong Kong", "Lahore", "Singapore", "Kuala Lumpur", "Delhi", "Antalya",
+    "Istanbul", "Shenzhen", "Mumbai", "Rome", "Phuket", "Pattaya", "Taipei", "Mecca", "Guangzhou", "Prague", "Medina",
+    "Seoul", "Amsterdam", "Agra", "Osaka", "Shanghai", "Ho Chi Minh City", "Denpasar", "Barcelona", "Milan", "Chenai",
+    "Vienna", "Johor Bahru", "Jaipur", "Cancun", "Berlin", "Cairo", "Moscow", "Venice", "Madrid", "Ha Long", "Riyadh",
+    "Dublin", "Florence", "Jerusalem", "Hanoi", "Toronto", "Johannesburg", "Sydney", "Munich", "Jakarta", "Beijing",
+    "Saint Petersburgh", "Brussels", "Mugla", "Buenos Aires", "Chiba", "Frankfurt am Main", "Stockholm", "Lima", "Da Nang",
+    "Batam", "Nice", "Fukuoka", "Abu Dhabi", "Jeju", "Porto", "Rhodes", "Rio de Janeiro", /*what this*/"Krabi"/*the fuck is this*//*um hello*//*bitch*/, "Bangalore", "Mexico City",
+    "Punta Cana", "Sao Paulo", "Zurich", "Montreal", "Dusseldorf", "Chengdu", "Edinburgh", "Tehran", "Hamburg", "Cape Town",
+    "Manila", "Bogota", "Xi'an", "Beirut", "Geneva", "Colombo", "Xiamen", "Bucharest", "Casablanca", "Sofia", "Dalian",
+    "Montevideo", "","Budapest", "Lisbon", "Dammam", "Penang Island", "Heraklion", "Kyoto", "Zhuhai",
+    "Vancouver", "Chiang Mai", "Copenhagen", "Melbourne", "Warsaw", "Marrakesh", "Kolkata", "Cebu City", "Lagos", "Liverpool", "Sheffield", "Manchester",
+    "Leeds", "Leicester", "Bradford", "Coventry", "York" ,"Nottingham", "Oxford", "Southhampton", "Winchester", "Bath", "Norwich",
+    "Portsmouth", "Preston", "Ely", "Gloucester", "Hereford", "Durham", "Truro", "Salford", "Lancaster", "Naples", "Bologna", "Verona",
+    "Turin", "Palermo", "Pisa" ,"Ravenna", "Trieste", "Parma", "Rimini", "Padua", "Cagliri", "Pompeii", "Brescia", "Bergamo", "Modena",
+    "Hat Yai", "Nonthaburi", "Thani", "Pak Kret", "Hua Hin", "Song", "Pai", "Pattan", "Nan", "Phrae", "Nong Khai", "Phayao"};
+    //bish u can stop now/ /bish//uwu
+    //bish we need to just write the code for the random stufff, also we need to randomize the airlines and hotel which we only have 2  of those rn
+    //hmmm can u separate the internationalones uwu .....//girl pls//girllistenn t
+    //
+//boston//chorleston//atlanta//london//bangkok bitch r we doing international//tokyo//paris//russia//beijing//bitch//shesaidtodointernational bitch fuck u said russia HAHAAH//nowcalculatethedistancetoeachcitysowecandoit
+    //hmmm can u separate the internationalones uwu .....//girl pls//girllistenn t
+    //
+//boston//chorleston//atlanta//london//bangkok bitch r we doing international//tokyo//paris//russia//beijing//bitch//shesaidtodointernational bitch fuck u said russia HAHAAH//nowcalculatethedistancetoeachcitysowecandoit
     private Utilities() {
 
         try {md = MessageDigest.getInstance("SHA-256");} 
@@ -153,16 +190,16 @@ public class Utilities {
 
             JSONObject jsonObject = (JSONObject) object;
 
-            UUID uuid=UUID.fromString(jsonObject.get("uuid").toString());
-            Hotels hotel=Hotels.valueOf(jsonObject.get("hotel").toString());
-            int availableRooms=Integer.parseInt(jsonObject.get("availableRooms").toString());
-            boolean[][][] rooms=new boolean[Hotel.getSize()[0]][Hotel.getSize()[1]][Hotel.getSize()[2]];
+            UUID uuid = UUID.fromString(jsonObject.get("uuid").toString());
+            Hotels hotel = Hotels.valueOf(jsonObject.get("hotel").toString());
+            int availableRooms = Integer.parseInt(jsonObject.get("availableRooms").toString());
+            boolean[][][] rooms = new boolean[Hotel.getSize()[0]][Hotel.getSize()[1]][Hotel.getSize()[2]];
             String city = jsonObject.get("city").toString();
-            double price=Double.parseDouble(jsonObject.get("price").toString());
-            boolean smoking=Boolean.parseBoolean(jsonObject.get("smoking").toString());
-            boolean petsAllowed=Boolean.parseBoolean(jsonObject.get("petsAllowed").toString());
+            double price = Double.parseDouble(jsonObject.get("price").toString());
+            boolean smoking = Boolean.parseBoolean(jsonObject.get("smoking").toString());
+            boolean petsAllowed = Boolean.parseBoolean(jsonObject.get("petsAllowed").toString());
 
-            hotels.put(uuid, new Hotel(uuid, hotel, availableRooms, rooms, city, price, smoking, petsAllowed, rooms));
+            hotels.put(uuid, new Hotel(uuid, availableRooms, hotel, price, city, smoking, petsAllowed, rooms));
 
         }
 
