@@ -8,6 +8,7 @@ import javax.swing.RowFilter.ComparisonType;
 import java.security.*;
 import java.io.*;
 import java.lang.reflect.Field;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 
 import org.json.simple.*;
@@ -218,12 +219,9 @@ public class Utilities {
 
         for (int i = 0; i < 50; i++) { //want to create 500 flight
 
-            JSONObject jsonObject = new JSONObject();
+            Map jsonObject = new LinkedHashMap<>();
 
-            Field changeMap = jsonObject.getClass().getDeclaredField("map");
-            changeMap.setAccessible(true);
-            changeMap.set(jsonObject, new LinkedHashMap<>());
-            changeMap.setAccessible(false);
+            Double price = Double.parseDouble(new DecimalFormat("#.##").format(ThreadLocalRandom.current().nextDouble(100.00,650.00)));
    
 
             Date departureDate = new Date(ThreadLocalRandom.current().nextLong(between1.getTime(), between2.getTime()));
@@ -246,7 +244,7 @@ public class Utilities {
             jsonObject.put("destinationCity",Utilities.cities[r.nextInt(Utilities.cities.length)]);
             jsonObject.put("departureDate", departureDate);
             jsonObject.put("arrivalDate", arrivalDate);
-            jsonObject.put("price", ThreadLocalRandom.current().nextDouble(100.00,650.00));
+            jsonObject.put("price", price);
             jsonObject.put("smoking", (r.nextInt(1) < 10 ? true : false));
             jsonObject.put("petsAllowed", (r.nextInt(1) < 5 ? true : false));
             jsonObject.put("seats", Arrays.deepToString(seats));
@@ -257,17 +255,15 @@ public class Utilities {
 
         for (int i = 0; i < 10; i++) { //want to create 500 flight
 
-            JSONObject jsonObject = new JSONObject();
+            Map jsonObject = new LinkedHashMap<>();
 
-            Field changeMap = jsonObject.getClass().getDeclaredField("map");
-            changeMap.setAccessible(true);
-            changeMap.set(jsonObject, new LinkedHashMap<>());
-            changeMap.setAccessible(false);
 
             Date departureDate = new Date(ThreadLocalRandom.current().nextLong(between1.getTime(), between2.getTime()));
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(departureDate);
             calendar.add(Calendar.HOUR_OF_DAY, r.nextInt(12)+12);
+
+            Double price = Double.parseDouble(new DecimalFormat("#.##").format(ThreadLocalRandom.current().nextDouble(800.00,1650.00)));
 
             Date arrivalDate = calendar.getTime();
 
@@ -284,7 +280,7 @@ public class Utilities {
             jsonObject.put("destinationCity",Utilities.international[r.nextInt(Utilities.international.length)]);
             jsonObject.put("departureDate", departureDate);
             jsonObject.put("arrivalDate", arrivalDate);
-            jsonObject.put("price", ThreadLocalRandom.current().nextDouble(100.00,650.00));
+            jsonObject.put("price", price);
             jsonObject.put("smoking", (r.nextInt(1) < 10 ? true : false));
             jsonObject.put("petsAllowed", (r.nextInt(1) < 5 ? true : false));
             jsonObject.put("seats", Arrays.deepToString(seats));
@@ -295,17 +291,14 @@ public class Utilities {
 
         for (int i = 0; i < 10; i++) { //want to create 500 flight
 
-            JSONObject jsonObject = new JSONObject();
-
-            Field changeMap = jsonObject.getClass().getDeclaredField("map");
-            changeMap.setAccessible(true);
-            changeMap.set(jsonObject, new LinkedHashMap<>());
-            changeMap.setAccessible(false);
+            Map jsonObject = new LinkedHashMap<>();
 
             Date departureDate = new Date(ThreadLocalRandom.current().nextLong(between1.getTime(), between2.getTime()));
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(departureDate);
             calendar.add(Calendar.HOUR_OF_DAY, r.nextInt(12)+12);
+
+            Double price = Double.parseDouble(new DecimalFormat("#.##").format(ThreadLocalRandom.current().nextDouble(800.00,1650.00)));
 
             Date arrivalDate = calendar.getTime();
 
@@ -322,7 +315,7 @@ public class Utilities {
             jsonObject.put("destinationCity",Utilities.international[r.nextInt(Utilities.international.length)]);
             jsonObject.put("departureDate", departureDate);
             jsonObject.put("arrivalDate", arrivalDate);
-            jsonObject.put("price", ThreadLocalRandom.current().nextDouble(100.00,650.00));
+            jsonObject.put("price", price);
             jsonObject.put("smoking", (r.nextInt(1) < 10 ? true : false));
             jsonObject.put("petsAllowed", (r.nextInt(1) < 5 ? true : false));
             jsonObject.put("seats", Arrays.deepToString(seats));
@@ -332,12 +325,7 @@ public class Utilities {
         }
         for (int i = 0; i < 10; i++) { //want to create 500 flight
 
-            JSONObject jsonObject = new JSONObject();
-
-            Field changeMap = jsonObject.getClass().getDeclaredField("map");
-            changeMap.setAccessible(true);
-            changeMap.set(jsonObject, new LinkedHashMap<>());
-            changeMap.setAccessible(false);
+            Map jsonObject = new LinkedHashMap<>();
 
             Date departureDate = new Date(ThreadLocalRandom.current().nextLong(between1.getTime(), between2.getTime()));
             Calendar calendar = Calendar.getInstance();
@@ -345,6 +333,8 @@ public class Utilities {
             calendar.add(Calendar.HOUR_OF_DAY, r.nextInt(12)+12);
 
             Date arrivalDate = calendar.getTime();
+
+            Double price = Double.parseDouble(new DecimalFormat("#.##").format(ThreadLocalRandom.current().nextDouble(800.00,1650.00)));
 
             boolean seats[][] = new boolean[Plane.getSize()[0]][Plane.getSize()[1]];
 
@@ -359,7 +349,7 @@ public class Utilities {
             jsonObject.put("destinationCity",Utilities.international[r.nextInt(Utilities.international.length)]);
             jsonObject.put("departureDate", departureDate);
             jsonObject.put("arrivalDate", arrivalDate);
-            jsonObject.put("price", ThreadLocalRandom.current().nextDouble(100.00,650.00));
+            jsonObject.put("price", price);
             jsonObject.put("smoking", (r.nextInt(1) < 10 ? true : false));
             jsonObject.put("petsAllowed", (r.nextInt(1) < 5 ? true : false));
             jsonObject.put("seats", Arrays.deepToString(seats));
@@ -370,12 +360,7 @@ public class Utilities {
 
         for (int i = 0; i < 10; i++) { //want to create 500 flight
 
-            JSONObject jsonObject = new JSONObject();
-
-            Field changeMap = jsonObject.getClass().getDeclaredField("map");
-            changeMap.setAccessible(true);
-            changeMap.set(jsonObject, new LinkedHashMap<>());
-            changeMap.setAccessible(false);
+            Map jsonObject = new LinkedHashMap<>();
 
             Date departureDate = new Date(ThreadLocalRandom.current().nextLong(between1.getTime(), between2.getTime()));
             Calendar calendar = Calendar.getInstance();
@@ -383,6 +368,8 @@ public class Utilities {
             calendar.add(Calendar.HOUR_OF_DAY, r.nextInt(12)+12);
 
             Date arrivalDate = calendar.getTime();
+
+            Double price = Double.parseDouble(new DecimalFormat("#.##").format(ThreadLocalRandom.current().nextDouble(800.00,1650.00)));
 
             boolean seats[][] = new boolean[Plane.getSize()[0]][Plane.getSize()[1]];
 
@@ -397,7 +384,7 @@ public class Utilities {
             jsonObject.put("destinationCity",Utilities.international[r.nextInt(Utilities.international.length)]);
             jsonObject.put("departureDate", departureDate);
             jsonObject.put("arrivalDate", arrivalDate);
-            jsonObject.put("price", ThreadLocalRandom.current().nextDouble(100.00,650.00));
+            jsonObject.put("price", price);
             jsonObject.put("smoking", (r.nextInt(1) < 10 ? true : false));
             jsonObject.put("petsAllowed", (r.nextInt(1) < 5 ? true : false));
             jsonObject.put("seats", Arrays.deepToString(seats));
@@ -407,12 +394,7 @@ public class Utilities {
         }
         for (int i = 0; i < 10; i++) { //want to create 500 flight
 
-            JSONObject jsonObject = new JSONObject();
-
-            Field changeMap = jsonObject.getClass().getDeclaredField("map");
-            changeMap.setAccessible(true);
-            changeMap.set(jsonObject, new LinkedHashMap<>());
-            changeMap.setAccessible(false);
+            Map jsonObject = new LinkedHashMap<>();
 
             Date departureDate = new Date(ThreadLocalRandom.current().nextLong(between1.getTime(), between2.getTime()));
             Calendar calendar = Calendar.getInstance();
@@ -420,6 +402,8 @@ public class Utilities {
             calendar.add(Calendar.HOUR_OF_DAY, r.nextInt(12)+12);
 
             Date arrivalDate = calendar.getTime();
+
+            Double price = Double.parseDouble(new DecimalFormat("#.##").format(ThreadLocalRandom.current().nextDouble(800.00,1650.00)));
 
             boolean seats[][] = new boolean[Plane.getSize()[0]][Plane.getSize()[1]];
 
@@ -434,7 +418,7 @@ public class Utilities {
             jsonObject.put("destinationCity",Utilities.international[r.nextInt(Utilities.international.length)]);
             jsonObject.put("departureDate", departureDate);
             jsonObject.put("arrivalDate", arrivalDate);
-            jsonObject.put("price", ThreadLocalRandom.current().nextDouble(100.00,650.00));
+            jsonObject.put("price", price);
             jsonObject.put("smoking", (r.nextInt(1) < 10 ? true : false));
             jsonObject.put("petsAllowed", (r.nextInt(1) < 5 ? true : false));
             jsonObject.put("seats", Arrays.deepToString(seats));
@@ -445,12 +429,7 @@ public class Utilities {
 
         for (int i = 0; i < 10; i++) { //want to create 500 flight
 
-            JSONObject jsonObject = new JSONObject();
-
-            Field changeMap = jsonObject.getClass().getDeclaredField("map");
-            changeMap.setAccessible(true);
-            changeMap.set(jsonObject, new LinkedHashMap<>());
-            changeMap.setAccessible(false);
+            Map jsonObject = new LinkedHashMap<>();
 
             Date departureDate = new Date(ThreadLocalRandom.current().nextLong(between1.getTime(), between2.getTime()));
 
@@ -459,6 +438,8 @@ public class Utilities {
             calendar.add(Calendar.HOUR_OF_DAY, r.nextInt(12)+12);
 
             Date arrivalDate = calendar.getTime();
+
+            Double price = Double.parseDouble(new DecimalFormat("#.##").format(ThreadLocalRandom.current().nextDouble(800.00,1650.00)));
 
             boolean seats[][] = new boolean[Plane.getSize()[0]][Plane.getSize()[1]];
 
@@ -473,7 +454,7 @@ public class Utilities {
             jsonObject.put("destinationCity",Utilities.international[r.nextInt(Utilities.international.length)]);
             jsonObject.put("departureDate", departureDate);
             jsonObject.put("arrivalDate", arrivalDate);
-            jsonObject.put("price", ThreadLocalRandom.current().nextDouble(100.00,650.00));
+            jsonObject.put("price", price);
             jsonObject.put("smoking", (r.nextInt(1) < 10 ? true : false));
             jsonObject.put("petsAllowed", (r.nextInt(1) < 5 ? true : false));
             jsonObject.put("seats", Arrays.deepToString(seats));
