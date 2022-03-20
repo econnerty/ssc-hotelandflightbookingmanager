@@ -19,7 +19,7 @@ public class Driver {
         return false;
     }
     
-    public static void main(String args[]) throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
+    public static void main(String args[]) throws FileNotFoundException, IOException, ParseException, java.text.ParseException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 
         appManager = ApplicationManager.getInstance();
 
