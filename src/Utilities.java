@@ -347,7 +347,7 @@ public class Utilities {
 
 
             jsonObject.put("uuid", UUID.randomUUID().toString());
-            jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)].toString());
+            jsonObject.put("airline", Airlines.values()[r.nextInt(7)].toString()); 
             jsonObject.put("availableSeats", Plane.getSize()[0]*Plane.getSize()[1]);
             jsonObject.put("departureCity", Utilities.cities[r.nextInt(Utilities.cities.length)]);
             jsonObject.put("destinationCity",Utilities.cities[r.nextInt(Utilities.cities.length)]);
