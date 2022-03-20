@@ -15,6 +15,10 @@ public abstract class Booking {
         this.index = index;
     }
 
+    public UUID getUUID(){
+        return this.uuid;
+    }
+
     public int[] getIndex(){
         return this.index;
     }

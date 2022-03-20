@@ -16,6 +16,7 @@ public class UserManager {
     private UserManager() throws FileNotFoundException, IOException, ParseException, java.text.ParseException{
 
         users = Utilities.loadUsers(); //This should load all Users from the JSON into the HashMap.
+        Utilities.saveUsers(users);
 
     }
 

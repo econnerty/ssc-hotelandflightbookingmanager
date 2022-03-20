@@ -5,6 +5,9 @@ import java.io.IOException;
 
 import org.json.simple.parser.ParseException;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.UUID;
 
 public class Driver {
@@ -26,7 +29,12 @@ public class Driver {
 
         //Utilities.generateFlights();
 
+        HashMap<String, Users> user = new HashMap();
 
+        user.put("tomjon", new RegisteredUser("tomjon", "jj", new Date(), new Date(), new ArrayList<FlightBooking>(), new ArrayList<HotelBooking>(), new String[]{}));
+        user.put("tomjon2", new BusinessUser("tomjon2", "jj", new Date(), new Date(), new Airlines[]{}, new Hotels[]{}));
+
+        Utilities.saveUsers(user);
         while(run());
         long end = System.nanoTime();
 

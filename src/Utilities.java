@@ -3,11 +3,8 @@ package src;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-import javax.swing.RowFilter.ComparisonType;
-
 import java.security.*;
 import java.io.*;
-import java.lang.reflect.Field;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 
@@ -243,7 +240,68 @@ public class Utilities {
         }
 
         return hotels;
-    } 
+    }
+
+    public static void saveUsers(HashMap<String, Users> users) throws IOException {
+
+        JSONArray jsonUsers = new JSONArray();
+
+        for (Users user : users.values()) {
+            Map jsonObject = new LinkedHashMap<>();
+
+            if (user.getClass() == RegisteredUser.class) {
+
+                RegisteredUser regUser = (RegisteredUser) user;
+                jsonObject.put("type","registered");
+                jsonObject.put("username",user.getUsername());
+                jsonObject.put("creationDate", user.getCreationDate().toString());
+                jsonObject.put("password", user.getPassword());
+                jsonObject.put("dob", dobFormat.format(user.getDob()));
+
+                ArrayList<String> jsonFlight = new ArrayList<>();
+                for (FlightBooking booking : regUser.getFlightBookings()) {
+                    jsonFlight.add(booking.getUUID().toString());
+                    jsonFlight.add(String.valueOf(booking.getIndex()[0]));
+                    jsonFlight.add(String.valueOf(booking.getIndex()[1]));
+                }
+                jsonObject.put("flightBookings", jsonFlight.toString());
+
+                ArrayList<String> jsonHotel = new ArrayList<>();
+                for (HotelBooking booking : regUser.getHotelBookings()) {
+                    jsonFlight.add(booking.getUUID().toString());
+                    jsonFlight.add(String.valueOf(booking.getIndex()[0]));
+                    jsonFlight.add(String.valueOf(booking.getIndex()[1]));
+                    jsonFlight.add(String.valueOf(booking.getIndex()[2]));
+                }
+                jsonObject.put("flightBookings", jsonFlight.toString());
+                
+               
+            }
+            else if (user.getClass() == BusinessUser.class) {
+
+                BusinessUser busUser = (BusinessUser) user;
+
+                jsonObject.put("type","business");
+                jsonObject.put("username",user.getUsername());
+                jsonObject.put("creationDate", user.getCreationDate().toString());
+                jsonObject.put("password", user.getPassword());
+                jsonObject.put("dob", dobFormat.format(user.getDob()));
+
+                jsonObject.put("airlines", busUser.getAirlines().toString());
+                jsonObject.put("hotels", busUser.getHotels().toString());
+
+
+
+            }
+
+            jsonUsers.add(jsonObject);
+        }
+
+        FileWriter f = new FileWriter(USER_JSON_PATH);
+        f.write(jsonUsers.toJSONString().replace("},{", "},\n{"));
+        f.flush();
+
+    }
 
     public static void generateFlights() throws FileNotFoundException, IOException, java.text.ParseException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
         JSONArray jsonFlights = new JSONArray();
