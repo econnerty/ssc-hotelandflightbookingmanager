@@ -51,7 +51,7 @@ public enum Hotels {
     W_HOTELS,
     AMAN,
     SONEVA,
-    RITZ-CARLTON,
+    RITZ_CARLTON,
     LUXURY_COLLECTION,
     PARK_HYATT,
     OETKER_COLLECTION,
