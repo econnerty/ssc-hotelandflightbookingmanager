@@ -320,6 +320,7 @@ public class Utilities {
 
     }
 
+    //TODO Make sure flight has a different destination than its departure city
     public static void generateFlights() throws FileNotFoundException, IOException, java.text.ParseException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
         JSONArray jsonFlights = new JSONArray();
 
