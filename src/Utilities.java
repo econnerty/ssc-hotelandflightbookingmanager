@@ -35,10 +35,10 @@ public class Utilities {
     private static Utilities utilities;
     private static final String[] cities = new String[]{"San Francisco", "New York City", "Los Angeles", "Austin", 
     "Chicago", "Denver", "Portland", "Seattle", "Washington D.C.", "Atlanta", "Raleigh", "New Orleans",
-    "San Diego", "Jacksonville", "Tallahasee", "Charlotte", "Columbia", "San Antonio", "Baltimore", "Kansas City",
+    "San Diego", "Jacksonville", "Tallahasee", "Charlotte", "Charleston", "Columbia", "San Antonio", "Baltimore", "Kansas City",
     "Philadelphia", "Detroit", "Indianapolis", "San Jose", "Milwaukee", "Louisville", "Sacramento",
     "Memphis", "Oklahoma City", "Tucson", "El Paso", "Tulsa", "Fort Worth", "Mesa", "Arlington", "Bakersfield",
-    "Houston", "Phoenix", "Dallas", "Columbus", "Nashville", "Fresno", "Omaha", "Long Beach", "Virginia Beach",
+    "Houston", "Phoenix", "Dallas", "Salt Lake City", "Columbus", "Nashville", "Fresno", "Omaha", "Long Beach", "Virginia Beach",
     "Miami", "Oakland", "Minneapolis", "Wichita", "Tampa", "Aurora", "Honolulu", "Anaheim", "Lexington",
     "Stockton", "Corpus Christi", "Henderson", "Riverside", "Newark", "Saint Paul", "Santa Ana", "Cincinnati",
     "Irvine", "Boston", "Pittsburgh", "Orlando", "Greensboro", "Jersey City", "Anchorage", "Lincoln", "Plano", "Durham",
