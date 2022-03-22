@@ -69,7 +69,7 @@ public class UserManager {
 
     }
 
-    public void creatAccount() {
+    public void createAccount() {
         //TODO
     }
 

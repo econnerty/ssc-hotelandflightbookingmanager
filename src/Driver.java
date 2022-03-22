@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.UUID;
+import java.util.Scanner;
 
 public class Driver {
 
@@ -17,8 +18,30 @@ public class Driver {
 
     private static boolean run(){
 
-        //TODO
-        //Do the stuff
+        Scanner input=new Scanner(System.in);
+        //cheapest flights
+        mainMenu();
+        int action=input.nextInt();
+
+        if(action==1) {
+            //new user
+        }
+        else if(action==2) {
+            //login
+        }
+        else if(action==3) {
+            //search flights
+        }
+        else if(action==4) {
+            //search hotels
+        }
+        else if(action==5) {
+            //review
+        }
+        else if(action==6) {
+            //logout
+        }
+
         return false;
     }
     
@@ -42,6 +65,24 @@ public class Driver {
 
         
             
+    }
+
+    public void mainMenu() {
+        System.out.println("Hello, "+currentUser.getUsername()+"!\n");
+        System.out.println("1. Sign Up\n2. Log In\n3. Search Flights\n4. Search Hotels\n5.Review a Hotel/Airlines
+        \n6. Log Out\nWhat would you like to do?\n");
+    }
+
+    public void userMenu() {
+        System.out.println("Welcome, "+currentUser.getUsername()+"!\n");
+        System.out.println("1. Set/Change Preferences\n2. Change Password\n3. View Past Bookings\n
+        4. View Current Bookings\n5. Return to Main Menu\nWhat would you like to do?\n");
+    }
+
+    public void busUserMenu() {
+        System.out.println("Welcome, "+currentUser.getUsername()+"!\n");
+        System.out.println("1. Add Booking\n2. Delete Booking\n3. Change Booking\n4. View Current
+         Bookings\n5. Return to Main Menu\nWhat would you like to do?\n");
     }
 
 
