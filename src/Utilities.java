@@ -35,10 +35,10 @@ public class Utilities {
     private static Utilities utilities;
     private static final String[] cities = new String[]{"San Francisco", "New York City", "Los Angeles", "Austin", 
     "Chicago", "Denver", "Portland", "Seattle", "Washington D.C.", "Atlanta", "Raleigh", "New Orleans",
-    "San Diego", "Jacksonville", "Tallahasee", "Charlotte", "Columbia", "San Antonio", "Baltimore", "Kansas City",
+    "San Diego", "Jacksonville", "Tallahasee", "Charlotte", "Charleston", "Columbia", "San Antonio", "Baltimore", "Kansas City",
     "Philadelphia", "Detroit", "Indianapolis", "San Jose", "Milwaukee", "Louisville", "Sacramento",
     "Memphis", "Oklahoma City", "Tucson", "El Paso", "Tulsa", "Fort Worth", "Mesa", "Arlington", "Bakersfield",
-    "Houston", "Phoenix", "Dallas", "Columbus", "Nashville", "Fresno", "Omaha", "Long Beach", "Virginia Beach",
+    "Houston", "Phoenix", "Dallas", "Salt Lake City", "Columbus", "Nashville", "Fresno", "Omaha", "Long Beach", "Virginia Beach",
     "Miami", "Oakland", "Minneapolis", "Wichita", "Tampa", "Aurora", "Honolulu", "Anaheim", "Lexington",
     "Stockton", "Corpus Christi", "Henderson", "Riverside", "Newark", "Saint Paul", "Santa Ana", "Cincinnati",
     "Irvine", "Boston", "Pittsburgh", "Orlando", "Greensboro", "Jersey City", "Anchorage", "Lincoln", "Plano", "Durham",
@@ -320,6 +320,7 @@ public class Utilities {
 
     }
 
+    //TODO Make sure flight has a different destination than its departure city
     public static void generateFlights() throws FileNotFoundException, IOException, java.text.ParseException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
         JSONArray jsonFlights = new JSONArray();
 
@@ -349,8 +350,15 @@ public class Utilities {
             jsonObject.put("uuid", UUID.randomUUID().toString());
             jsonObject.put("airline", Airlines.values()[r.nextInt(10)].toString()); 
             jsonObject.put("availableSeats", Plane.getSize()[0]*Plane.getSize()[1]);
-            jsonObject.put("departureCity", Utilities.cities[r.nextInt(Utilities.cities.length)]);
-            jsonObject.put("destinationCity",Utilities.cities[r.nextInt(Utilities.cities.length)]);
+
+            int randomCity1 = r.nextInt(Utilities.cities.length);
+            int randomCity2 = r.nextInt(Utilities.cities.length);
+
+            while (randomCity1 == randomCity2)
+                randomCity2 = r.nextInt(Utilities.cities.length);
+
+            jsonObject.put("departureCity", Utilities.cities[randomCity1]);
+            jsonObject.put("destinationCity",Utilities.cities[randomCity2]);
             jsonObject.put("departureDate", departureDate.toString());
             jsonObject.put("arrivalDate", arrivalDate.toString());
             jsonObject.put("price", price);
@@ -386,6 +394,8 @@ public class Utilities {
             jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)].toString());
             jsonObject.put("availableSeats", Plane.getSize()[0]*Plane.getSize()[1]);
             jsonObject.put("departureCity", "New York City");
+
+
             jsonObject.put("destinationCity",Utilities.international[r.nextInt(Utilities.international.length)]);
             jsonObject.put("departureDate", departureDate.toString());
             jsonObject.put("arrivalDate", arrivalDate.toString());
@@ -559,8 +569,15 @@ public class Utilities {
             jsonObject.put("uuid", UUID.randomUUID().toString());
             jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)].toString());
             jsonObject.put("availableSeats", Plane.getSize()[0]*Plane.getSize()[1]);
-            jsonObject.put("departureCity", Utilities.international[r.nextInt(Utilities.international.length)]);
-            jsonObject.put("destinationCity",Utilities.international[r.nextInt(Utilities.international.length)]);
+
+            int randomCity1 = r.nextInt(Utilities.international.length);
+            int randomCity2 = r.nextInt(Utilities.international.length);
+
+            while (randomCity1 == randomCity2)
+                randomCity2 = r.nextInt(Utilities.international.length);
+
+            jsonObject.put("departureCity", Utilities.international[randomCity1]);
+            jsonObject.put("destinationCity",Utilities.international[randomCity2]);
             jsonObject.put("departureDate", departureDate.toString());
             jsonObject.put("arrivalDate", arrivalDate.toString());
             jsonObject.put("price", price);
