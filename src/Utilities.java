@@ -350,8 +350,15 @@ public class Utilities {
             jsonObject.put("uuid", UUID.randomUUID().toString());
             jsonObject.put("airline", Airlines.values()[r.nextInt(10)].toString()); 
             jsonObject.put("availableSeats", Plane.getSize()[0]*Plane.getSize()[1]);
-            jsonObject.put("departureCity", Utilities.cities[r.nextInt(Utilities.cities.length)]);
-            jsonObject.put("destinationCity",Utilities.cities[r.nextInt(Utilities.cities.length)]);
+
+            int randomCity1 = r.nextInt(Utilities.cities.length);
+            int randomCity2 = r.nextInt(Utilities.cities.length);
+
+            while (randomCity1 == randomCity2)
+                randomCity2 = r.nextInt(Utilities.cities.length);
+
+            jsonObject.put("departureCity", Utilities.cities[randomCity1]);
+            jsonObject.put("destinationCity",Utilities.cities[randomCity2]);
             jsonObject.put("departureDate", departureDate.toString());
             jsonObject.put("arrivalDate", arrivalDate.toString());
             jsonObject.put("price", price);
@@ -387,6 +394,8 @@ public class Utilities {
             jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)].toString());
             jsonObject.put("availableSeats", Plane.getSize()[0]*Plane.getSize()[1]);
             jsonObject.put("departureCity", "New York City");
+
+
             jsonObject.put("destinationCity",Utilities.international[r.nextInt(Utilities.international.length)]);
             jsonObject.put("departureDate", departureDate.toString());
             jsonObject.put("arrivalDate", arrivalDate.toString());
@@ -560,8 +569,15 @@ public class Utilities {
             jsonObject.put("uuid", UUID.randomUUID().toString());
             jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)].toString());
             jsonObject.put("availableSeats", Plane.getSize()[0]*Plane.getSize()[1]);
-            jsonObject.put("departureCity", Utilities.international[r.nextInt(Utilities.international.length)]);
-            jsonObject.put("destinationCity",Utilities.international[r.nextInt(Utilities.international.length)]);
+
+            int randomCity1 = r.nextInt(Utilities.international.length);
+            int randomCity2 = r.nextInt(Utilities.international.length);
+
+            while (randomCity1 == randomCity2)
+                randomCity2 = r.nextInt(Utilities.international.length);
+
+            jsonObject.put("departureCity", Utilities.international[randomCity1]);
+            jsonObject.put("destinationCity",Utilities.international[randomCity2]);
             jsonObject.put("departureDate", departureDate.toString());
             jsonObject.put("arrivalDate", arrivalDate.toString());
             jsonObject.put("price", price);
