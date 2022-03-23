@@ -35,7 +35,7 @@ public class Driver {
 
 
 
-        return true;
+        return false;
     }
 
     public static boolean mainMenu() throws IOException, java.text.ParseException {
@@ -155,6 +155,7 @@ public class Driver {
 
         appManager = ApplicationManager.getInstance();
         Utilities.getInstance();
+        Utilities.generateFlights();
 
         while(run());
         

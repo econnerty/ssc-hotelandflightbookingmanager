@@ -7,8 +7,8 @@ import java.util.UUID;
 
 public class Plane implements src.JSON{
 
-    private static final int SEAT_COLUMNS = 6; //Hard Coded Plane Size
-    private static final int SEAT_ROWS = 50; //Hard Coded plane size
+    private static final int SEAT_COLUMNS = 4; //Hard Coded Plane Size
+    private static final int SEAT_ROWS = 20; //Hard Coded plane size
 
     private UUID uuid;
 
