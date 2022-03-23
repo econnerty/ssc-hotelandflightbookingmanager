@@ -24,13 +24,14 @@ public class Utilities {
     //private static final String DATE_FORMAT = "MM/dd/yyyy' 'HH:mm:ss'Z'";
     private static final String DATE_FORMAT = "EEE MMM dd HH:mm:ss zzz yyyy";
 
-    private static SimpleDateFormat dobFormat = new SimpleDateFormat(DOB_FORMAT);
-    private static SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
 
     private static MessageDigest md;
     private static JSONParser JSONParser;
 
     private static Random r = new Random();
+
+    public static SimpleDateFormat dobFormat = new SimpleDateFormat(DOB_FORMAT);
+    public static SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
 
     private static Utilities utilities;
     private static final String[] cities = new String[]{"San Francisco", "New York City", "Los Angeles", "Austin", 

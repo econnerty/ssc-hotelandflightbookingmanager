@@ -16,6 +16,10 @@ public class RegisteredUser extends User {
     private ArrayList<HotelBooking> hotelBookings; //Bookings can just be a tuple array in users. The string will be the uuid to the plane or hotel. The int array will hold the coordinates to the room or the plane's seat
     private String[] preferences;
 
+    public RegisteredUser(String username, String password, Date dob, Date creationDate) {
+        super(username, password, dob, creationDate);
+    }
+
     public RegisteredUser(String username, String password, Date dob, Date creationDate, ArrayList<FlightBooking> flightBookings, ArrayList<HotelBooking> hotelBookings, String[] preferences) {
         super(username, password, dob, creationDate);
         this.flightBookings = flightBookings;
@@ -59,7 +63,7 @@ public class RegisteredUser extends User {
         jsonObject.put("creationDate", this.creationDate);
         jsonObject.put("password", this.password);
         
-        String dob = dobFormat.format(this.dob);
+        String dob = Utilities.dobFormat.format(this.dob).toString();
         //System.out.println(dob);
         jsonObject.put("dob", dob);
 

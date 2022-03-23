@@ -3,6 +3,9 @@ package src;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
+
+import javax.lang.model.util.ElementScanner14;
 
 import org.json.simple.parser.ParseException;
 
@@ -27,9 +30,29 @@ public class ApplicationManager {
         
     }
 
-    public boolean signUp(){
-        return userManager.addUser();
+    public boolean signUp(String username, String password, Date dob, String type){
+
+        User user;
+
+        Date creationDate = new Date();
+
+        if (type.equalsIgnoreCase("Regular"))
+            user = new RegisteredUser(username, password, dob, creationDate);
+        else if (type.equalsIgnoreCase("Business"))
+            user = new BusinessUser(username, password, dob, creationDate);
+        else
+            return false;
+
+        return userManager.addUser(username,user);
         
+    }
+
+    public void logout() {
+        userManager.logout();
+    }
+
+    public void close() throws IOException {
+        Utilities.saveUsers(userManager.getUsers());
     }
 
 

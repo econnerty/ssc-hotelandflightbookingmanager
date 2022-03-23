@@ -11,6 +11,10 @@ public class BusinessUser extends User {
 
     private Airlines[] airlines; //enum for airlines
     private Hotels[] hotels; //enum for hotels
+
+    public BusinessUser(String username, String password, Date dob, Date creationDate) {
+        super(username, password, dob, creationDate);
+    }
  
     public BusinessUser(String username, String password, Date dob, Date creationDate, Airlines[] airlines, Hotels[] hotels) {
         super(username, password, dob, creationDate);
@@ -54,7 +58,7 @@ public class BusinessUser extends User {
         jsonObject.put("username",this.username);
         jsonObject.put("creationDate", this.getCreationDate().toString());
         jsonObject.put("password", this.password);
-        String dob = dobFormat.format(this.dob);
+        String dob = Utilities.dobFormat.format(this.dob);
         jsonObject.put("dob", dob);
 
 

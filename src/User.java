@@ -9,9 +9,6 @@ import java.util.UUID;
 
 public abstract class User {
 
-    protected static final String DOB_FORMAT = "MM/dd/yyyy";
-    protected static final SimpleDateFormat dobFormat = new SimpleDateFormat(DOB_FORMAT);
-
     //protected UUID uuid; //why do we need uuid if all the usernames are unique
     protected String username;
     protected String password; //This should be the hashed password if we have time for that

@@ -43,8 +43,8 @@ public class UserManager {
         return UserManager.currentUser;
     }
 
-    public void saveUser(User user) {
-        //TODO
+    public void saveUsers(User user) throws IOException {
+        Utilities.saveUsers(users);
     }
 
     /**
@@ -69,13 +69,21 @@ public class UserManager {
 
     }
 
-    public boolean addUser() {
+    public boolean addUser(String username, User user) {
+        if (users.get(username) != null) 
+            return false;
+
+        users.put(username, user);
         return true;
+    }
+
+    public HashMap<String, User> getUsers(){
+        return this.users;
     }
 
     public void logout() {
         //TODO
-        this.currentUser = null;
+        this.currentUser = new GuestUser();
     }
 
     public void changePassword(String password) {
