@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 public class RegisteredUser extends User {
 
-    private ArrayList<FlightBooking> flightBookings; //Bookings can just be a tuple array in users. The string will be the uuid to the plane or hotel. The int array will hold the coordinates to the room or the plane's seat
-    private ArrayList<HotelBooking> hotelBookings; //Bookings can just be a tuple array in users. The string will be the uuid to the plane or hotel. The int array will hold the coordinates to the room or the plane's seat
+    private ArrayList<FlightBooking> flightBookings = new ArrayList<>(); //Bookings can just be a tuple array in users. The string will be the uuid to the plane or hotel. The int array will hold the coordinates to the room or the plane's seat
+    private ArrayList<HotelBooking> hotelBookings = new ArrayList<>(); //Bookings can just be a tuple array in users. The string will be the uuid to the plane or hotel. The int array will hold the coordinates to the room or the plane's seat
     private String[] preferences;
 
     public RegisteredUser(String username, String password, Date dob, Date creationDate) {

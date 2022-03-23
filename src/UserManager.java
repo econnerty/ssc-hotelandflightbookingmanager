@@ -69,11 +69,13 @@ public class UserManager {
 
     }
 
-    public boolean addUser(String username, User user) {
+    public boolean addUser(String username, User user) throws IOException {
         if (users.get(username) != null) 
             return false;
 
         users.put(username, user);
+        this.currentUser = users.get(username);
+        Utilities.saveUsers(users);
         return true;
     }
 

@@ -30,18 +30,19 @@ public class ApplicationManager {
         
     }
 
-    public boolean signUp(String username, String password, Date dob, String type){
+    public boolean signUp(String username, String password, Date dob, String type) throws IOException{
 
         User user;
 
         Date creationDate = new Date();
 
-        if (type.equalsIgnoreCase("Regular"))
+        if (type.equalsIgnoreCase("Registered"))
             user = new RegisteredUser(username, password, dob, creationDate);
         else if (type.equalsIgnoreCase("Business"))
             user = new BusinessUser(username, password, dob, creationDate);
         else
             return false;
+
 
         return userManager.addUser(username,user);
         
