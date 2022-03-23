@@ -2,9 +2,10 @@ package src;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Map;
 import java.util.UUID;
 
-public class Plane {
+public class Plane implements src.JSON{
 
     private static final int SEAT_COLUMNS = 6; //Hard Coded Plane Size
     private static final int SEAT_ROWS = 50; //Hard Coded plane size
@@ -101,6 +102,10 @@ public class Plane {
 
     public static int[] getSize() {
         return new int[]{Plane.SEAT_COLUMNS, Plane.SEAT_ROWS};
+    }
+
+    public Map toJsonObject() {
+        return null;
     }
 
 

@@ -2,7 +2,7 @@ package src;
 
 import java.util.Map;
 
-public class GuestUser extends User {
+public class GuestUser extends User implements src.JSON {
     
     private static final String name = "Guest";
 

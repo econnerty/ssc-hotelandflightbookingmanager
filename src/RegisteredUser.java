@@ -10,10 +10,10 @@ import org.json.simple.JSONArray;
 import java.util.ArrayList;
 
 
-public class RegisteredUser extends User {
+public class RegisteredUser extends User implements src.JSON{
 
-    private ArrayList<FlightBooking> flightBookings = new ArrayList<>(); //Bookings can just be a tuple array in users. The string will be the uuid to the plane or hotel. The int array will hold the coordinates to the room or the plane's seat
-    private ArrayList<HotelBooking> hotelBookings = new ArrayList<>(); //Bookings can just be a tuple array in users. The string will be the uuid to the plane or hotel. The int array will hold the coordinates to the room or the plane's seat
+    private ArrayList<FlightBooking> flightBookings = new ArrayList<>();
+    private ArrayList<HotelBooking> hotelBookings = new ArrayList<>(); 
     private String[] preferences;
 
     public RegisteredUser(String username, String password, Date dob, Date creationDate) {
@@ -63,25 +63,27 @@ public class RegisteredUser extends User {
         jsonObject.put("creationDate", this.creationDate);
         jsonObject.put("password", this.password);
         
-        String dob = Utilities.dobFormat.format(this.dob).toString();
+        String dob = Utilities.dobFormat.format(this.dob);
         //System.out.println(dob);
         jsonObject.put("dob", dob);
 
         JSONArray jsonFlight = new JSONArray();
-        for (FlightBooking booking : this.flightBookings) {
-            jsonFlight.add(booking.getUUID().toString());
-            jsonFlight.add(String.valueOf(booking.getIndex()[0]));
-            jsonFlight.add(String.valueOf(booking.getIndex()[1]));
-        }
+        if (this.flightBookings != null)
+            for (FlightBooking booking : this.flightBookings) {
+                jsonFlight.add(booking.getUUID().toString());
+                jsonFlight.add(String.valueOf(booking.getIndex()[0]));
+                jsonFlight.add(String.valueOf(booking.getIndex()[1]));
+            }
         jsonObject.put("flightBookings", jsonFlight);
 
         JSONArray jsonHotel = new JSONArray();
-        for (HotelBooking booking : this.hotelBookings) {
-            jsonHotel.add(booking.getUUID().toString());
-            jsonHotel.add(String.valueOf(booking.getIndex()[0]));
-            jsonHotel.add(String.valueOf(booking.getIndex()[1]));
-            jsonHotel.add(String.valueOf(booking.getIndex()[2]));
-        }
+        if (this.hotelBookings != null)
+            for (HotelBooking booking : this.hotelBookings) {
+                jsonHotel.add(booking.getUUID().toString());
+                jsonHotel.add(String.valueOf(booking.getIndex()[0]));
+                jsonHotel.add(String.valueOf(booking.getIndex()[1]));
+                jsonHotel.add(String.valueOf(booking.getIndex()[2]));
+            }
         jsonObject.put("hotelBookings", jsonHotel);
     
         return jsonObject;

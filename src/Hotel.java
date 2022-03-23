@@ -1,9 +1,10 @@
 package src;
 
 import java.util.Arrays;
+import java.util.Map;
 import java.util.UUID;
 
-public class Hotel {
+public class Hotel implements src.JSON{
 
     private static final int FLOORS = 6; //Hard Coded Hotel Size
     private static final int LENGTH = 50; //Hard Coded Hotel size
@@ -89,6 +90,10 @@ public class Hotel {
 
     public static int[] getSize() {
         return new int[]{Hotel.FLOORS, Hotel.LENGTH, Hotel.WIDTH};
+    }
+
+    public Map toJsonObject() {
+        return null;
     }
 
     @Override

@@ -7,7 +7,7 @@ import java.util.UUID;
 
 import org.json.simple.JSONArray;
 
-public class BusinessUser extends User {
+public class BusinessUser extends User implements src.JSON {
 
     private Airlines[] airlines; //enum for airlines
     private Hotels[] hotels; //enum for hotels
@@ -65,14 +65,15 @@ public class BusinessUser extends User {
         JSONArray jsonAirlines = new JSONArray();
         JSONArray jsonHotels = new JSONArray();
 
-        for (Airlines airline : this.airlines) {
-            jsonAirlines.add(airline.toString());
-        }
+        if (this.airlines != null)
+            for (Airlines airline : this.airlines) {
+                jsonAirlines.add(airline.toString());
+            }
 
-        
-        for (Hotels hotel : this.hotels) {
-            jsonHotels.add(hotel.toString());
-        }
+        if (this.hotels != null)
+            for (Hotels hotel : this.hotels) {
+                jsonHotels.add(hotel.toString());
+            }
 
         jsonObject.put("airlines", jsonAirlines);
         jsonObject.put("hotels", jsonHotels);

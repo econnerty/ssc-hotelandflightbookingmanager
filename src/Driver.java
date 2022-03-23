@@ -11,6 +11,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.UUID;
 
+import javax.lang.model.util.ElementScanner14;
+
 import java.util.Scanner;
 
 public class Driver {
@@ -61,8 +63,12 @@ public class Driver {
                 int userType = Integer.parseInt(input.nextLine());
 
 
-                System.out.println( (appManager.signUp(username, password, dob, types[userType-1])) ? "Sign Up Succesful!\n" : "Something went wrong\n");
-                currentUser = appManager.getCurrentUser();
+                if (appManager.signUp(username, password, dob, types[userType-1])) {
+                    System.out.println("Sign Up Succesful!\n");
+                    currentUser = appManager.getCurrentUser();
+                }
+                else
+                    System.out.println("Something went wrong\n");
                 break;
             case 2:
                 break;
