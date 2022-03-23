@@ -49,7 +49,7 @@ public class RegisteredUser extends User implements src.JSON{
 
     public String menuString() {
 
-        return "Welcome, "+this.username+"!\n1. Set/Change Preferences\n2. Change Password\n3. View Past Bookings\n4. View Current Bookings\n5. Return to Main Menu\n\nWhat would you like to do?\n";
+        return "\nWelcome, "+this.username+"!\n1. Set/Change Preferences\n2. Change Password\n3. View Past Bookings\n4. View Current Bookings\n5. Return to Main Menu\n\nWhat would you like to do?";
         
     }
 

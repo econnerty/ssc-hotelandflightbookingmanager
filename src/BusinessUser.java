@@ -47,7 +47,7 @@ public class BusinessUser extends User implements src.JSON {
 
     public String menuString() {
         
-        return "Welcome, "+ this.username+"!\n1. Add Booking\n2. Delete Booking\n3. Change Booking\n4. View Current Bookings\n5. Return to Main Menu\n\nWhat would you like to do?\n";
+        return "\nWelcome, "+ this.username+"!\n1. Add Booking\n2. Delete Booking\n3. Change Booking\n4. View Current Bookings\n5. Return to Main Menu\n\nWhat would you like to do?";
     }
 
     public Map toJsonObject() {

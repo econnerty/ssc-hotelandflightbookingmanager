@@ -52,8 +52,8 @@ public class ApplicationManager {
         userManager.logout();
     }
 
-    public void close() throws IOException {
-        Utilities.saveUsers(userManager.getUsers());
+    public void close(){
+        
     }
 
 

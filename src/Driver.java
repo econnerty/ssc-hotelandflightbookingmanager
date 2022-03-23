@@ -45,21 +45,24 @@ public class Driver {
 
         int action = Integer.parseInt(input.nextLine());
 
+        String username;
+        String password;
+
 
         switch (action) {
             case 1:
                 System.out.println("Please enter your desired username: ");
-                String username = input.nextLine();
+                username = input.nextLine();
 
                 System.out.println("Please enter your desired password: ");
-                String password = input.nextLine();
+                password = input.nextLine();
 
                 System.out.println("Please enter your DOB in the format MM/dd/yyyy: ");
                 String inputDOB = input.nextLine();
 
                 Date dob = Utilities.dobFormat.parse(inputDOB);
 
-                System.out.println("Is this a Business account (1) or a Regular account (2)?");
+                System.out.println("Is this a Business account (1) or a Regular account (2)?\n");
                 int userType = Integer.parseInt(input.nextLine());
 
 
@@ -68,9 +71,19 @@ public class Driver {
                     currentUser = appManager.getCurrentUser();
                 }
                 else
-                    System.out.println("Something went wrong\n");
+                    System.out.println("Something went wrong\nIs the username already taken?\n");
                 break;
             case 2:
+                System.out.println("Enter your username: ");
+                username = input.nextLine();
+                System.out.println("Enter your password: ");
+                password = input.nextLine();
+                
+                if (!appManager.login(username, password))
+                    System.out.println("Either the username or password was incorrect.");
+                else
+                    currentUser = appManager.getCurrentUser();
+                
                 break;
             case 3:
                 break;
