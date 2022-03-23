@@ -247,71 +247,7 @@ public class Utilities {
         JSONArray jsonUsers = new JSONArray();
 
         for (User user : users.values()) {
-            Map jsonObject = new LinkedHashMap<>();
-
-            if (user.getClass() == RegisteredUser.class) {
-
-                RegisteredUser regUser = (RegisteredUser) user;
-                jsonObject.put("type","registered");
-                jsonObject.put("username",user.getUsername());
-                jsonObject.put("creationDate", user.getCreationDate().toString());
-                jsonObject.put("password", user.getPassword());
-                
-                String dob = dobFormat.format(user.getDob());
-                //System.out.println(dob);
-                jsonObject.put("dob", dob);
-
-                JSONArray jsonFlight = new JSONArray();
-                for (FlightBooking booking : regUser.getFlightBookings()) {
-                    jsonFlight.add(booking.getUUID().toString());
-                    jsonFlight.add(String.valueOf(booking.getIndex()[0]));
-                    jsonFlight.add(String.valueOf(booking.getIndex()[1]));
-                }
-                jsonObject.put("flightBookings", jsonFlight);
-
-                JSONArray jsonHotel = new JSONArray();
-                for (HotelBooking booking : regUser.getHotelBookings()) {
-                    jsonHotel.add(booking.getUUID().toString());
-                    jsonHotel.add(String.valueOf(booking.getIndex()[0]));
-                    jsonHotel.add(String.valueOf(booking.getIndex()[1]));
-                    jsonHotel.add(String.valueOf(booking.getIndex()[2]));
-                }
-                jsonObject.put("hotelBookings", jsonHotel);
-                
-               
-            }
-            else if (user.getClass() == BusinessUser.class) {
-
-                BusinessUser busUser = (BusinessUser) user;
-
-                jsonObject.put("type","business");
-                jsonObject.put("username",user.getUsername());
-                jsonObject.put("creationDate", user.getCreationDate().toString());
-                jsonObject.put("password", user.getPassword());
-                String dob = dobFormat.format(user.getDob());
-                jsonObject.put("dob", dob);
-
-
-                JSONArray jsonAirlines = new JSONArray();
-                JSONArray jsonHotels = new JSONArray();
-
-                for (Airlines airline : busUser.getAirlines()) {
-                    jsonAirlines.add(airline.toString());
-                }
-
-                
-                for (Hotels hotel : busUser.getHotels()) {
-                    jsonHotels.add(hotel.toString());
-                }
-                //System.out.println(jsonAirlines.toJSONString());
-
-                jsonObject.put("airlines", jsonAirlines);
-                jsonObject.put("hotels", jsonHotels);
-
-
-            }
-
-            jsonUsers.add(jsonObject);
+            jsonUsers.add(user.toJsonObject());
         }
 
         FileWriter f = new FileWriter(USER_JSON_PATH);

@@ -1,11 +1,16 @@
 package src;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
 import java.util.UUID;
 
 
 public abstract class User {
+
+    protected static final String DOB_FORMAT = "MM/dd/yyyy";
+    protected static final SimpleDateFormat dobFormat = new SimpleDateFormat(DOB_FORMAT);
 
     //protected UUID uuid; //why do we need uuid if all the usernames are unique
     protected String username;
@@ -25,6 +30,7 @@ public abstract class User {
     }
 
     public abstract String menuString();
+    public abstract Map toJsonObject();
 
     public String getUsername() {
         return this.username;

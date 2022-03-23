@@ -1,7 +1,12 @@
 package src;
 
 import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.UUID;
+
+import org.json.simple.JSONArray;
+
 import java.util.ArrayList;
 
 
@@ -39,9 +44,44 @@ public class RegisteredUser extends User {
     }
 
     public String menuString() {
-        
+
         return "Welcome, "+this.username+"!\n1. Set/Change Preferences\n2. Change Password\n3. View Past Bookings\n4. View Current Bookings\n5. Return to Main Menu\n\nWhat would you like to do?\n";
         
+    }
+
+    
+    public Map toJsonObject() {
+
+        Map jsonObject = new LinkedHashMap<>();
+
+        jsonObject.put("type","registered");
+        jsonObject.put("username",this.username);
+        jsonObject.put("creationDate", this.creationDate);
+        jsonObject.put("password", this.password);
+        
+        String dob = dobFormat.format(this.dob);
+        //System.out.println(dob);
+        jsonObject.put("dob", dob);
+
+        JSONArray jsonFlight = new JSONArray();
+        for (FlightBooking booking : this.flightBookings) {
+            jsonFlight.add(booking.getUUID().toString());
+            jsonFlight.add(String.valueOf(booking.getIndex()[0]));
+            jsonFlight.add(String.valueOf(booking.getIndex()[1]));
+        }
+        jsonObject.put("flightBookings", jsonFlight);
+
+        JSONArray jsonHotel = new JSONArray();
+        for (HotelBooking booking : this.hotelBookings) {
+            jsonHotel.add(booking.getUUID().toString());
+            jsonHotel.add(String.valueOf(booking.getIndex()[0]));
+            jsonHotel.add(String.valueOf(booking.getIndex()[1]));
+            jsonHotel.add(String.valueOf(booking.getIndex()[2]));
+        }
+        jsonObject.put("hotelBookings", jsonHotel);
+    
+        return jsonObject;
+            
     }
 
     
