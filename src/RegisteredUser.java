@@ -60,12 +60,12 @@ public class RegisteredUser extends User implements src.JSON{
 
         jsonObject.put("type","registered");
         jsonObject.put("username",this.username);
-        jsonObject.put("creationDate", this.creationDate);
+        jsonObject.put("creationDate", this.creationDate.toString());
         jsonObject.put("password", this.password);
         
-        String dob = Utilities.dobFormat.format(this.dob);
+        //String dobString = Utilities.dobFormat.format(this.dob);
         //System.out.println(dob);
-        jsonObject.put("dob", dob);
+        jsonObject.put("dob", Utilities.dobFormat.format(this.dob));
 
         JSONArray jsonFlight = new JSONArray();
         if (this.flightBookings != null)

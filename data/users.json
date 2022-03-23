@@ -1,1 +1,2 @@
-[{"type":"business","username":"tom","creationDate":"Tue Mar 22 22:26:05 EDT 2022","password":"1234","dob":"11\/04\/1995","airlines":[],"hotels":[]}]
+[{"type":"business","username":"tom","creationDate":"Wed Mar 23 02:13:46 EDT 2022","password":"1234","dob":"11\/04\/1995","airlines":[],"hotels":[]},
+{"type":"registered","username":"bob","creationDate":"Wed Mar 23 02:14:04 EDT 2022","password":"1234","dob":"02\/03\/2001","flightBookings":[],"hotelBookings":[]}]

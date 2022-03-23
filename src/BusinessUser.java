@@ -58,8 +58,9 @@ public class BusinessUser extends User implements src.JSON {
         jsonObject.put("username",this.username);
         jsonObject.put("creationDate", this.getCreationDate().toString());
         jsonObject.put("password", this.password);
-        String dob = Utilities.dobFormat.format(this.dob);
-        jsonObject.put("dob", dob);
+
+        //String dobString = Utilities.dobFormat.format(this.dob);
+        jsonObject.put("dob", Utilities.dobFormat.format(this.dob));
 
 
         JSONArray jsonAirlines = new JSONArray();

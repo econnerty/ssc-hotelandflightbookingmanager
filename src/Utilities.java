@@ -24,6 +24,8 @@ public class Utilities {
     //private static final String DATE_FORMAT = "MM/dd/yyyy' 'HH:mm:ss'Z'";
     private static final String DATE_FORMAT = "EEE MMM dd HH:mm:ss zzz yyyy";
 
+    private static final Scanner input = new Scanner(System.in);
+
 
     private static MessageDigest md;
     private static JSONParser JSONParser;

@@ -20,9 +20,9 @@ public class Driver {
     private static User currentUser = new GuestUser();
     private static ApplicationManager appManager;
 
-    private static final Scanner input = new Scanner(System.in);
+    private static final String[] types = {"Business", "Registered"};
 
-    private static String[] types = {"Business", "Registered"};
+    private static final Scanner input = new Scanner(System.in);
 
     private static boolean run() throws java.text.ParseException, IOException{
 
@@ -62,7 +62,7 @@ public class Driver {
 
                 Date dob = Utilities.dobFormat.parse(inputDOB);
 
-                System.out.println("Is this a Business account (1) or a Regular account (2)?\n");
+                System.out.println("Is this a Business account (1) or a Regular account (2)?");
                 int userType = Integer.parseInt(input.nextLine());
 
 
@@ -83,6 +83,8 @@ public class Driver {
                     System.out.println("Either the username or password was incorrect.");
                 else
                     currentUser = appManager.getCurrentUser();
+
+                System.out.println("\n-----------------------------------------------");
                 
                 break;
             case 3:
@@ -110,7 +112,7 @@ public class Driver {
 
         System.out.println(currentUser.menuString());
 
-        int action = input.nextInt();
+        int action = Integer.parseInt(input.nextLine());
 
         switch (action) {
             case 1:
@@ -128,12 +130,11 @@ public class Driver {
     }
 
     public static boolean businessMainMenu() {
-        Scanner input = new Scanner(System.in);
         //cheapest flights
 
         System.out.println(currentUser.menuString());
 
-        int action = input.nextInt();
+        int action = Integer.parseInt(input.nextLine());
 
         switch (action) {
             case 1:
