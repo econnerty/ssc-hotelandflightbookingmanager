@@ -85,7 +85,7 @@ public class Utilities {
         
     }
 
-    public static HashMap<String, Users> loadUsers() throws FileNotFoundException, IOException, ParseException, java.text.ParseException{
+    public static HashMap<String, User> loadUsers() throws FileNotFoundException, IOException, ParseException, java.text.ParseException{
 
         File file = new File(USER_JSON_PATH);
 
@@ -100,7 +100,7 @@ public class Utilities {
 
 
         JSONArray jsonArray = (JSONArray) JSONParser.parse(new FileReader(USER_JSON_PATH));
-        HashMap<String, Users> users = new HashMap<>();
+        HashMap<String, User> users = new HashMap<>();
 
         for (Object object : jsonArray) {
 
@@ -242,11 +242,11 @@ public class Utilities {
         return hotels;
     }
 
-    public static void saveUsers(HashMap<String, Users> users) throws IOException {
+    public static void saveUsers(HashMap<String, User> users) throws IOException {
 
         JSONArray jsonUsers = new JSONArray();
 
-        for (Users user : users.values()) {
+        for (User user : users.values()) {
             Map jsonObject = new LinkedHashMap<>();
 
             if (user.getClass() == RegisteredUser.class) {

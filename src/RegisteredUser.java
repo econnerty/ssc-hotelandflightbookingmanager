@@ -5,7 +5,7 @@ import java.util.UUID;
 import java.util.ArrayList;
 
 
-public class RegisteredUser extends Users {
+public class RegisteredUser extends User {
 
     private ArrayList<FlightBooking> flightBookings; //Bookings can just be a tuple array in users. The string will be the uuid to the plane or hotel. The int array will hold the coordinates to the room or the plane's seat
     private ArrayList<HotelBooking> hotelBookings; //Bookings can just be a tuple array in users. The string will be the uuid to the plane or hotel. The int array will hold the coordinates to the room or the plane's seat
@@ -36,6 +36,12 @@ public class RegisteredUser extends Users {
 
     public void cancelBooking() {
         //TODO
+    }
+
+    public String menuString() {
+        
+        return "Welcome, "+this.username+"!\n1. Set/Change Preferences\n2. Change Password\n3. View Past Bookings\n4. View Current Bookings\n5. Return to Main Menu\n\nWhat would you like to do?\n";
+        
     }
 
     

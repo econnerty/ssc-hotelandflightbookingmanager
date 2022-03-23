@@ -31,5 +31,13 @@ public class BookingManager {
         return bookingManager;   
 
     }
+
+    public ArrayList<Plane> getFlights(String search) {
+        return new ArrayList<Plane>();
+    }
+
+    public ArrayList<Hotel> getHotels(String search) {
+        return new ArrayList<Hotel>();
+    }
     
 }

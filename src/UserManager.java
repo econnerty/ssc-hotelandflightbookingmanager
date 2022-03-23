@@ -10,8 +10,8 @@ import org.json.simple.parser.ParseException;
 public class UserManager {
 
     private static UserManager userManager;
-    private static Users currentUser;
-    private static HashMap<String, Users> users; //We will store all the users inside this hashmap. The UUID will be the key.
+    private static User currentUser;
+    private static HashMap<String, User> users; //We will store all the users inside this hashmap. The UUID will be the key.
 
     private UserManager() throws FileNotFoundException, IOException, ParseException, java.text.ParseException{
 
@@ -33,7 +33,7 @@ public class UserManager {
      * Returns the current user
      * @return The
      */
-    public Users getCurrentUser(){
+    public User getCurrentUser(){
 
         if (UserManager.currentUser == null) {
             System.out.println("You need to login first.");
@@ -43,7 +43,7 @@ public class UserManager {
         return UserManager.currentUser;
     }
 
-    public void saveUser(Users user) {
+    public void saveUser(User user) {
         //TODO
     }
 
@@ -55,7 +55,7 @@ public class UserManager {
      */
     public boolean login(String username, String password) {
 
-        Users user = users.get(username);
+        User user = users.get(username);
 
         if (user == null) {
             return false;
@@ -69,8 +69,8 @@ public class UserManager {
 
     }
 
-    public void createAccount() {
-        //TODO
+    public boolean addUser() {
+        return true;
     }
 
     public void logout() {

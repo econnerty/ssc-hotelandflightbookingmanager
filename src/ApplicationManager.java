@@ -2,6 +2,7 @@ package src;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.json.simple.parser.ParseException;
 
@@ -26,11 +27,26 @@ public class ApplicationManager {
         
     }
 
+    public boolean signUp(){
+        return userManager.addUser();
+        
+    }
+
+
+    public ArrayList<Plane> searchFlights(String search){
+        return bookingManager.getFlights(search);
+        
+    }
+
+    public ArrayList<Hotel> searchHotels(String search){
+        return bookingManager.getHotels(search);
+    }
+
     public boolean login(String username, String password) {
         return (userManager.login(username, password));
     }
 
-    public Users getCurrentUser() {
+    public User getCurrentUser() {
         return userManager.getCurrentUser();
     }
 

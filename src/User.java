@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.UUID;
 
 
-public abstract class Users {
+public abstract class User {
 
     //protected UUID uuid; //why do we need uuid if all the usernames are unique
     protected String username;
@@ -13,13 +13,18 @@ public abstract class Users {
     protected Date dob;
     protected Date creationDate; //Date the user was created
 
+    public User(String username) {
+        this.username = "Guest";
+    }
 
-    public Users(String username, String password, Date dob, Date creationDate) {
+    public User(String username, String password, Date dob, Date creationDate) {
         this.username = username;
         this.password = password;
         this.dob = dob;
         this.creationDate = creationDate;
     }
+
+    public abstract String menuString();
 
     public String getUsername() {
         return this.username;
