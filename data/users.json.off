@@ -1,0 +1,41 @@
+[
+    {
+        "uuid":"2946c061-02ee-4496-a7aa-14dbe210af96",
+        "type":"registered",
+        "username":"MarkTanner3",
+        "creationDate":"Mon Jul 04 09:24:50 EDT 2022",
+        "password":"gUrii4J;",
+        "dob":"06/17/1970",
+        "flightBookings":["186f6815-a348-4cf9-9c0d-494606529a06","1","2"],
+        "hotelBookings":["6ac5567a-4644-4cba-a909-f49ffa97b790","1","2","3"],
+        "preferences":["hates bugs", "hates babies", "likes dogs"]
+    },{
+        "uuid":"3fa4e87f-7434-4a81-b133-bf665065c2ea",
+        "type":"registered",
+        "username":"MaryS330",
+        "creationDate":"Mon Jul 04 09:24:50 EDT 2022",
+        "password":"faM66IlyFarm330",
+        "dob":"11/04/1990",
+        "flightBookings":["99450473-e501-4895-9594-59497377dff9","1","2", "ea4d2ca1-3f0f-4105-8fd5-a4b03cc4e7cb", "2", "1"],
+        "hotelBookings":["86c7904c-ad29-4819-afb3-209478d3c1d6","1","2","3"],
+        "preferences":["hates bugs", "hates babies", "likes dogs"]
+    },{
+        "uuid":"59923c74-751c-4053-8e36-d97dcde7084",
+        "type":"business",
+        "username":"JoeRon11",
+        "creationDate":"Mon Jul 04 09:24:50 EDT 2022",
+        "password":"eGGdrOPs0up995",
+        "dob":"02/02/1992",
+        "airlines":["DELTA"],
+        "hotels":[]
+    },{
+        "uuid":"145e8914-569c-4326-82ad-6f2c9c6eebbd",
+        "type":"business",
+        "username":"JoeRon12",
+        "creationDate":"Mon Jul 04 09:24:50 EDT 2022",
+        "password":"eGGdrOPs0up32423",
+        "dob":"02/02/1994",
+        "airlines":[],
+        "hotels":["MARRIOTT"]
+      }
+  ]
