@@ -201,8 +201,10 @@ public class Utilities {
             boolean smoking = Boolean.parseBoolean(jsonObject.get("smoking").toString());
 //stop follow me :pensive: girl
             boolean petsAllowed = Boolean.parseBoolean(jsonObject.get("petsAllowed").toString());
+            int transfers = Integer.parseInt(jsonObject.get("transfers").toString());
+            int flightTime = Integer.parseInt(jsonObject.get("flightTime").toString());
 
-            planes.put(uuid, new Plane(uuid, airline, availableSeats, price, departureDate, arrivalDate, departureCity, destinationCity, smoking, petsAllowed, seats));
+            planes.put(uuid, new Plane(uuid, airline, availableSeats, price, departureDate, arrivalDate, departureCity, destinationCity, smoking, petsAllowed, seats, transfers, flightTime));
             //System.out.println(planes.get(uuid).toString());
 
         }
@@ -239,8 +241,9 @@ public class Utilities {
             double price = Double.parseDouble(jsonObject.get("price").toString());
             boolean smoking = Boolean.parseBoolean(jsonObject.get("smoking").toString());
             boolean petsAllowed = Boolean.parseBoolean(jsonObject.get("petsAllowed").toString());
+            int rating = Integer.parseInt(jsonObject.get("rating").toString());
 
-            hotels.put(uuid, new Hotel(uuid, availableRooms, hotel, price, city, smoking, petsAllowed, rooms));
+            hotels.put(uuid, new Hotel(uuid, availableRooms, hotel, price, city, smoking, petsAllowed, rooms, rating));
 
         }
 
