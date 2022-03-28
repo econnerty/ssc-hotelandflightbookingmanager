@@ -12,7 +12,7 @@ public class Business implements src.JSON {
     public Business(String name, double rating, int numRatings) {
         this.name = name;
         this.rating = rating;
-        this.numRatings = numRatings;
+        this.numRatings = numRatings;//should start as zero in the implementing method for a new Business.
     }
     public void getBookings() { //stub from UML
 

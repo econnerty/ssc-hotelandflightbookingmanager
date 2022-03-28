@@ -62,7 +62,9 @@ public class Plane implements src.JSON{
         this.smoking = smoking;
         this.petsAllowed = petsAllowed;
     }
-
+    public UUID getUUID() {
+        return this.uuid;
+    }
     public void bookSeat(FlightBooking booking) {
         
         this.seats[booking.getIndex()[0]][booking.getIndex()[1]] = true;
@@ -75,31 +77,66 @@ public class Plane implements src.JSON{
 
         this.availableSeats = SEAT_COLUMNS*SEAT_ROWS;
     }
-
     public void setAirline(Airlines airline) {
         this.airline = airline;
+    }
+    public Airlines getAirline() {
+        return this.airline;
+    }
+
+    public int getAvailableSeats() {
+        return this.availableSeats;
     }
 
     public void setPrice(Double price) {
         this.price = price;
     }
+    public double getPrice() {
+        return this.price;
+    }
 
-    public void setdestinationCity(String city) {
+    public void setDestinationCity(String city) {
         this.destinationCity = city;
+    }
+    public String getDestinationCity() {
+        return this.destinationCity;
     }
     
     public void setdepartureCity(String city) {
         this.departureCity = city;
     }
+    public String getDeparturenCity() {
+        return this.departureCity;
+    }
     
     public void setDepartureDate(Date date) {
         this.departureDate = date;
+    }
+    public Date getDepartureDate() {
+        return this.departureDate;
     }
 
     public void setArrivalDate(Date date) {
         this.arrivalDate = date;
     }
+    public Date getArrivalDate() {
+        return this.arrivalDate;
+    }
 
+    public void setSmoking(Boolean smoking) {
+        this.smoking = smoking;
+    }
+    public Boolean getSmoking() {
+        return this.smoking;
+    }
+
+    public void setPetsAllowed(Boolean petsAllowed) {
+        this.petsAllowed = petsAllowed;
+    }
+    public Boolean getPetsAllowed() {
+        return this.petsAllowed;
+    }
+    
     public static int[] getSize() {
         return new int[]{Plane.SEAT_COLUMNS, Plane.SEAT_ROWS};
     }
