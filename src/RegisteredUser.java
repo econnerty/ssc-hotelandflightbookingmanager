@@ -61,7 +61,7 @@ public class RegisteredUser extends User implements src.JSON{
         }
         else {
             System.out.println("Which one would you like to change?");
-            int choice = input.nextLine();
+            int choice = Integer.parseInt(input.nextLine());
             if(choice==1) {
                 System.out.println("Preferred Airline: ");
                 String airline = input.nextLine();
@@ -110,13 +110,13 @@ public class RegisteredUser extends User implements src.JSON{
     public void cancelBooking() {
         Scanner input = new Scanner(System.in);
         System.out.println("What kind of booking would you like to cancel?\n1. Flight\n2.Hotel");
-        int option = input.nextLine();
+        int option = Integer.parseInt(input.nextLine());
         if(option==1) {
             for(int i=0;i<flightBookings.size();i++) {
                 System.out.println((i+1)+". "+flightBookings.get(i));
             }
             System.out.println("Which booking would you like to cancel?\n");
-            int answer = input.nextLine();
+            int answer = Integer.parseInt(input.nextLine());
             flightBookings.remove(answer+1);
         }
         if(option==2) {
@@ -124,7 +124,7 @@ public class RegisteredUser extends User implements src.JSON{
                 System.out.println((i+1)+". "+hotelBookings.get(i));
             }
             System.out.println("Which booking would you like to cancel?\n");
-            int answer = input.nextLine();
+            int answer = Integer.parseInt(input.nextLine());
             hotelBookings.remove(answer+1);
         }
 
