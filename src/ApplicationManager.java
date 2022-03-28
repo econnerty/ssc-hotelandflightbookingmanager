@@ -57,13 +57,17 @@ public class ApplicationManager {
     }
 
 
-    public ArrayList<Plane> searchFlights(String search){
-        return bookingManager.getFlights(search, 2);
+    public /*ArrayList<Plane>*/void searchFlights(String search){
+        System.out.println("Flight searches for: \""+search+"\"");
+        bookingManager.getFlights(search, 2);
+        //return bookingManager.getFlights(search, 3);
         
     }
 
-    public ArrayList<Hotel> searchHotels(String search){
-        return bookingManager.getHotels(search, 2);
+    public /*ArrayList<Hotel>*/ void searchHotels(String search){
+        System.out.println("Hotel searches for: \""+search+"\"");
+        bookingManager.getHotels(search, 2);
+        //return bookingManager.getHotels(search, 3);
     }
 
     public boolean login(String username, String password) {

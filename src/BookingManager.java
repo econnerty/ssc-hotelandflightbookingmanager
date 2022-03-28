@@ -34,6 +34,8 @@ public class BookingManager {
 
     public ArrayList<Plane> getFlights(String search, int severity) {
         ArrayList<Plane> results = new ArrayList<Plane>();
+        if(search == "" || search == " ")
+            return results;
         String[] searchWords = search.split(" ");
         for (Plane value : planes.values()) {//iterate through each archive in planes.
             int score = 0;
@@ -67,26 +69,30 @@ public class BookingManager {
                 }
             if(score >= severity)
                 results.add(value);
-        }
+        }/*
         if(results.size() <=1 && severity >=1)//add similar date keyword to search and run again and place extra results at the bottom.
             results = getFlights(search, severity--);
-        else if(results.size() <=1 && severity == 0)
+        else */if(results.size() <=1 && severity == 0)
             System.out.println("You either typed it in wrong or didnt type in enough :/");
+        for(int i=0;i<results.size();i++)
+            System.out.println(results.get(i));
         return results;
     }
 
     public ArrayList<Hotel> getHotels(String search, int severity) {
         ArrayList<Hotel> results = new ArrayList<Hotel>();
+        if(search == "" || search == " ")
+            return results;
         String[] searchWords = search.split(" ");
 
         for (Hotel value : hotels.values()) {//iterate through each entry in hotels.
             int score = 0;
-            for(int j=0;j<searchWords.length;j++) {//iterate through each word in the user's search.
+            for(int j=0;j<searchWords.length;j++) {//iterate through each word in the user's search. (will prob need to check if it is an integer to avoid issues).
             if(searchWords[j] == value.getUUID().toString())//checking for uuid.
                 score++;
             //TODO getHotel name
             if(doubleParser(searchWords[j]) != -1 && doubleParser(searchWords[j]) <= value.getAvailableRooms())//checking for available rooms.
-                score++;
+                score++; System.out.println(value.getAvailableRooms());
             //TODO check price (if single number, then check for exactly that one. If 2 numbers sepparated by a dash then search for middling numbers)
             //TODO differentiate from availableRooms.
             if(searchWords[j] == Double.toString(value.getPrice()))
@@ -104,13 +110,15 @@ public class BookingManager {
             }
             if(score >= severity)
                 results.add(value);
-        }
-        if(results.size() <=1 && severity >=0) {//add broader location keyword to search and run again and place extra results at the bottom.
+        }/*
+        if(results.size() <=1 && severity >=2) {//add broader location keyword to search and run again and place extra results at the bottom.
 
             results = getHotels(search, severity--);
         }
-        else if(results.size() <=1 && severity == 0)
+        else */if(results.size() <=1 && severity <=1)
             System.out.println("You either typed it in wrong or didnt type in enough :/");
+        for(int i=0;i<results.size();i++)
+            System.out.println(results.get(i));
         return results;
     }
     private double doubleParser(String str) {

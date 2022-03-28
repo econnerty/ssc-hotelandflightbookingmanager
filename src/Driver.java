@@ -86,8 +86,12 @@ public class Driver {
                 
                 break;
             case 3:
+                System.out.print("Search Flights: ");
+                appManager.searchFlights(input.nextLine());
                 break;
             case 4:
+                System.out.print("Search Hotels: ");
+                appManager.searchHotels(input.nextLine());
                 break;
             case 5:
                 break;
