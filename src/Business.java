@@ -10,16 +10,18 @@ public class Business implements src.JSON {
     private int numRatings;
 
     public Business(String name, double rating, int numRatings) {
-        
+        this.name = name;
+        this.rating = rating;
+        this.numRatings = numRatings;
     }
     public double addRating(String name, Double newRating) {
-        
+        if(rating > 5 || rating <0) 
+            return -1;
         this.rating = (numRatings*rating+newRating)/(numRatings+1);
         this.numRatings++;
         return this.rating;
     }
-    public double getRating(String name) {
-
+    public double getRating() {
         return this.rating;
     }
 
