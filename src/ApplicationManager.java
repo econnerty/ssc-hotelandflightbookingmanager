@@ -58,12 +58,12 @@ public class ApplicationManager {
 
 
     public ArrayList<Plane> searchFlights(String search){
-        return bookingManager.getFlights(search);
+        return bookingManager.getFlights(search, 2);
         
     }
 
     public ArrayList<Hotel> searchHotels(String search){
-        return bookingManager.getHotels(search);
+        return bookingManager.getHotels(search, 2);
     }
 
     public boolean login(String username, String password) {
