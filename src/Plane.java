@@ -25,9 +25,6 @@ public class Plane implements src.JSON{
     private boolean smoking;
     private boolean petsAllowed;
 
-    private int transfers;
-    private int flightTime;
-
     private boolean[][] seats = new boolean[SEAT_ROWS][SEAT_COLUMNS]; //Keeps track of all the available seats whether they are booked or not
 
 
@@ -37,7 +34,7 @@ public class Plane implements src.JSON{
     }
 
     public Plane(UUID uuid, Airlines airline, int availableSeats, double price, Date departureDate, Date arrivalDate, 
-    String departureCity, String destinationCity, int transfers, int flightTime) {
+    String departureCity, String destinationCity) {
 
     this.uuid = uuid;
     this.airline = airline;
@@ -47,8 +44,6 @@ public class Plane implements src.JSON{
     this.arrivalDate = arrivalDate;
     this.destinationCity = destinationCity;
     this.departureCity = departureCity;
-    this.transfers = transfers;
-    this.flightTime = flightTime;
     clearSeats();
 }
 
@@ -66,8 +61,6 @@ public class Plane implements src.JSON{
         this.seats = seats;
         this.smoking = smoking;
         this.petsAllowed = petsAllowed;
-        this.transfers = transfers;
-        this.flightTime = flightTime;
     }
 
     public void bookSeat(FlightBooking booking) {
