@@ -14,6 +14,9 @@ public class Business implements src.JSON {
         this.rating = rating;
         this.numRatings = numRatings;
     }
+    public void getBookings() { //stub from UML
+
+    }
     public double addRating(String name, Double newRating) {
         if(rating > 5 || rating <0) 
             return -1;
