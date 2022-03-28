@@ -137,7 +137,7 @@ public class RegisteredUser extends User implements src.JSON{
     }
 
     public void itinerary(ArrayList<FlightBooking> flightBookings, ArrayList<HotelBooking> hotelBookings) {
-        try {
+        /*try {
             FileWriter writer = new FileWriter("schedule.txt");
             writer.write(
                 for(int i=0;i<flightBookings.size();i++) {
@@ -152,7 +152,7 @@ public class RegisteredUser extends User implements src.JSON{
         } catch (IOException e) {
             System.out.println("error.");
             e.printStackTrace();
-        }
+        }*/
     }
 
     

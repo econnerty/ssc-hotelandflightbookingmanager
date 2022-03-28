@@ -53,8 +53,7 @@ public class Plane implements src.JSON{
 }
 
     public Plane(UUID uuid, Airlines airline, int availableSeats, double price, Date departureDate, Date arrivalDate, 
-        String departureCity, String destinationCity,boolean smoking, boolean petsAllowed, boolean[][] seats, int transfers,
-        int flightTime) {
+        String departureCity, String destinationCity,boolean smoking, boolean petsAllowed, boolean[][] seats) {
 
         this.uuid = uuid;
         this.airline = airline;

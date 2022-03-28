@@ -46,8 +46,7 @@ public class Hotel implements src.JSON{
 
     }
 
-    public Hotel(UUID uuid, int availableRooms, Hotels hotel, double price, String city, boolean smoking, boolean petsAllowed, boolean[][][] rooms,
-    int rating) {
+    public Hotel(UUID uuid, int availableRooms, Hotels hotel, double price, String city, boolean smoking, boolean petsAllowed, boolean[][][] rooms) {
 
         this.uuid = uuid;
         this.availableRooms = availableRooms;
