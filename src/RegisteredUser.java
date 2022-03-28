@@ -108,7 +108,26 @@ public class RegisteredUser extends User implements src.JSON{
     }
 
     public void cancelBooking() {
-        //TODO
+        Scanner input = new Scanner(System.in);
+        System.out.println("What kind of booking would you like to cancel?\n1. Flight\n2.Hotel");
+        int option = input.nextLine();
+        if(option==1) {
+            for(int i=0;i<flightBookings.size();i++) {
+                System.out.println((i+1)+". "+flightBookings.get(i));
+            }
+            System.out.println("Which booking would you like to cancel?\n");
+            int answer = input.nextLine();
+            flightBookings.remove(answer+1);
+        }
+        if(option==2) {
+            for(int i=0;i<hotelBookings.size();i++) {
+                System.out.println((i+1)+". "+hotelBookings.get(i));
+            }
+            System.out.println("Which booking would you like to cancel?\n");
+            int answer = input.nextLine();
+            hotelBookings.remove(answer+1);
+        }
+
     }
 
     public String menuString() {
