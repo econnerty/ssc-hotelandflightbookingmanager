@@ -58,4 +58,7 @@ public class Business implements src.JSON {
         
         return jsonObject;    
     }
+    public String toString() {
+        return "Business [name: " + name + ", rating: " + rating + ", number of ratings: " + numRatings + ", uuid: " + uuid + "]";
+    }
 }
