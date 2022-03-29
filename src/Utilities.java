@@ -262,6 +262,7 @@ public class Utilities {
     }
 
     //TODO Make sure flight has a different destination than its departure city
+    /*
     public static void generateFlights() throws FileNotFoundException, IOException, java.text.ParseException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
         JSONArray jsonFlights = new JSONArray();
 
@@ -533,6 +534,6 @@ public class Utilities {
         FileWriter f = new FileWriter(PLANE_JSON_PATH);
         f.write(jsonFlights.toJSONString().replace("},{", "},\n{"));
         f.flush();
-    }
+    }*/
     
 }
