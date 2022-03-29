@@ -88,7 +88,7 @@ public class UserManager {
         this.currentUser = new GuestUser();
     }
 
-    public void changePassword(String password) {
+    public void changePassword(String password, String newPassword) {
         //TODO
         boolean check=UserManager.currentUser.checkPassword(password);
     	if(check) {
