@@ -57,7 +57,7 @@ public class Utilities {
     "Batam", "Nice", "Fukuoka", "Abu Dhabi", "Jeju", "Porto", "Rhodes", "Rio de Janeiro", /*what this*/"Krabi"/*the fuck is this*//*um hello*//*bitch*/, "Bangalore", "Mexico City",
     "Punta Cana", "Sao Paulo", "Zurich", "Montreal", "Dusseldorf", "Chengdu", "Edinburgh", "Tehran", "Hamburg", "Cape Town",
     "Manila", "Bogota", "Xi'an", "Beirut", "Geneva", "Colombo", "Xiamen", "Bucharest", "Casablanca", "Sofia", "Dalian",
-    "Montevideo", "","Budapest", "Lisbon", "Dammam", "Penang Island", "Heraklion", "Kyoto", "Zhuhai",
+    "Montevideo","Budapest", "Lisbon", "Dammam", "Penang Island", "Heraklion", "Kyoto", "Zhuhai",
     "Vancouver", "Chiang Mai", "Copenhagen", "Melbourne", "Warsaw", "Marrakesh", "Kolkata", "Cebu City", "Lagos", "Liverpool", "Sheffield", "Manchester",
     "Leeds", "Leicester", "Bradford", "Coventry", "York" ,"Nottingham", "Oxford", "Southhampton", "Winchester", "Bath", "Norwich",
     "Portsmouth", "Preston", "Ely", "Gloucester", "Hereford", "Durham", "Truro", "Salford", "Lancaster", "Naples", "Bologna", "Verona",
@@ -262,7 +262,7 @@ public class Utilities {
     }
 
     //TODO Make sure flight has a different destination than its departure city
-    /*
+    
     public static void generateFlights() throws FileNotFoundException, IOException, java.text.ParseException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
         JSONArray jsonFlights = new JSONArray();
 
@@ -534,6 +534,6 @@ public class Utilities {
         FileWriter f = new FileWriter(PLANE_JSON_PATH);
         f.write(jsonFlights.toJSONString().replace("},{", "},\n{"));
         f.flush();
-    }*/
+    }
     
 }

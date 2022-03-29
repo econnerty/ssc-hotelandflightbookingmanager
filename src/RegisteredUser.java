@@ -4,11 +4,8 @@ import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.UUID;
-<<<<<<< HEAD
 import java.io.FileWriter;
 import java.io.IOException;
-=======
->>>>>>> origin/Shaine
 
 import org.json.simple.JSONArray;
 
@@ -44,12 +41,12 @@ public class RegisteredUser extends User implements src.JSON{
         //TODO
     }
 
-    public void addBooking() {
-        //TODO
+    public void addBooking(UUID uuid, int[] index) {
+        flightBookings.add(new FlightBooking(uuid, index));
     }
 
-    public void cancelBooking() {
-        //TODO
+    public void cancelBooking(UUID uuid, int[] index) {
+        flightBookings.remove(new FlightBooking(uuid, index));
     }
 
     public String menuString() {

@@ -62,13 +62,15 @@ public class Plane implements src.JSON{
         this.smoking = smoking;
         this.petsAllowed = petsAllowed;
     }
-    public UUID getUUID() {
-        return this.uuid;
-    }
+
     public void bookSeat(FlightBooking booking) {
         
         this.seats[booking.getIndex()[0]][booking.getIndex()[1]] = true;
         availableSeats--;
+    }
+
+    public String getDestinationCity(){
+        return this.destinationCity;
     }
 
     private void clearSeats() {
@@ -77,66 +79,31 @@ public class Plane implements src.JSON{
 
         this.availableSeats = SEAT_COLUMNS*SEAT_ROWS;
     }
+
     public void setAirline(Airlines airline) {
         this.airline = airline;
-    }
-    public Airlines getAirline() {
-        return this.airline;
-    }
-
-    public int getAvailableSeats() {
-        return this.availableSeats;
     }
 
     public void setPrice(Double price) {
         this.price = price;
     }
-    public double getPrice() {
-        return this.price;
-    }
 
-    public void setDestinationCity(String city) {
+    public void setdestinationCity(String city) {
         this.destinationCity = city;
-    }
-    public String getDestinationCity() {
-        return this.destinationCity;
     }
     
     public void setdepartureCity(String city) {
         this.departureCity = city;
     }
-    public String getDeparturenCity() {
-        return this.departureCity;
-    }
     
     public void setDepartureDate(Date date) {
         this.departureDate = date;
-    }
-    public Date getDepartureDate() {
-        return this.departureDate;
     }
 
     public void setArrivalDate(Date date) {
         this.arrivalDate = date;
     }
-    public Date getArrivalDate() {
-        return this.arrivalDate;
-    }
 
-    public void setSmoking(Boolean smoking) {
-        this.smoking = smoking;
-    }
-    public Boolean getSmoking() {
-        return this.smoking;
-    }
-
-    public void setPetsAllowed(Boolean petsAllowed) {
-        this.petsAllowed = petsAllowed;
-    }
-    public Boolean getPetsAllowed() {
-        return this.petsAllowed;
-    }
-    
     public static int[] getSize() {
         return new int[]{Plane.SEAT_COLUMNS, Plane.SEAT_ROWS};
     }
@@ -146,13 +113,48 @@ public class Plane implements src.JSON{
     }
 
 
-    //TODO Print all the plane's seats and whether they are booked.
+    //TODO This is just for debugging
     @Override
     public String toString() {
         return "Plane [airline=" + airline + ", arrivalDate=" + arrivalDate + ", availableSeats=" + availableSeats
                 + ", departureCity=" + departureCity + ", departureDate=" + departureDate + ", destinationCity="
                 + destinationCity + ", petsAllowed=" + petsAllowed + ", price=" + price + ", seats="
                 + Arrays.toString(seats) + ", smoking=" + smoking + ", uuid=" + uuid + "]";
+    }
+
+    public String getFlightInfo() {
+        return "\tAirline: " + airline + "\tArrival Date: " + arrivalDate + "\tDeparture City: " + departureCity + "\tDestination: " + destinationCity + "\tPrice: " + price;
+    }
+
+    public void printSeats() {
+        int count = 1;
+        
+        String out = "";
+        
+        System.out.println("    A         B                 D          E         ");
+
+        for (int i = 0; i < seats.length; i++){
+            int j = 0;
+            //out += count + " ";
+            if (count < 10)
+                out += " ";
+            while (j < seats[0].length/2){
+               
+                out += "[ " + "("+seats[i][j] + ")"+ " ]";
+                j++;
+            }
+            out += "       |       ";
+            while (j < seats[0].length){
+                
+                out += "\t[ " + "("+seats[i][j] + ")"+ " ]";
+                j++;
+            }
+            out += "\n";
+            count++;
+        }
+
+        System.out.println(out);
+
     }
 
 }
