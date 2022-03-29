@@ -46,7 +46,68 @@ public class RegisteredUser extends User implements src.JSON{
 
     public void setPreferences() {
         //TODO
+        Scanner input = new Scanner(System.in);
 
+        if(preferences.length==0) {
+            System.out.println("Preferred Airline: ");
+            String airline = input.nextLine();
+            System.out.println("Usual Trip Type:\n1. Round-Trip\n2. One-Way\n3. Any");
+            String tripType = input.nextLine();
+            System.out.println("Preferred Hotel: ");
+            String hotel = input.nextLine();
+            System.out.println("Flight Price Range (format: lowest price, highest price): ");
+            String flightPrice = input.nextLine();
+            System.out.println("Hotel Price Range (format: lowest price, highest price): ");
+            String hotelPrice = input.nextLine();
+            System.out.println("Preferred Coach: ");
+            String coach = input.nextLine();
+            System.out.println("Pets (y/n): ");
+            String pets = input.nextLine();
+            String[] temp = new String[] {airline, tripType, hotel, flightPrice, hotelPrice, coach, pets};
+            preferences=temp;
+        }
+        else {
+            System.out.println("Which one would you like to change?");
+            int choice = input.nextInt();
+            if(choice==1) {
+                System.out.println("Preferred Airline: ");
+                String airline = input.nextLine();
+                preferences[0]=airline;
+            }
+            else if(choice==2) {
+                System.out.println("Usual Trip Type:\n1. Round-Trip\n2. One-Way\n3. Any");
+                String tripType = input.nextLine();
+                preferences[1]=tripType;
+            }
+            else if(choice==3) {
+                System.out.println("Preferred Hotel: ");
+                String hotel = input.nextLine();
+                preferences[2]=hotel;
+            }
+            else if(choice==4) {
+                System.out.println("Flight Price Range (format: lowest price, highest price): ");
+                String flightPrice = input.nextLine();
+                preferences[3]=flightPrice;
+            }
+            else if(choice==5) {
+                System.out.println("Hotel Price Range (format: lowest price, highest price): ");
+                String hotelPrice = input.nextLine();
+                preferences[4]=hotelPrice;
+            }
+            else if(choice==6) {
+                System.out.println("Preferred Coach: ");
+                String coach = input.nextLine();
+                preferences[5]=coach;
+            }
+            else if(choice==7) {
+                System.out.println("Pets (y/n): ");
+                String pets = input.nextLine();
+                preferences[6]=pets;
+            }
+            else {
+                System.out.println("Invalid choice.");
+            }
+        }
     }
 
     public void addHotelBooking(HotelBooking booking) {
