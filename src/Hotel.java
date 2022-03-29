@@ -21,6 +21,9 @@ public class Hotel implements src.JSON{
     private boolean smoking;
     private boolean petsAllowed;
 
+    private int rating;
+    private Amenities[] amenities;
+
     private boolean[][][] rooms = new boolean[LENGTH][WIDTH][FLOORS]; //Keeps track of all the available rooms whether they are booked or not
 
 
@@ -42,7 +45,8 @@ public class Hotel implements src.JSON{
 
     }
 
-    public Hotel(UUID uuid, int availableRooms, Hotels hotel, double price, String city, boolean smoking, boolean petsAllowed, boolean[][][] rooms) {
+    public Hotel(UUID uuid, int availableRooms, Hotels hotel, double price, String city, boolean smoking, boolean petsAllowed, boolean[][][] rooms, int rating,
+    Amenities[] amenities) {
 
         this.uuid = uuid;
         this.availableRooms = availableRooms;
@@ -52,6 +56,8 @@ public class Hotel implements src.JSON{
         this.smoking = smoking;
         this.petsAllowed = petsAllowed;
         this.rooms = rooms;
+        this.rating = rating;
+        this.amenities = amenities;
 
     }
     public void bookRoom(HotelBooking booking) {
@@ -105,6 +111,10 @@ public class Hotel implements src.JSON{
     }
     public Boolean getPetsAllowed() {
         return this.petsAllowed;
+    }
+
+    public void setAmenities() {
+        this.amenities=amenities;
     }
 
     public static int[] getSize() {

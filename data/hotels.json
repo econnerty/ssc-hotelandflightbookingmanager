@@ -7,7 +7,9 @@
         "city":"San Francisco",
         "price":171.55,
         "smoking":true,
-        "petsAllowed":true
+        "petsAllowed":true,
+        "rating":3,
+        "amenities":[]
     },{
         "uuid":"6ac5567a-4644-4cba-a909-f49ffa97b790",
         "hotel":"HILTON",
@@ -16,7 +18,9 @@
         "city":"New York City",
         "price":90.12,
         "smoking":true,
-        "petsAllowed":true
+        "petsAllowed":true,
+        "rating":2,
+        "amenities":[]
     },{
         "uuid":"86c7904c-ad29-4819-afb3-209478d3c1d6",
         "hotel":"MARRIOTT",
@@ -25,6 +29,8 @@
         "city":"Toronto",
         "price":172.30,
         "smoking":true,
-        "petsAllowed":true
+        "petsAllowed":true,
+        "rating":3,
+        "amenities":[]
       }
   ]
