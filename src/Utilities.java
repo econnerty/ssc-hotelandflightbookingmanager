@@ -19,6 +19,7 @@ public class Utilities {
     private static final String USER_JSON_PATH = "data/users.json";
     private static final String PLANE_JSON_PATH = "data/planes.json";
     private static final String HOTEL_JSON_PATH = "data/hotels.json";
+    private static final String BUSINESS_JSON_PATH = "data/hotels.json";
 
     private static final String DOB_FORMAT = "MM/dd/yyyy";
     //private static final String DATE_FORMAT = "MM/dd/yyyy' 'HH:mm:ss'Z'";
@@ -241,10 +242,36 @@ public class Utilities {
             boolean petsAllowed = Boolean.parseBoolean(jsonObject.get("petsAllowed").toString());
 
             hotels.put(uuid, new Hotel(uuid, availableRooms, hotel, price, city, smoking, petsAllowed, rooms));
-
         }
-
         return hotels;
+    }
+    public static HashMap<UUID, Business> loadBusinesses() throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
+        File file = new File(BUSINESS_JSON_PATH);
+
+        if (!file.exists()) {
+            file.createNewFile();
+
+            FileWriter f = new FileWriter(BUSINESS_JSON_PATH);
+            f.write("[]");
+            f.flush();
+            f.close();
+        }
+        JSONArray jsonArray = (JSONArray) JSONParser.parse(new FileReader(BUSINESS_JSON_PATH));
+        HashMap<UUID, Business> businesses = new HashMap<>();
+
+        for (Object object : jsonArray) {
+
+            JSONObject jsonObject = (JSONObject) object;
+
+            UUID uuid = UUID.fromString(jsonObject.get("UUID").toString());
+            String name = jsonObject.get("name").toString();
+            Double rating = Double.parseDouble(jsonObject.get("rating").toString());
+            int numRatings=Integer.parseInt(jsonObject.get("numRatings").toString());
+
+            businesses.put(uuid, new Business(uuid, name, rating, numRatings));
+            //System.out.println(planes.get(uuid).toString());
+        }
+        return businesses;
     }
 
     public static void saveUsers(HashMap<String, User> users) throws IOException {
