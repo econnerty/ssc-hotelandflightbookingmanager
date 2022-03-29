@@ -46,10 +46,17 @@ public class RegisteredUser extends User implements src.JSON{
 
     public void setPreferences() {
         //TODO
+
     }
 
-    public void addBooking() {
+    public void addHotelBooking(HotelBooking booking) {
+    	//TODO
+    	hotelBookings.add(booking);
+    }
+    
+    public void addFlightBooking(FlightBooking booking) {
         //TODO
+    	flightBookings.add(booking);
     }
 
     public void cancelBooking() {
