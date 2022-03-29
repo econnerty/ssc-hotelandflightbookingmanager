@@ -88,15 +88,8 @@ public class UserManager {
         this.currentUser = new GuestUser();
     }
 
-    public void changePassword(String password, String newPassword) {
+    public void changePassword(String password) {
         //TODO
-        boolean check=UserManager.currentUser.checkPassword(password);
-    	if(check) {
-    		UserManager.currentUser.password=newPassword;
-    	}
-    	else {
-    		System.out.println("Please enter your current password.");
-    	}
     }
     
 }
