@@ -67,25 +67,44 @@ public class Hotel implements src.JSON{
 
         this.availableRooms = FLOORS*LENGTH*WIDTH;
     }
+    public int getAvailableRooms() {
+        return this.availableRooms;
+    }
+
+    public UUID getUUID() {
+        return this.uuid;
+    }
 
     public void setHotel() {
-        this.hotel=hotel;
+        //this.hotel=hotel;
     }
 
-    public void setPrice() {
+    public void setPrice(Double price) {
         this.price=price;
     }
+    public double getPrice() {
+        return this.price;
+    }
 
-    public void setCity() {
+    public void setCity(String city) {
         this.city=city;
     }
-
-    public void setSmoking() {
-        this.smoking=smoking;
+    public String getCity() {
+        return this.city;
     }
 
-    public void setPets() {
+    public void setSmoking(Boolean smoking) {
+        this.smoking=smoking;
+    }
+    public Boolean getSmoking() {
+        return this.smoking;
+    }
+
+    public void setPets(Boolean petsAllowed) {
         this.petsAllowed=petsAllowed;
+    }
+    public Boolean getPetsAllowed() {
+        return this.petsAllowed;
     }
 
     public static int[] getSize() {

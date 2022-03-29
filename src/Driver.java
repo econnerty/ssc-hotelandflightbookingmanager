@@ -86,8 +86,17 @@ public class Driver {
                 
                 break;
             case 3:
+<<<<<<< HEAD
                 break;
             case 4:
+=======
+                System.out.print("Search Flights: ");
+                appManager.searchFlights(input.nextLine());
+                break;
+            case 4:
+                System.out.print("Search Hotels: ");
+                appManager.searchHotels(input.nextLine());
+>>>>>>> origin/Shaine
                 break;
             case 5:
                 break;
@@ -153,7 +162,6 @@ public class Driver {
 
         appManager = ApplicationManager.getInstance();
         Utilities.getInstance();
-        Utilities.generateFlights();
 
         while(run());
         
