@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 import org.json.simple.JSONArray;
 
@@ -47,6 +48,39 @@ public class RegisteredUser extends User implements src.JSON{
 
     public void cancelBooking() {
         //TODO
+        Scanner input=new Scanner(System.in);
+    	System.out.println("Which type of bookings would you like to cancel?\n"
+    			+ "1. Flight\n2. Hotel");
+    	int choice=input.nextInt();
+    	if(choice==1) {
+    		for(int i=0;i<flightBookings.size();i++) {
+    			System.out.println((i+1)+". "+flightBookings.get(i));
+    		}
+    		System.out.println("Enter the number for the booking you want to cancel");
+    		int answer=input.nextInt();
+    		System.out.println(flightBookings.get(answer-1));
+    		System.out.println("Is this the correct booking you want to cancel? y/n");
+    		String pick=input.nextLine();
+    		if(pick=="y") {
+    			flightBookings.remove(answer-1);
+    		}
+    	}
+    	else if(choice==2) {
+    		for(int i=0;i<hotelBookings.size();i++) {
+    			System.out.println(hotelBookings.get(i));
+    		}
+    		System.out.println("Enter the number for the booking you want to cancel");
+    		int answer=input.nextInt();
+    		System.out.println(hotelBookings.get(answer-1));
+    		System.out.println("Is this the correct booking you want to cancel? y/n");
+    		String pick=input.nextLine();
+    		if(pick=="y") {
+    			hotelBookings.remove(answer-1);
+    		}
+    	}
+    	else {
+    		System.out.println("Invalid answer");
+    	}
     }
 
     public String menuString() {
