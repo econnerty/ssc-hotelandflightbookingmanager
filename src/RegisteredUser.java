@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import org.json.simple.JSONArray;
 
@@ -51,6 +53,23 @@ public class RegisteredUser extends User implements src.JSON{
 
         return "\nWelcome, "+this.username+"!\n1. Set/Change Preferences\n2. Change Password\n3. View Past Bookings\n4. View Current Bookings\n5. Return to Main Menu\n\nWhat would you like to do?";
         
+    }
+
+    public void itinerary() {
+    	try {
+    	      FileWriter myWriter = new FileWriter("schedule");
+    	      for(int i=0;i<flightBookings.size();i++) {
+    			  myWriter.write(flightBookings.get(i).toString());
+    		  }
+    	      for(int i=0;i<hotelBookings.size();i++) {
+    			  myWriter.write(hotelBookings.get(i).toString());
+    		  }
+    	      myWriter.close();
+    	      System.out.println("Your itinerary has been created!");
+    	    } catch (IOException e) {
+    	      System.out.println("An error occurred.");
+    	      e.printStackTrace();
+    	    }
     }
 
     
