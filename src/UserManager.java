@@ -90,6 +90,13 @@ public class UserManager {
 
     public void changePassword(String password) {
         //TODO
+        boolean check=UserManager.currentUser.checkPassword(password);
+    	if(check) {
+    		UserManager.currentUser.password=newPassword;
+    	}
+    	else {
+    		System.out.println("Please enter your current password.");
+    	}
     }
     
 }
