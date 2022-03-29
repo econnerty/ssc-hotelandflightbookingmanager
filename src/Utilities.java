@@ -239,10 +239,8 @@ public class Utilities {
             double price = Double.parseDouble(jsonObject.get("price").toString());
             boolean smoking = Boolean.parseBoolean(jsonObject.get("smoking").toString());
             boolean petsAllowed = Boolean.parseBoolean(jsonObject.get("petsAllowed").toString());
-            int rating = Integer.parseInt(jsonObject.get("rating").toString());
-            Amenities[] amenities = new Amenities[];
 
-            hotels.put(uuid, new Hotel(uuid, availableRooms, hotel, price, city, smoking, petsAllowed, rooms, rating, amenities));
+            hotels.put(uuid, new Hotel(uuid, availableRooms, hotel, price, city, smoking, petsAllowed, rooms));
 
         }
 
