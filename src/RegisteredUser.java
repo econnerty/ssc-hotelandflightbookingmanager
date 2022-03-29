@@ -4,15 +4,10 @@ import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.UUID;
-<<<<<<< HEAD
 import java.io.FileWriter;
 import java.io.IOException;
-<<<<<<< HEAD
 import java.util.Scanner;
-=======
-=======
->>>>>>> origin/Shaine
->>>>>>> 9f6fe73ef85f4ac88f5a25ac07b2a6e6b64d329a
+
 
 import org.json.simple.JSONArray;
 
@@ -155,7 +150,6 @@ public class RegisteredUser extends User implements src.JSON{
     	else {
     		System.out.println("Invalid answer");
     	}
-    }
 
     public String menuString() {
 

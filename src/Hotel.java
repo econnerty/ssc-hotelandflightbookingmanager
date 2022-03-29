@@ -121,6 +121,10 @@ public class Hotel implements src.JSON{
                 + petsAllowed + ", price=" + price + ", rooms=" + Arrays.toString(rooms) + ", smoking=" + smoking
                 + ", uuid=" + uuid + "]";
     }
+
+    public String getHotelInfo() {
+        return "\tHotel: " + hotel + "\tCity: " + city + "\tPrice: " + price;
+    }
     
 
     /*//TODO Print out all the available rooms, whether they are booked or not, and the index that they are located at
