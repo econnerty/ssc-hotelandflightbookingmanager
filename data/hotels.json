@@ -1,21 +1,27 @@
 [
     {
-        "hotel":"Mariott Marquis",
-        "rooms":103,
+        "uuid":"23b931d6-6faa-4b64-aa35-989b4a567c7c",
+        "hotel":"MARRIOTT",
+        "availableRooms":103,
+        "rooms":[],
         "city":"San Francisco",
         "price":171.55,
         "smoking":true,
         "petsAllowed":true
     },{
-        "hotel":"Hilton Garden Inn",
-        "rooms":382,
+        "uuid":"6ac5567a-4644-4cba-a909-f49ffa97b790",
+        "hotel":"HILTON",
+        "availableRooms":73,
+        "rooms":[],
         "city":"New York City",
-        "price":157.88,
+        "price":90.12,
         "smoking":true,
         "petsAllowed":true
     },{
-        "hotel":"Kimpton Saint George",
-        "rooms":467,
+        "uuid":"86c7904c-ad29-4819-afb3-209478d3c1d6",
+        "hotel":"MARRIOTT",
+        "availableRooms":200,
+        "rooms":[],
         "city":"Toronto",
         "price":172.30,
         "smoking":true,

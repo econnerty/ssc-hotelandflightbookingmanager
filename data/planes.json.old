@@ -1,0 +1,39 @@
+[
+    {
+        "uuid":"186f6815-a348-4cf9-9c0d-494606529a06",
+        "airline":"DELTA",
+        "availableSeats":75,
+        "seats":[],
+        "destinationCity":"San Francisco",
+        "departureCity":"San Francisco",
+        "departureDate":"10/10/2019 14:30:04Z",
+        "arrivalDate":"10/10/2019 14:30:04Z",
+        "price":171.55,
+        "smoking":false,
+        "petsAllowed":true
+    },{
+        "uuid":"99450473-e501-4895-9594-59497377dff9",
+        "airline":"DELTA",
+        "availableSeats":83,
+        "seats":[],
+        "destinationCity":"San Francisco",
+        "departureCity":"New York City",
+        "departureDate":"10/10/2019 14:30:04Z",
+        "arrivalDate":"10/10/2019 14:30:04Z",
+        "price":157.88,
+        "smoking":false,
+        "petsAllowed":true
+    },{
+        "uuid":"dd3d88ea-b353-42d9-a2a9-61b6d579bbed",
+        "airline":"JET_BLUE",
+        "availableSeats":66,
+        "seats":[],
+        "destinationCity":"San Francisco",
+        "departureCity":"Toronto",
+        "departureDate":"10/10/2019 14:30:04Z",
+        "arrivalDate":"10/10/2019 14:30:04Z",
+        "price":172.30,
+        "smoking":false,
+        "petsAllowed":true
+      }
+  ]
