@@ -137,7 +137,7 @@ public class Utilities {
                     hotelBookings.add(new HotelBooking(UUID.fromString(jsonHotelBookings.get(i).toString()), index));
                 }
 
-                users.put(name, new RegisteredUser(name, password, dob, creationDate, flightBookings, hotelBookings, preferences));
+                //users.put(name, new RegisteredUser(name, password, dob, creationDate, flightBookings, hotelBookings, preferences));
 
 
             }
@@ -209,6 +209,7 @@ public class Utilities {
             
             for (Object object2 : layovers) {
                 sLayovers[i] = object2.toString();
+                System.out.println("LOAD layover " + object2.toString());
                 i++;
             }
 
@@ -318,10 +319,12 @@ public class Utilities {
             calendar.setTime(departureDate);
             calendar.add(Calendar.HOUR_OF_DAY, r.nextInt(4)+3);
 
-            String[] layovers = new String[r.nextInt(3)];
+            JSONArray layovers = new JSONArray();
 
-            for (int j = 0; j < layovers.length; j++) {
-                layovers[j] = cities[r.nextInt(cities.length)];
+            int layoverCount = r.nextInt(4)+1;
+
+            for (int j = 0; j < layoverCount; j++) {
+                layovers.add(cities[r.nextInt(cities.length)]);
             }
 
             Date arrivalDate = calendar.getTime();
@@ -346,7 +349,7 @@ public class Utilities {
             jsonObject.put("destinationCity",Utilities.cities[randomCity2]);
             jsonObject.put("departureDate", departureDate.toString());
             jsonObject.put("arrivalDate", arrivalDate.toString());
-            jsonObject.put("layovers", Arrays.toString(layovers));
+            jsonObject.put("layovers", layovers);
             jsonObject.put("price", price);
             jsonObject.put("smoking", (r.nextInt(10) < 1) ? true : false);
             jsonObject.put("petsAllowed", (r.nextInt(5) < 1) ? true : false);

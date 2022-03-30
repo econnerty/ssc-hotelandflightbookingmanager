@@ -9,6 +9,9 @@ public class GuestUser extends User implements src.JSON {
     public GuestUser() {
         super(name);
     }
+    public GuestUser(String name) {
+        super(name);
+    }
 
     public String menuString(){
 

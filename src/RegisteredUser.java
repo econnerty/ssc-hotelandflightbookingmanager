@@ -20,16 +20,18 @@ public class RegisteredUser extends User implements src.JSON{
     private ArrayList<FlightBooking> flightBookings = new ArrayList<>();
     private ArrayList<HotelBooking> hotelBookings = new ArrayList<>(); 
     private String[] preferences;
+    private ArrayList<GuestUser> guests;
 
     public RegisteredUser(String username, String password, Date dob, Date creationDate) {
         super(username, password, dob, creationDate);
     }
 
-    public RegisteredUser(String username, String password, Date dob, Date creationDate, ArrayList<FlightBooking> flightBookings, ArrayList<HotelBooking> hotelBookings, String[] preferences) {
+    public RegisteredUser(String username, String password, Date dob, Date creationDate, ArrayList<FlightBooking> flightBookings, ArrayList<HotelBooking> hotelBookings, String[] preferences, ArrayList<GuestUser> guests) {
         super(username, password, dob, creationDate);
         this.flightBookings = flightBookings;
         this.hotelBookings = hotelBookings;
         this.preferences = preferences;
+        this.guests = guests;
     }
 
     public ArrayList<FlightBooking> getFlightBookings() {
