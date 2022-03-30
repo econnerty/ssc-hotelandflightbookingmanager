@@ -140,7 +140,8 @@ public class Driver {
                 System.out.println("Pick the flight you would like to book, or 'back' ");
                 String in = input.nextLine();
                 if (!in.equalsIgnoreCase("back"))
-                    appManager.bookFlight(Integer.parseInt(in));
+                    if (!appManager.bookFlight(Integer.parseInt(in)))
+                        System.out.println("You tried to book a seat that was already taken");
                 break;
             case 6:
                 System.out.print("Search Hotels: ");
