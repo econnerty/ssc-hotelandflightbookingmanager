@@ -183,11 +183,16 @@ public class Plane implements src.JSON{
         String date;
         String departure;
         String destination;
+        String layovers = "";
+
+        if (this.layovers != null)
+            for (String temp : this.layovers)
+                layovers += temp + ", ";
         long flightTime = arrivalDate.getTime() - departureDate.getTime();
         long longMinutes= flightTime/60000;
         int hours = Math.toIntExact(longMinutes/60);
         int minutes = Math.toIntExact(longMinutes%60);
-        return "\tAirline: " + airline + "\tArrival Date: " + arrivalDate + "\tDeparture City: " + departureCity + "\tDestination: " + destinationCity + "\tPrice: " + price + "\tFlight Time: " + hours + " Hours and " + minutes + " minutes";
+        return "\tAirline: " + airline + "\tArrival Date: " + arrivalDate + "\tDeparture City: " + departureCity + "\tDestination: " + destinationCity +  "\tPrice: " + price +  "\tSeats Available: "+ availableSeats + "\tFlight Time: " + hours + " Hours and " + minutes + " minutes\n\tLayovers: "+layovers;
     }
 
     public void printSeats() {

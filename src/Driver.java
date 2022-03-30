@@ -33,8 +33,6 @@ public class Driver {
         else if (currentUser.getClass() == RegisteredUser.class)
             return registeredMainMenu();
 
-
-
         return false;
     }
 
