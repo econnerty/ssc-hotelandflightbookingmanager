@@ -27,16 +27,16 @@ public class FlightBooking extends Booking {
         try {
             ret += BookingManager.getInstance().getPlanes().get(this.uuid).getFlightInfo() + "\n\t Your seat is ";
             switch (index[0]) {
-                case 1:
+                case 0:
                     ret += 'A';
                     break;
-                case 2:
+                case 1:
                     ret += 'B';
                     break;
-                case 3:
+                case 2:
                     ret += 'C';
                     break;
-                case 4:
+                case 3:
                     ret += 'D';
                     break;
             }
