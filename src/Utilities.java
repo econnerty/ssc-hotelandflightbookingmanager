@@ -278,10 +278,21 @@ public class Utilities {
             boolean petsAllowed = Boolean.parseBoolean(jsonObject.get("petsAllowed").toString());
             double rating = Double.parseDouble(jsonObject.get("rating").toString());
 
-            hotels.put(uuid, new Hotel(uuid, availableRooms, hotel, price, city, smoking, petsAllowed, rooms,rating));
+            ArrayList<Amenities> amenities = new ArrayList<>();
+
+            JSONArray jsonAmenities = (JSONArray) jsonObject.get("amenities");
+
+            for (Object obj : jsonAmenities) {
+                amenities.add(Amenities.valueOf(obj.toString()));
+            }
+
+
+
+            hotels.put(uuid, new Hotel(uuid, availableRooms, hotel, price, city, smoking, petsAllowed, rooms,rating,amenities));
         }
         return hotels;
     }
+
     public static HashMap<UUID, Business> loadBusinesses() throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
         File file = new File(BUSINESS_JSON_PATH);
 

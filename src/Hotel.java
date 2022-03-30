@@ -1,8 +1,10 @@
 package src;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.ArrayBlockingQueue;
 
 public class Hotel implements src.JSON{
 
@@ -22,6 +24,8 @@ public class Hotel implements src.JSON{
     private boolean petsAllowed;
 
     private double rating;
+
+    private ArrayList<Amenities> amenities = new ArrayList<>();
 
     private boolean[][][] rooms = new boolean[LENGTH][WIDTH][FLOORS]; //Keeps track of all the available rooms whether they are booked or not
 
@@ -45,7 +49,7 @@ public class Hotel implements src.JSON{
 
     }
 
-    public Hotel(UUID uuid, int availableRooms, Hotels hotel, double price, String city, boolean smoking, boolean petsAllowed, boolean[][][] rooms, double rating) {
+    public Hotel(UUID uuid, int availableRooms, Hotels hotel, double price, String city, boolean smoking, boolean petsAllowed, boolean[][][] rooms, double rating, ArrayList<Amenities> amenities) {
 
         this.uuid = uuid;
         this.availableRooms = availableRooms;
@@ -56,6 +60,7 @@ public class Hotel implements src.JSON{
         this.petsAllowed = petsAllowed;
         this.rooms = rooms;
         this.rating = rating;
+        this.amenities = amenities;
 
     }
     public void bookRoom(HotelBooking booking) {

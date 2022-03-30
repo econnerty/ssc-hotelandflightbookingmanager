@@ -131,6 +131,8 @@ public class Driver {
                 System.out.println("Current Bookings: ");
                 for (FlightBooking booking : registeredUser.getFlightBookings())
                     System.out.println(booking.toString());
+                for (HotelBooking booking : registeredUser.getHotelBookings())
+                    System.out.println(booking.toString());
                 break;
             case 5:
                 System.out.print("Search Flights: ");

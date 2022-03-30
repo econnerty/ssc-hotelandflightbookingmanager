@@ -165,10 +165,10 @@ public class BookingManager {
 
         Hotel hotel = searchResultsHotel.get(choice-1);
 
-        hotel.bookRoom(new HotelBooking(searchResultsHotel.get(choice-1).getUUID(), new int[]{}));
+        hotel.bookRoom(new HotelBooking(searchResultsHotel.get(choice-1).getUUID(), new int[]{0,0,0}));
         addHotel(hotel);
 
-        registeredUser.addHotelBooking(new HotelBooking(searchResultsHotel.get(choice-1).getUUID(), new int[]{}));
+        registeredUser.addHotelBooking(new HotelBooking(searchResultsHotel.get(choice-1).getUUID(), new int[]{0,0,0}));
 
         
         try {
