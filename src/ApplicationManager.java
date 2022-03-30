@@ -56,7 +56,7 @@ public class ApplicationManager {
     }
 
     public void close() throws IOException{
-        //Utilities.saveHotels(bookingManager.getHotels()); //Uncomment this when to json object is complete
+        Utilities.saveHotels(bookingManager.getHotels()); //Uncomment this when to json object is complete
         Utilities.savePlanes(bookingManager.getPlanes());
         Utilities.saveUsers(userManager.getUsers());
     }
