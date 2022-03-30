@@ -79,6 +79,12 @@ public class UserManager {
         return true;
     }
 
+    public boolean updateUser(User user) throws IOException {
+        users.put(user.username, user);
+        Utilities.saveUsers(users);
+        return true;
+    }
+
     public HashMap<String, User> getUsers(){
         return this.users;
     }

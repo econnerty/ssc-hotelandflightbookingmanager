@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -11,6 +12,7 @@ import java.util.Scanner;
 
 
 import org.json.simple.JSONArray;
+import org.json.simple.parser.ParseException;
 
 import java.util.ArrayList;
 
@@ -19,7 +21,7 @@ public class RegisteredUser extends User implements src.JSON{
 
     private ArrayList<FlightBooking> flightBookings = new ArrayList<>();
     private ArrayList<HotelBooking> hotelBookings = new ArrayList<>(); 
-    private String[] preferences;
+    private String[] preferences; //Is this the right size?
     private ArrayList<GuestUser> guests;
 
     public RegisteredUser(String username, String password, Date dob, Date creationDate) {
@@ -42,11 +44,12 @@ public class RegisteredUser extends User implements src.JSON{
         return this.hotelBookings;
     }
 
-    public void setPreferences() {
+    public void setPreferences() throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
         //TODO
         Scanner input = new Scanner(System.in);
 
-        if(preferences.length==0) {
+        if(preferences == null) {
+            this.preferences = new String[7];
             System.out.println("Preferred Airline: ");
             String airline = input.nextLine();
             System.out.println("Usual Trip Type:\n1. Round-Trip\n2. One-Way\n3. Any");
@@ -106,6 +109,7 @@ public class RegisteredUser extends User implements src.JSON{
                 System.out.println("Invalid choice.");
             }
         }
+        UserManager.getInstance().updateUser(this);
     }
 
 
@@ -176,6 +180,14 @@ public class RegisteredUser extends User implements src.JSON{
         //System.out.println(dob);
         jsonObject.put("dob", Utilities.dobFormat.format(this.dob));
 
+        jsonObject.put("preferences",preferences);
+        JSONArray jsonPreferences = new JSONArray();
+        if (this.preferences != null)
+            for (String pref : this.preferences) {
+                jsonPreferences.add(pref);
+            }
+        jsonObject.put("preferences", jsonPreferences);
+
         JSONArray jsonFlight = new JSONArray();
         if (this.flightBookings != null)
             for (FlightBooking booking : this.flightBookings) {
@@ -194,6 +206,13 @@ public class RegisteredUser extends User implements src.JSON{
                 jsonHotel.add(String.valueOf(booking.getIndex()[2]));
             }
         jsonObject.put("hotelBookings", jsonHotel);
+
+        JSONArray jsonGuests = new JSONArray();
+        if (this.guests != null)
+            for (GuestUser guest : this.guests) {
+                jsonHotel.add(guest.username);
+            }
+        jsonObject.put("guests", jsonGuests);
     
         return jsonObject;
             

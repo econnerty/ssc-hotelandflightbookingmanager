@@ -22,7 +22,7 @@ public class Driver {
 
     private static final Scanner input = new Scanner(System.in);
 
-    private static boolean run() throws java.text.ParseException, IOException{
+    private static boolean run() throws java.text.ParseException, IOException, ParseException{
 
         if (currentUser.getClass() == GuestUser.class)
             return mainMenu();
@@ -109,9 +109,12 @@ public class Driver {
     }
 
 
-    public static boolean registeredMainMenu() {
+    public static boolean registeredMainMenu() throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
         
         //cheapest flights
+
+        RegisteredUser registeredUser = (RegisteredUser) currentUser;
+
 
         System.out.println(currentUser.menuString());
 
@@ -119,6 +122,7 @@ public class Driver {
 
         switch (action) {
             case 1:
+                registeredUser.setPreferences();
                 break;
             case 2:
                 break;

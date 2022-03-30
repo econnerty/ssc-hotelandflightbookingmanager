@@ -121,11 +121,18 @@ public class Utilities {
 
                 JSONArray jsonFlightBookings = (JSONArray) jsonObject.get("flightBookings");
                 JSONArray jsonHotelBookings = (JSONArray) jsonObject.get("hotelBookings");
+                JSONArray jsonPreferences = (JSONArray) jsonObject.get("preferences");
+                JSONArray jsonGuests = (JSONArray) jsonObject.get("guests");
                 
                 ArrayList<FlightBooking> flightBookings = new ArrayList<>();
                 ArrayList<HotelBooking> hotelBookings = new ArrayList<>();
+                ArrayList<GuestUser> guests = new ArrayList<>();
 
-                String[] preferences = new String[5]; //TODO Parse preferences
+                String[] preferences = new String[7]; //TODO Parse preferences
+
+                for (int i = 0; i < jsonPreferences.size(); i++) {
+                    preferences[i] = jsonPreferences.get(i).toString();
+                }
 
                 for(int i = 0; i < jsonFlightBookings.size(); i+=3) { //the way the json is stored, we have to jump forward by 3 to get to the next uuid
                     int [] index = {Integer.parseInt(jsonFlightBookings.get(i+1).toString()), Integer.parseInt(jsonFlightBookings.get(i+2).toString())};
@@ -137,7 +144,13 @@ public class Utilities {
                     hotelBookings.add(new HotelBooking(UUID.fromString(jsonHotelBookings.get(i).toString()), index));
                 }
 
-                //users.put(name, new RegisteredUser(name, password, dob, creationDate, flightBookings, hotelBookings, preferences));
+                for (int i = 0; i < jsonGuests.size(); i++) {
+                    guests.add(new GuestUser(jsonGuests.get(i).toString()));
+                }
+
+
+
+                users.put(name, new RegisteredUser(name, password, dob, creationDate, flightBookings, hotelBookings, preferences, guests));
 
 
             }
