@@ -4,10 +4,10 @@ import java.util.Map;
 
 public class GuestUser extends User implements src.JSON {
     
-    private static final String name = "Guest";
+    private static final String DEFAULT_NAME = "Guest";
 
     public GuestUser() {
-        super(name);
+        super(DEFAULT_NAME);
     }
     public GuestUser(String name) {
         super(name);
@@ -17,6 +17,14 @@ public class GuestUser extends User implements src.JSON {
 
         return "Hello, " +this.username+"!\n1. Sign Up\n2. Log In\n3. Search Flights\n4. Search Hotels\n5. Review a Hotel/Airlines\n6. Exit\n\nWhat would you like to do?"; 
     
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        GuestUser guest = (GuestUser) obj;
+        if (guest.getUsername().equalsIgnoreCase(this.username))
+            return true;
+        return false;
     }
 
     

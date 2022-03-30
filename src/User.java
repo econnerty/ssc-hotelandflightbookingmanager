@@ -16,7 +16,7 @@ public abstract class User {
     protected Date creationDate; //Date the user was created
 
     public User(String username) {
-        this.username = "Guest";
+        this.username = username;
     }
 
     public User(String username, String password, Date dob, Date creationDate) {

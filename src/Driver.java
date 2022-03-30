@@ -130,6 +130,9 @@ public class Driver {
             case 3:
                 break;
             case 4:
+                System.out.println("Current Bookings: ");
+                for (FlightBooking booking : registeredUser.getFlightBookings())
+                    System.out.println(booking.toString());
                 break;
             case 5:
                 System.out.print("Search Flights: ");
@@ -138,8 +141,38 @@ public class Driver {
                 String in = input.nextLine();
                 if (!in.equalsIgnoreCase("back"))
                     appManager.bookFlight(Integer.parseInt(in));
+                break;
             case 6:
+                System.out.print("Search Hotels: ");
+                appManager.searchHotels(input.nextLine());
+                System.out.println("Pick the hotel you would like to book, or 'back' ");
+                String hot = input.nextLine();
+                if(!hot.equalsIgnoreCase("back"));
+                    //appManager.bookHotel(Integer.parseInt(hot));
+                break;
+
+
+            case 7:
+                while (true) {
+                    System.out.println("What is your friend's name?");
+                    registeredUser.addFriends(input.nextLine());
+                    System.out.println("Add another friend (y/n)?");
+                    if (input.nextLine().equalsIgnoreCase("y"))
+                        continue;
+                    else
+                        break;
+                }
+                break;
             case 8:
+                System.out.println("Enter the name of the friend you would like to remove: ");
+                System.out.println("Current friends are: ");
+                for (GuestUser guest : registeredUser.getFriends()) {
+                    System.out.println(guest.username);
+                }
+                registeredUser.removeFriend(input.nextLine());
+                break;
+
+            case 10:
                 appManager.logout();
                 currentUser = appManager.getCurrentUser();
                 break;
