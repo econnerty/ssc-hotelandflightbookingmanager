@@ -7,8 +7,8 @@ import java.util.UUID;
 
 public class Plane implements src.JSON{
 
-    private static final int SEAT_COLUMNS = 4; //Hard Coded Plane Size
-    private static final int SEAT_ROWS = 20; //Hard Coded plane size
+    private static final int SEAT_COLUMNS = 20; //Hard Coded Plane Size
+    private static final int SEAT_ROWS = 4; //Hard Coded plane size
 
     private UUID uuid;
 
@@ -146,34 +146,15 @@ public class Plane implements src.JSON{
     }
 
     public void printSeats() {
-        int count = 1;
-        
         String out = "";
-        
-        System.out.println("    A         B                 C          D         ");
-
-        for (int i = 0; i < seats.length; i++){
-            int j = 0;
-            //out += count + " ";
-            if (count < 10)
-                out += " ";
-            while (j < seats[0].length/2){
-               
-                out += "[ " + "("+seats[i][j] + ")"+ " ]";
-                j++;
+        System.out.println("  A          B          C          D  ");
+        for(int row=0;row<seats.length;row++) {
+            for(int col=0;col<seats[row].length;col++) {
+                out+=Boolean.toString(seats[row][col])+"      ";
             }
-            out += "       |       ";
-            while (j < seats[0].length){
-                
-                out += "\t[ " + "("+seats[i][j] + ")"+ " ]";
-                j++;
-            }
-            out += "\n";
-            count++;
+            out+="\n";
         }
-
         System.out.println(out);
-
     }
 
 }
