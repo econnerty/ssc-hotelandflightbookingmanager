@@ -134,6 +134,13 @@ public class Hotel implements src.JSON{
         jsonObject.put("smoking", this.smoking);
         jsonObject.put("petsAllowed", this.petsAllowed);
         jsonObject.put("rating",this.rating);
+
+        JSONArray jsonAmenities = new JSONArray();
+
+        for (Amenities amen : amenities) {
+            jsonAmenities.add(amen.toString());
+        }
+        jsonObject.put("amenities", jsonAmenities);
         return jsonObject;
     }
 
