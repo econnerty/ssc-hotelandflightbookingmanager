@@ -3,8 +3,11 @@ package src;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.UUID;
 import java.util.concurrent.ArrayBlockingQueue;
+
+import org.json.simple.JSONArray;
 
 public class Hotel implements src.JSON{
 
@@ -121,7 +124,17 @@ public class Hotel implements src.JSON{
     }
 
     public Map toJsonObject() {
-        return null;
+        Map jsonObject = new LinkedHashMap<>();
+
+        jsonObject.put("uuid", this.uuid.toString());
+        jsonObject.put("availableRooms", this.availableRooms);
+        jsonObject.put("hotel", this.hotel);
+        jsonObject.put("price", this.price);
+        jsonObject.put("city",this.city);
+        jsonObject.put("smoking", this.smoking);
+        jsonObject.put("petsAllowed", this.petsAllowed);
+        jsonObject.put("rating",this.rating);
+        return jsonObject;
     }
 
     @Override
@@ -131,9 +144,14 @@ public class Hotel implements src.JSON{
                 + ", uuid=" + uuid + "]";
     }
     public String getHotelInfo() {
+<<<<<<< HEAD
+
+        return "\tHotel: " + hotel + "\tCity: " + city + "\tPrice: " + price;
+=======
         
         return "\tHotel: " + hotel + "\tCity: " + city + "\tPrice: " + price+"\tAvailable Rooms: "
             +availableRooms+"\tSmoking Allowed: "+smoking+"\tPets Allowed: "+petsAllowed+"\tRating: "+rating+"/5.";
+>>>>>>> 4e02e71dd3748384c89f31de760239480e188177
     }
     
 
