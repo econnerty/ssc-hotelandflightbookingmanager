@@ -155,7 +155,12 @@ public class Plane implements src.JSON{
         System.out.println("  A          B          C          D  ");
         for(int row=0;row<seats.length;row++) {
             for(int col=0;col<seats[row].length;col++) {
-                out+=Boolean.toString(seats[row][col])+"      ";
+                if(seats[row][col]==true) {
+                    out+=("+"+"      ");
+                }
+                else {
+                    out+=("-"+"      ");
+                }
             }
             out+="\n";
         }
