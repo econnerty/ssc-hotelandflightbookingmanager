@@ -165,18 +165,22 @@ public class BookingManager {
 
         Hotel hotel = searchResultsHotel.get(choice-1);
 
-        hotel.bookRoom(new HotelBooking(searchResultsHotel.get(choice-1).getUUID(), new int[]{0,0,0}));
-        addHotel(hotel);
+        if (hotel.bookRoom(new HotelBooking(searchResultsHotel.get(choice-1).getUUID(), new int[]{0,0,0}))) {
+            addHotel(hotel);
 
-        registeredUser.addHotelBooking(new HotelBooking(searchResultsHotel.get(choice-1).getUUID(), new int[]{0,0,0}));
+            registeredUser.addHotelBooking(new HotelBooking(searchResultsHotel.get(choice-1).getUUID(), new int[]{0,0,0}));
+            
 
-        
-        try {
-            UserManager.getInstance().updateUser(registeredUser);
-        } catch (IOException e) {
-            e.printStackTrace();
+            
+            try {
+                UserManager.getInstance().updateUser(registeredUser);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return true;
         }
-        return true;
+        return false;
+      
     }
 
     public HashMap<UUID,Plane> getPlanes(){
@@ -223,7 +227,6 @@ public class BookingManager {
     }
     private void addHotel(Hotel hotel) throws IOException {
         hotels.put(hotel.getUUID(), hotel);
-        System.out.println(hotels.size());
         Utilities.saveHotels(hotels); //Uncomment this when toJSON OBject is complete
     }
     private double doubleParser(String str) {

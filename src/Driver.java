@@ -149,7 +149,9 @@ public class Driver {
                 System.out.println("Pick the hotel you would like to book, or 'back' ");
                 String hot = input.nextLine();
                 if(!hot.equalsIgnoreCase("back"));
-                    appManager.bookHotel(Integer.parseInt(hot));
+                    if(!appManager.bookHotel(Integer.parseInt(hot)))
+                        System.out.println("No more rooms or somethin");
+
                 break;
 
 
