@@ -25,7 +25,7 @@ public class Utilities {
     //private static final String DATE_FORMAT = "MM/dd/yyyy' 'HH:mm:ss'Z'";
     private static final String DATE_FORMAT = "EEE MMM dd HH:mm:ss zzz yyyy";
 
-    private static final Scanner input = new Scanner(System.in);
+    public static final Scanner input = new Scanner(System.in);
 
 
     private static MessageDigest md;
@@ -320,7 +320,7 @@ public class Utilities {
 
             JSONArray layovers = new JSONArray();
 
-            int layoverCount = r.nextInt(4)+1;
+            int layoverCount = r.nextInt(4);
 
             for (int j = 0; j < layoverCount; j++) {
                 layovers.add(cities[r.nextInt(cities.length)]);
