@@ -266,8 +266,9 @@ public class Utilities {
             double price = Double.parseDouble(jsonObject.get("price").toString());
             boolean smoking = Boolean.parseBoolean(jsonObject.get("smoking").toString());
             boolean petsAllowed = Boolean.parseBoolean(jsonObject.get("petsAllowed").toString());
+            double rating = Double.parseDouble(jsonObject.get("rating").toString());
 
-            hotels.put(uuid, new Hotel(uuid, availableRooms, hotel, price, city, smoking, petsAllowed, rooms));
+            hotels.put(uuid, new Hotel(uuid, availableRooms, hotel, price, city, smoking, petsAllowed, rooms,rating));
         }
         return hotels;
     }

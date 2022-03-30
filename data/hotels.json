@@ -30,7 +30,7 @@
         "petsAllowed":true
 
     },{
-        "uuid":"86c7904c-ad29-4819-afb3-209478d3c1d6",
+        "uuid":"86c7904c-ad29-4819-afb3-20947gh3c1d6",
         "hotel":"HOLIDAY INN",
         "availableRooms":200,
         "rooms":[],
@@ -38,37 +38,37 @@
         "price":103.47,
         "smoking":false,
         "petsAllowed":true,
-        "amenities:":[]
+        "amenities:":["POOL", "ON_SITE_PARKING", "MINI_FRIDGE", "FREE_BREAKFAST", "FREE_PARKING", "FREE_WIFI", "GYM", "HAIR_TOOLS", "CLOTHING_IRON", "LAUNDRY_SERVICES"]
     },{
-        "uuid":"86c7904c-ad29-4819-afb3-209478d3c1d6",
+        "uuid":"86c7904c-ad29-4819-afb3-20947le3c1d6",
         "hotel":"DAYS INN",
         "availableRooms":200,
         "rooms":[],
         "city":"Seattle",
-        "price":103.47,
+        "price":205.97,
         "smoking":true,
         "petsAllowed":false,
-        "amenities:":[]
+        "amenities:":["POOL", "BAR", "ON_SITE_PARKING", "MINI_FRIDGE", "BATHROBES", "FREE_PARKING", "FREE_WIFI", "GYM", "SPA", "HAIR_TOOLS", "CLOTHING_IRON", "LAUNDRY_SERVICES", "NEWSPAPER"]
     },{
         "uuid":"86c7904c-ad29-4819-afb3-20947dv3c1d6",
         "hotel":"BAYMONT BY WYNDHAM",
         "availableRooms":200,
         "rooms":[],
         "city":"Seattle",
-        "price":103.47,
+        "price":174.67,
         "smoking":false,
         "petsAllowed":false,
-        "amenities:":[]
+        "amenities:":["TWENTYFOUR_HOUR_PARKING", "BAR", "ON_SITE_PARKING", "MINI_FRIDGE", "FREE_BREAKFAST", "BATHROBES", "FREE_WIFI", "SPA", "HAIR_TOOLS", "CLOTHING_IRON", "LAUNDRY_SERVICES", "NEWSPAPER"]
     },{
-        "uuid":"86c7904c-ad29-4819-afb3-209478d3c1d6",
+        "uuid":"86c7904c-ad29-4819-afb3-209478jdc1d6",
         "hotel":"HAMPTON INN",
         "availableRooms":200,
         "rooms":[],
         "city":"Seattle",
-        "price":103.47,
+        "price":203.40,
         "smoking":false,
         "petsAllowed":false,
-        "amenities:":[]
+        "amenities:":["POOL", "ON_SITE_PARKING", "MINI_FRIDGE", "FREE_BREAKFAST", "BATHROBES", "FREE_PARKING", "FREE_WIFI", "SAUNA", "SPA", "HAIR_TOOLS", "CLOTHING_IRON", "NEWSPAPER"]
     }
     
   ]

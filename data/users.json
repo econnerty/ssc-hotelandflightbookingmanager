@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-[{"type":"registered","username":"tom","creationDate":"Tue Mar 29 22:06:35 EDT 2022","password":"12345","dob":"11\/04\/1995","preferences":["delta","one way","marriott","highest","lowest","economy","y"],"flightBookings":[],"hotelBookings":[],"guests":[]}]
-=======
 [{"type":"registered","username":"tom","creationDate":"Wed Mar 30 00:38:02 EDT 2022","password":"1234","dob":"11\/04\/1995","preferences":[],"flightBookings":["954bbc5b-6f1e-4006-853f-45234dbac478","1","4","954bbc5b-6f1e-4006-853f-45234dbac478","1","1"],"hotelBookings":[],"guests":["bob"]}]
->>>>>>> 93e973fdcea0f103788f57b5ef7f5e1d8d950c93
