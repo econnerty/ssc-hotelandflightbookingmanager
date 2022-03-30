@@ -19,6 +19,7 @@ public class BookingManager {
     private static HashMap<UUID, Business> businesses;
 
     private static ArrayList<Plane> searchResults;
+    private static ArrayList<Hotel> searchResultsHotel;
 
 
     private BookingManager() throws FileNotFoundException, IOException, ParseException, java.text.ParseException{
@@ -45,6 +46,16 @@ public class BookingManager {
         int i = 1;
         for(Plane plane : searchResults){
             System.out.println(i + plane.getFlightInfo());
+            i++;
+        }
+    }
+    
+    public void searchHotels(String search) {
+        System.out.println("Flight searches for: \""+search+"\"");
+        searchResultsHotel = bookingManager.getHotels(search);
+        int i = 1;
+        for(Hotel hotel : searchResultsHotel){
+            System.out.println(i + hotel.getHotelInfo());
             i++;
         }
     }
@@ -137,6 +148,37 @@ public class BookingManager {
         return true;
     }
 
+    public boolean bookHotel(int choice) throws ParseException, java.text.ParseException, FileNotFoundException, IOException{
+
+        if (choice >= searchResultsHotel.size()){
+            System.out.println("Invalid Choice");
+            return false;
+        }
+        //System.out.println("Choose a seat in the format for you and each of your guests (A4, A5): ");
+
+
+        //searchResults.get(choice-1).printSeats(); //its minus one because the user will input 1 but the index is zero
+        
+
+
+        RegisteredUser registeredUser = (RegisteredUser) UserManager.getInstance().getCurrentUser();
+
+        Hotel hotel = searchResultsHotel.get(choice-1);
+
+        hotel.bookRoom(new HotelBooking(searchResultsHotel.get(choice-1).getUUID(), new int[]{}));
+        addHotel(hotel);
+
+        registeredUser.addHotelBooking(new HotelBooking(searchResultsHotel.get(choice-1).getUUID(), new int[]{}));
+
+        
+        try {
+            UserManager.getInstance().updateUser(registeredUser);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
     public HashMap<UUID,Plane> getPlanes(){
         return this.planes;
     }
@@ -175,9 +217,13 @@ public class BookingManager {
         return results;
     }
 
-    public void addPlane(Plane plane) throws IOException {
+    private void addPlane(Plane plane) throws IOException {
         planes.put(plane.getUUID(), plane);
         Utilities.savePlanes(planes);
+    }
+    private void addHotel(Hotel hotel) throws IOException {
+        hotels.put(hotel.getUUID(), hotel);
+        //Utilities.saveHotels(hotels); //Uncomment this when toJSON OBject is complete
     }
     private double doubleParser(String str) {
         double val;
