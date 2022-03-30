@@ -286,8 +286,6 @@ public class Utilities {
                 amenities.add(Amenities.valueOf(obj.toString()));
             }
 
-
-
             hotels.put(uuid, new Hotel(uuid, availableRooms, hotel, price, city, smoking, petsAllowed, rooms,rating,amenities));
         }
         return hotels;

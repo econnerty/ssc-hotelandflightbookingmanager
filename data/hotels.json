@@ -1,48 +1,47 @@
 [
-{
-        "uuid":"9c8de780-aeb0-442b-b87e-8f92547cd7f4",
-        "hotel":"HOLIDAY_INN",
-        "availableRooms":200,
-        "rooms":[],
-        "rating":1.5,
-        "city":"Seattle",
-        "price":103.47,
-        "smoking":false,
-        "petsAllowed":true,
-        "amenities":["POOL", "ON_SITE_PARKING", "MINI_FRIDGE", "FREE_BREAKFAST", "FREE_PARKING", "FREE_WIFI", "GYM", "HAIR_TOOLS", "CLOTHING_IRON", "LAUNDRY_SERVICES"]
-    },{
-        "uuid":"9c8de780-aeb0-442b-b87e-8f92547bd7a4",
-        "hotel":"DAYS_INN",
-        "availableRooms":200,
-        "rooms":[],
-        "rating":2.5,
-        "city":"Seattle",
-        "price":205.97,
-        "smoking":true,
-        "petsAllowed":false,
-        "amenities":["POOL", "BAR", "ON_SITE_PARKING", "MINI_FRIDGE", "BATHROBES", "FREE_PARKING", "FREE_WIFI", "GYM", "SPA", "HAIR_TOOLS", "CLOTHING_IRON", "LAUNDRY_SERVICES", "NEWSPAPER"]
-    },{
-        "uuid":"9c8de780-aeb0-442b-b87e-8f92547bd7f1",
-        "hotel":"WYNDHAM",
-        "availableRooms":200,
-        "rooms":[],
-        "rating":4.5,
-        "city":"Seattle",
-        "price":174.67,
-        "smoking":false,
-        "petsAllowed":false,
-        "amenities":["DOUBLE_BEDS", "TWENTYFOUR_HOUR_PARKING", "BAR", "ON_SITE_PARKING", "MINI_FRIDGE", "FREE_BREAKFAST", "BATHROBES", "FREE_WIFI", "SPA", "HAIR_TOOLS", "CLOTHING_IRON", "LAUNDRY_SERVICES", "NEWSPAPER"]
-    },{
-        "uuid":"9c8de780-aeb0-442b-b87e-8f92547bd7f5",
-        "hotel":"HAMPTON_INN",
-        "availableRooms":200,
-        "rooms":[],
-        "city":"Seattle",
-        "rating":4.9,
-        "price":203.40,
-        "smoking":false,
-        "petsAllowed":false,
-        "amenities":["DOUBLE_BEDS", "POOL", "ON_SITE_PARKING", "MINI_FRIDGE", "FREE_BREAKFAST", "BATHROBES", "FREE_PARKING", "FREE_WIFI", "SAUNA", "SPA", "HAIR_TOOLS", "CLOTHING_IRON", "NEWSPAPER"]
-    }
-    
-  ]
+    {
+            "uuid":"9c8de780-aeb0-442b-b87e-8f92547cd7f4",
+            "hotel":"HOLIDAY_INN",
+            "availableRooms":200,
+            "rooms":[],
+            "rating":1.5,
+            "city":"Seattle",
+            "price":103.47,
+            "smoking":false,
+            "petsAllowed":true,
+            "amenities":["POOL", "ON_SITE_PARKING", "MINI_FRIDGE", "FREE_BREAKFAST", "FREE_PARKING", "FREE_WIFI", "GYM", "HAIR_TOOLS", "CLOTHING_IRON", "LAUNDRY_SERVICES"]
+        },{
+            "uuid":"9c8de780-aeb0-442b-b87e-8f92547bd7a4",
+            "hotel":"DAYS_INN",
+            "availableRooms":200,
+            "rooms":[],
+            "rating":2.5,
+            "city":"Seattle",
+            "price":205.97,
+            "smoking":true,
+            "petsAllowed":false,
+            "amenities":["POOL", "BAR", "ON_SITE_PARKING", "MINI_FRIDGE", "BATHROBES", "FREE_PARKING", "FREE_WIFI", "GYM", "SPA", "HAIR_TOOLS", "CLOTHING_IRON", "LAUNDRY_SERVICES", "NEWSPAPER"]
+        },{
+            "uuid":"9c8de780-aeb0-442b-b87e-8f92547bd7f1",
+            "hotel":"WYNDHAM",
+            "availableRooms":200,
+            "rooms":[],
+            "rating":4.5,
+            "city":"Seattle",
+            "price":174.67,
+            "smoking":false,
+            "petsAllowed":false,
+            "amenities":["TWENTYFOUR_HOUR_PARKING", "BAR", "ON_SITE_PARKING", "MINI_FRIDGE", "FREE_BREAKFAST", "BATHROBES", "FREE_WIFI", "SPA", "HAIR_TOOLS", "CLOTHING_IRON", "LAUNDRY_SERVICES", "NEWSPAPER"]
+        },{
+            "uuid":"9c8de780-aeb0-442b-b87e-8f92547bd7f5",
+            "hotel":"HAMPTON_INN",
+            "availableRooms":200,
+            "rooms":[],
+            "city":"Seattle",
+            "rating":4.9,
+            "price":203.40,
+            "smoking":false,
+            "petsAllowed":false,
+            "amenities":["POOL", "ON_SITE_PARKING", "MINI_FRIDGE", "FREE_BREAKFAST", "BATHROBES", "FREE_PARKING", "FREE_WIFI", "SAUNA", "SPA", "HAIR_TOOLS", "CLOTHING_IRON", "NEWSPAPER"]
+        }
+        
