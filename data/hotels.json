@@ -1,70 +1,44 @@
 [
-    {
-        "uuid":"23b931d6-6faa-4b64-aa35-989b4a567c7c",
-        "hotel":"MARRIOTT",
-        "availableRooms":103,
-        "rating":4.5,
-        "rooms":[],
-        "city":"San Francisco",
-        "price":171.55,
-        "smoking":true,
-        "petsAllowed":true,
-        "amenities":["sdfsd","sdfsdf"]
-    },{
-        "uuid":"6ac5567a-4644-4cba-a909-f49ffa97b790",
-        "hotel":"HILTON",
-        "availableRooms":73,
-        "rooms":[],
-        "city":"New York City",
-        "price":90.12,
-        "smoking":true,
-        "petsAllowed":true
-    },{
-        "uuid":"86c7904c-ad29-4819-afb3-209478d3c1d6",
-        "hotel":"MARRIOTT",
+{
+        "uuid":"9c8de780-aeb0-442b-b87e-8f92547cd7f4",
+        "hotel":"HOLIDAY_INN",
         "availableRooms":200,
         "rooms":[],
-        "city":"Toronto",
-        "price":172.30,
-        "smoking":true,
-        "petsAllowed":true
-
-    },{
-        "uuid":"86c7904c-ad29-4819-afb3-20947gh3c1d6",
-        "hotel":"HOLIDAY INN",
-        "availableRooms":200,
-        "rooms":[],
+        "rating":1.5,
         "city":"Seattle",
         "price":103.47,
         "smoking":false,
         "petsAllowed":true,
         "amenities:":["POOL", "ON_SITE_PARKING", "MINI_FRIDGE", "FREE_BREAKFAST", "FREE_PARKING", "FREE_WIFI", "GYM", "HAIR_TOOLS", "CLOTHING_IRON", "LAUNDRY_SERVICES"]
     },{
-        "uuid":"86c7904c-ad29-4819-afb3-20947le3c1d6",
-        "hotel":"DAYS INN",
+        "uuid":"9c8de780-aeb0-442b-b87e-8f92547bd7a4",
+        "hotel":"DAYS_INN",
         "availableRooms":200,
         "rooms":[],
+        "rating":2.5,
         "city":"Seattle",
         "price":205.97,
         "smoking":true,
         "petsAllowed":false,
         "amenities:":["POOL", "BAR", "ON_SITE_PARKING", "MINI_FRIDGE", "BATHROBES", "FREE_PARKING", "FREE_WIFI", "GYM", "SPA", "HAIR_TOOLS", "CLOTHING_IRON", "LAUNDRY_SERVICES", "NEWSPAPER"]
     },{
-        "uuid":"86c7904c-ad29-4819-afb3-20947dv3c1d6",
-        "hotel":"BAYMONT BY WYNDHAM",
+        "uuid":"9c8de780-aeb0-442b-b87e-8f92547bd7f1",
+        "hotel":"WYNDHAM",
         "availableRooms":200,
         "rooms":[],
+        "rating":4.5,
         "city":"Seattle",
         "price":174.67,
         "smoking":false,
         "petsAllowed":false,
         "amenities:":["TWENTYFOUR_HOUR_PARKING", "BAR", "ON_SITE_PARKING", "MINI_FRIDGE", "FREE_BREAKFAST", "BATHROBES", "FREE_WIFI", "SPA", "HAIR_TOOLS", "CLOTHING_IRON", "LAUNDRY_SERVICES", "NEWSPAPER"]
     },{
-        "uuid":"86c7904c-ad29-4819-afb3-209478jdc1d6",
-        "hotel":"HAMPTON INN",
+        "uuid":"9c8de780-aeb0-442b-b87e-8f92547bd7f5",
+        "hotel":"HAMPTON_INN",
         "availableRooms":200,
         "rooms":[],
         "city":"Seattle",
+        "rating":4.9,
         "price":203.40,
         "smoking":false,
         "petsAllowed":false,

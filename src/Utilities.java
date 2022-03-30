@@ -256,7 +256,6 @@ public class Utilities {
         for (Object object : jsonArray) {
 
             JSONObject jsonObject = (JSONObject) object;
-;
 
             UUID uuid = UUID.fromString(jsonObject.get("uuid").toString());
             Hotels hotel = Hotels.valueOf(jsonObject.get("hotel").toString());
