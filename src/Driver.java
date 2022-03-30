@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public class Driver {
 
-    private static User currentUser = new GuestUser();
+    private static User currentUser;
     private static ApplicationManager appManager;
 
     private static final String[] types = {"Business", "Registered"};
@@ -23,6 +23,8 @@ public class Driver {
     private static final Scanner input = new Scanner(System.in);
 
     private static boolean run() throws java.text.ParseException, IOException, ParseException{
+
+        currentUser = appManager.getCurrentUser();
 
         if (currentUser.getClass() == GuestUser.class)
             return mainMenu();
@@ -97,8 +99,6 @@ public class Driver {
                 break;
             case 6:
                 appManager.logout();
-                break;
-            case 7:
                 appManager.close();
                 input.close();
                 return false;
@@ -129,6 +129,10 @@ public class Driver {
             case 3:
                 break;
             case 4:
+                break;
+            case 8:
+                appManager.logout();
+                currentUser = appManager.getCurrentUser();
                 break;
             default:
                 break;

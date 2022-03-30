@@ -48,7 +48,7 @@ public class ApplicationManager {
         
     }
 
-    public void logout() {
+    public void logout() throws IOException {
         userManager.logout();
     }
 

@@ -35,10 +35,8 @@ public class UserManager {
      */
     public User getCurrentUser(){
 
-        if (UserManager.currentUser == null) {
-            System.out.println("You need to login first.");
-            return null;
-        }
+        if (UserManager.currentUser == null)
+            this.currentUser = new GuestUser();
 
         return UserManager.currentUser;
     }
@@ -89,8 +87,9 @@ public class UserManager {
         return this.users;
     }
 
-    public void logout() {
-        //TODO
+    public void logout() throws IOException {
+        if (currentUser.getClass() != GuestUser.class)
+            updateUser(UserManager.currentUser);
         this.currentUser = new GuestUser();
     }
 

@@ -112,6 +112,12 @@ public class RegisteredUser extends User implements src.JSON{
         UserManager.getInstance().updateUser(this);
     }
 
+    public void changePassword() {
+        System.out.println("Enter your new password: ");
+        Scanner input = new Scanner(System.in);
+
+    }
+
 
     public void addHotelBooking(HotelBooking booking) {
     	//TODO
@@ -162,7 +168,7 @@ public class RegisteredUser extends User implements src.JSON{
 
     public String menuString() {
 
-        return "\nWelcome, "+this.username+"!\n1. Set/Change Preferences\n2. Change Password\n3. View Past Bookings\n4. View Current Bookings\n5. Search/Book a Flight\n6. Search/ Book a hotel\n7. Add a friend\n8. Return to Main Menu\n\nWhat would you like to do?";
+        return "\nWelcome, "+this.username+"!\n1. Set/Change Preferences\n2. Change Password\n3. View Past Bookings\n4. View Current Bookings\n5. Search/Book a Flight\n6. Search/Book a Hotel\n7. Add a friend\n8. Log Out\n\nWhat would you like to do?";
         
     }
 
