@@ -19,7 +19,7 @@ public class Utilities {
     private static final String USER_JSON_PATH = "data/users.json";
     private static final String PLANE_JSON_PATH = "data/planes.json";
     private static final String HOTEL_JSON_PATH = "data/hotels.json";
-    private static final String BUSINESS_JSON_PATH = "data/hotels.json";
+    private static final String BUSINESS_JSON_PATH = "data/businesses.json";
 
     private static final String DOB_FORMAT = "MM/dd/yyyy";
     //private static final String DATE_FORMAT = "MM/dd/yyyy' 'HH:mm:ss'Z'";

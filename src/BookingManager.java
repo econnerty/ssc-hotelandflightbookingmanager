@@ -15,11 +15,15 @@ public class BookingManager {
     private static HashMap<UUID,Plane> planes; //We will store all the planes in this hashmap. The uuid will be the key.
     private static HashMap<UUID,Hotel> hotels; //We will store all the hotels in this hashmap. The uuid will be the key.
 
+    private static HashMap<UUID, Business> businesses;
+
 
     private BookingManager() throws FileNotFoundException, IOException, ParseException, java.text.ParseException{
 
         planes = Utilities.loadPlanes(); //This should allow us to get the full list of planes from the JSON
         hotels = Utilities.loadHotels(); //This should allow us to get the full list of hotels from the JSON
+        businesses = Utilities.loadBusinesses();
+
 
     }
 
