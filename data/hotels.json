@@ -3,11 +3,13 @@
         "uuid":"23b931d6-6faa-4b64-aa35-989b4a567c7c",
         "hotel":"MARRIOTT",
         "availableRooms":103,
+        "rating":4.5,
         "rooms":[],
         "city":"San Francisco",
         "price":171.55,
         "smoking":true,
-        "petsAllowed":true
+        "petsAllowed":true,
+        "amenities":["sdfsd","sdfsdf"]
     },{
         "uuid":"6ac5567a-4644-4cba-a909-f49ffa97b790",
         "hotel":"HILTON",
@@ -26,5 +28,47 @@
         "price":172.30,
         "smoking":true,
         "petsAllowed":true
-      }
+
+    },{
+        "uuid":"86c7904c-ad29-4819-afb3-209478d3c1d6",
+        "hotel":"HOLIDAY INN",
+        "availableRooms":200,
+        "rooms":[],
+        "city":"Seattle",
+        "price":103.47,
+        "smoking":false,
+        "petsAllowed":true,
+        "amenities:":[]
+    },{
+        "uuid":"86c7904c-ad29-4819-afb3-209478d3c1d6",
+        "hotel":"DAYS INN",
+        "availableRooms":200,
+        "rooms":[],
+        "city":"Seattle",
+        "price":103.47,
+        "smoking":true,
+        "petsAllowed":false,
+        "amenities:":[]
+    },{
+        "uuid":"86c7904c-ad29-4819-afb3-209478d3c1d6",
+        "hotel":"BAYMONT BY WYNDHAM",
+        "availableRooms":200,
+        "rooms":[],
+        "city":"Seattle",
+        "price":103.47,
+        "smoking":false,
+        "petsAllowed":false,
+        "amenities:":[]
+    },{
+        "uuid":"86c7904c-ad29-4819-afb3-209478d3c1d6",
+        "hotel":"HAMPTON INN",
+        "availableRooms":200,
+        "rooms":[],
+        "city":"Seattle",
+        "price":103.47,
+        "smoking":false,
+        "petsAllowed":false,
+        "amenities:":[]
+    }
+    
   ]
