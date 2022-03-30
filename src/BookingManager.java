@@ -50,13 +50,27 @@ public class BookingManager {
     }
 
     public void bookFlight(int choice) throws ParseException, java.text.ParseException, FileNotFoundException, IOException{
-        System.out.println("Choose a seat in the format (A4, A5): ");
+        System.out.println("Choose a seat in the format for you and each of your guests (A4, A5): ");
 
         searchResults.get(choice-1).printSeats();
         Scanner input = new Scanner(System.in);
-        String seats[] = input.nextLine().split(",");
+        
+
 
         RegisteredUser registeredUser = (RegisteredUser) UserManager.getInstance().getCurrentUser();
+
+        String seats[] = new String[registeredUser.getFriends().size()+1];
+
+        for (int i = 0; i < seats.length; i++){
+            if (i == 0) {
+                System.out.println("Please enter the seat for yourself in the format (A1): ");
+                seats[i] = input.nextLine();
+            }
+            else {
+                System.out.println("Please enter the seat for " +registeredUser.getFriends().get(i-1).username + " in the format (A2): ");
+                seats[i] = input.nextLine();
+            }
+        }
 
         for (String seat : seats){
             switch (seat.charAt(0)) {
@@ -86,6 +100,13 @@ public class BookingManager {
                 e.printStackTrace();
             }
         }
+    }
+
+    public HashMap<UUID,Plane> getPlanes(){
+        return this.planes;
+    }
+    public HashMap<UUID, Hotel> getHotels(){
+        return this.hotels;
     }
 
     public ArrayList<Plane> getFlights(String search) {

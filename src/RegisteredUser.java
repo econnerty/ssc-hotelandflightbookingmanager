@@ -28,6 +28,13 @@ public class RegisteredUser extends User implements src.JSON{
         super(username, password, dob, creationDate);
     }
 
+    public RegisteredUser(String username, String password, Date dob, Date creationDate, ArrayList<FlightBooking> flightBookings, ArrayList<HotelBooking> hotelBookings, ArrayList<GuestUser> guests) {
+        super(username, password, dob, creationDate);
+        this.flightBookings = flightBookings;
+        this.hotelBookings = hotelBookings;
+        this.guests = guests;
+    }
+
     public RegisteredUser(String username, String password, Date dob, Date creationDate, ArrayList<FlightBooking> flightBookings, ArrayList<HotelBooking> hotelBookings, String[] preferences, ArrayList<GuestUser> guests) {
         super(username, password, dob, creationDate);
         this.flightBookings = flightBookings;
@@ -112,6 +119,34 @@ public class RegisteredUser extends User implements src.JSON{
         UserManager.getInstance().updateUser(this);
     }
 
+    public void addFriends(String name) {
+        if (this.guests == null)
+            this.guests = new ArrayList<GuestUser>();
+        guests.add(new GuestUser(name));
+        try {
+            UserManager.getInstance().updateUser(this);
+        } catch (IOException | ParseException | java.text.ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public void removeFriend(String name) {
+        if (this.guests == null)
+            this.guests = new ArrayList<GuestUser>();
+        guests.remove(new GuestUser(name));
+        try {
+            UserManager.getInstance().updateUser(this);
+        } catch (IOException | ParseException | java.text.ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<GuestUser> getFriends() {
+        return this.guests;
+    }
+
     public void changePassword() {
         System.out.println("Enter your new password: ");
         Scanner input = new Scanner(System.in);
@@ -175,7 +210,7 @@ public class RegisteredUser extends User implements src.JSON{
 
     public String menuString() {
 
-        return "\nWelcome, "+this.username+"!\n1. Set/Change Preferences\n2. Change Password\n3. View Past Bookings\n4. View Current Bookings\n5. Search/Book a Flight\n6. Search/Book a Hotel\n7. Add a friend\n8. Log Out\n\nWhat would you like to do?";
+        return "\nWelcome, "+this.username+"!\n1. Set/Change Preferences\n2. Change Password\n3. View Past Bookings\n4. View Current Bookings\n5. Search/Book a Flight\n6. Search/Book a Hotel\n7. Add a friend\n8. Remove a friend\n9. Log Out\n\nWhat would you like to do?";
         
     }
 
@@ -223,7 +258,7 @@ public class RegisteredUser extends User implements src.JSON{
         JSONArray jsonGuests = new JSONArray();
         if (this.guests != null)
             for (GuestUser guest : this.guests) {
-                jsonHotel.add(guest.username);
+                jsonGuests.add(guest.username);
             }
         jsonObject.put("guests", jsonGuests);
     

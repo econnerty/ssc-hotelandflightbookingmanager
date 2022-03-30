@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 public class Plane implements src.JSON{
 
@@ -142,7 +143,9 @@ public class Plane implements src.JSON{
         String date;
         String departure;
         String destination;
-        return "\tAirline: " + airline + "\tArrival Date: " + arrivalDate + "\tDeparture City: " + departureCity + "\tDestination: " + destinationCity + "\tPrice: " + price;
+        long flightTime = arrivalDate.getTime() - departureDate.getTime();
+        
+        return "\tAirline: " + airline + "\tArrival Date: " + arrivalDate + "\tDeparture City: " + departureCity + "\tDestination: " + destinationCity + "\tPrice: " + price + "\tFlight Time: " + flightTime;
     }
 
     public void printSeats() {
