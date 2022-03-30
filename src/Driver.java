@@ -139,7 +139,7 @@ public class Driver {
                 String in = input.nextLine();
                 if (!in.equalsIgnoreCase("back"))
                     if (!appManager.bookFlight(Integer.parseInt(in)))
-                        System.out.println("You tried to book a seat that was already taken");
+                        System.out.println("Unable to book a seat or you backed out");
                 break;
             case 6:
                 System.out.print("Search Hotels: ");

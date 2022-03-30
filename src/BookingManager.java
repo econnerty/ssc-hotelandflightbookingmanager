@@ -69,13 +69,18 @@ public class BookingManager {
 
         for (int i = 0; i < seats.length; i++){
             if (i == 0) {
-                System.out.println("Please enter the seat for yourself in the format (A1): ");
+                System.out.println("Please enter the seat for yourself in the format (A1) or back to back out: ");
                 seats[i] = input.nextLine();
             }
             else {
-                System.out.println("Please enter the seat for " +registeredUser.getFriends().get(i-1).username + " in the format (A2): ");
+                System.out.println("Please enter the seat for " +registeredUser.getFriends().get(i-1).username + " in the format (A2) or back to back out: ");
                 seats[i] = input.nextLine();
             }
+        }
+
+        for (String read : seats) {
+            if (read.equalsIgnoreCase("back"))
+                return false;
         }
 
         for (String seat : seats){
