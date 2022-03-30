@@ -55,13 +55,20 @@ public class ApplicationManager {
         userManager.logout();
     }
 
-    public void close(){
-        
+    public void close() throws IOException{
+        //Utilities.saveHotels(bookingManager.getHotels()); //Uncomment this when to json object is complete
+        Utilities.savePlanes(bookingManager.getPlanes());
+        Utilities.saveUsers(userManager.getUsers());
     }
 
 
     public void searchFlights(String search){
         bookingManager.searchFlights(search);
+    }
+
+
+    public void searchHotels(String search){
+        bookingManager.searchHotels(search);   
     }
 
     public boolean bookFlight(int choice) {
@@ -74,14 +81,14 @@ public class ApplicationManager {
         return false;
     }
 
-    public void searchHotels(String search){
-        int i = 1;
-        System.out.println("Hotel searches for: \""+search+"\"");
-        for(Hotel hotel : bookingManager.getHotels(search)){
-            System.out.println(i + "\t"+ hotel.getHotelInfo());
-            i++;
+    public boolean bookHotel(int choice) {
+        try {
+            return bookingManager.bookHotel(choice);
+        } catch (ParseException | java.text.ParseException | IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
-        
+        return false;
     }
 
     public boolean login(String username, String password) {

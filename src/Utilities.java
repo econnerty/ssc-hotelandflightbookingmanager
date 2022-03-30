@@ -337,6 +337,18 @@ public class Utilities {
         f.flush();
     }
 
+    public static void saveHotels(HashMap<UUID, Hotel> hotels) throws IOException{
+        JSONArray jsonHotels = new JSONArray();
+
+        for (Hotel hotel : hotels.values()) {
+            jsonHotels.add(hotel.toJsonObject());
+        }
+
+        FileWriter f = new FileWriter(HOTEL_JSON_PATH);
+        f.write(jsonHotels.toJSONString().replace("},{", "},\n{"));
+        f.flush();
+    }
+
     //TODO Make sure flight has a different destination than its departure city
     
     public static void generateFlights() throws FileNotFoundException, IOException, java.text.ParseException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
