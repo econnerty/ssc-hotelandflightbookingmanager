@@ -202,8 +202,18 @@ public class Utilities {
             boolean smoking = Boolean.parseBoolean(jsonObject.get("smoking").toString());
 //stop follow me :pensive: girl
             boolean petsAllowed = Boolean.parseBoolean(jsonObject.get("petsAllowed").toString());
+            JSONArray layovers = (JSONArray) jsonObject.get("layovers");
+            String[] sLayovers = new String[layovers.size()];
 
-            planes.put(uuid, new Plane(uuid, airline, availableSeats, price, departureDate, arrivalDate, departureCity, destinationCity, smoking, petsAllowed, seats));
+            int i = 0;
+            
+            for (Object object2 : layovers) {
+                sLayovers[i] = object2.toString();
+                i++;
+            }
+
+
+            planes.put(uuid, new Plane(uuid, airline, availableSeats, price, departureDate, arrivalDate, departureCity, destinationCity, smoking, petsAllowed, seats,sLayovers));
             //System.out.println(planes.get(uuid).toString());
 
         }
@@ -308,6 +318,12 @@ public class Utilities {
             calendar.setTime(departureDate);
             calendar.add(Calendar.HOUR_OF_DAY, r.nextInt(4)+3);
 
+            String[] layovers = new String[r.nextInt(3)];
+
+            for (int j = 0; j < layovers.length; j++) {
+                layovers[j] = cities[r.nextInt(cities.length)];
+            }
+
             Date arrivalDate = calendar.getTime();
 
             int seats[][] = new int[Plane.getSize()[0]][Plane.getSize()[1]];
@@ -330,229 +346,12 @@ public class Utilities {
             jsonObject.put("destinationCity",Utilities.cities[randomCity2]);
             jsonObject.put("departureDate", departureDate.toString());
             jsonObject.put("arrivalDate", arrivalDate.toString());
+            jsonObject.put("layovers", Arrays.toString(layovers));
             jsonObject.put("price", price);
             jsonObject.put("smoking", (r.nextInt(10) < 1) ? true : false);
             jsonObject.put("petsAllowed", (r.nextInt(5) < 1) ? true : false);
             jsonObject.put("seats", Arrays.deepToString(seats));
-
-            jsonFlights.add(jsonObject);
-
-        }
-
-        for (int i = 0; i < 100; i++) { //want to create 500 flight
-
-            Map jsonObject = new LinkedHashMap<>();
-
-
-            Date departureDate = new Date(ThreadLocalRandom.current().nextLong(between1.getTime(), between2.getTime()));
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(departureDate);
-            calendar.add(Calendar.HOUR_OF_DAY, r.nextInt(12)+12);
-
-            Double price = Double.parseDouble(new DecimalFormat("#.##").format(ThreadLocalRandom.current().nextDouble(800.00,1650.00)));
-
-            Date arrivalDate = calendar.getTime();
-
-            int seats[][] = new int[Plane.getSize()[0]][Plane.getSize()[1]];
-
-            for (int[] seat : seats) 
-                Arrays.fill(seat, 0);
-
-
-            jsonObject.put("uuid", UUID.randomUUID().toString());
-            jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)].toString());
-            jsonObject.put("availableSeats", Plane.getSize()[0]*Plane.getSize()[1]);
-            jsonObject.put("departureCity", "New York City");
-
-
-            jsonObject.put("destinationCity",Utilities.international[r.nextInt(Utilities.international.length)]);
-            jsonObject.put("departureDate", departureDate.toString());
-            jsonObject.put("arrivalDate", arrivalDate.toString());
-            jsonObject.put("price", price);
-            jsonObject.put("smoking", (r.nextInt(10) < 1) ? true : false);
-            jsonObject.put("petsAllowed", (r.nextInt(5) < 1) ? true : false);
-            jsonObject.put("seats", Arrays.deepToString(seats));
-
-            jsonFlights.add(jsonObject);
-
-        }
-
-        for (int i = 0; i < 100; i++) { //want to create 500 flight
-
-            Map jsonObject = new LinkedHashMap<>();
-
-            Date departureDate = new Date(ThreadLocalRandom.current().nextLong(between1.getTime(), between2.getTime()));
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(departureDate);
-            calendar.add(Calendar.HOUR_OF_DAY, r.nextInt(12)+12);
-
-            Double price = Double.parseDouble(new DecimalFormat("#.##").format(ThreadLocalRandom.current().nextDouble(800.00,1650.00)));
-
-            Date arrivalDate = calendar.getTime();
-
-            int seats[][] = new int[Plane.getSize()[0]][Plane.getSize()[1]];
-
-            for (int[] seat : seats) 
-                Arrays.fill(seat, 0);
-
-
-            jsonObject.put("uuid", UUID.randomUUID().toString());
-            jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)].toString());
-            jsonObject.put("availableSeats", Plane.getSize()[0]*Plane.getSize()[1]);
-            jsonObject.put("departureCity", "Los Angeles");
-            jsonObject.put("destinationCity",Utilities.international[r.nextInt(Utilities.international.length)]);
-            jsonObject.put("departureDate", departureDate.toString());
-            jsonObject.put("arrivalDate", arrivalDate.toString());
-            jsonObject.put("price", price);
-            jsonObject.put("smoking", (r.nextInt(10) < 1) ? true : false);
-            jsonObject.put("petsAllowed", (r.nextInt(5) < 1) ? true : false);
-            jsonObject.put("seats", Arrays.deepToString(seats));
-
-            jsonFlights.add(jsonObject);
-
-        }
-        for (int i = 0; i < 100; i++) { //want to create 500 flight
-
-            Map jsonObject = new LinkedHashMap<>();
-
-            Date departureDate = new Date(ThreadLocalRandom.current().nextLong(between1.getTime(), between2.getTime()));
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(departureDate);
-            calendar.add(Calendar.HOUR_OF_DAY, r.nextInt(12)+12);
-
-            Date arrivalDate = calendar.getTime();
-
-            Double price = Double.parseDouble(new DecimalFormat("#.##").format(ThreadLocalRandom.current().nextDouble(800.00,1650.00)));
-
-            int seats[][] = new int[Plane.getSize()[0]][Plane.getSize()[1]];
-
-            for (int[] seat : seats) 
-                Arrays.fill(seat, 0);
-
-
-            jsonObject.put("uuid", UUID.randomUUID().toString());
-            jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)].toString());
-            jsonObject.put("availableSeats", Plane.getSize()[0]*Plane.getSize()[1]);
-            jsonObject.put("departureCity", "Atlanta");
-            jsonObject.put("destinationCity",Utilities.international[r.nextInt(Utilities.international.length)]);
-            jsonObject.put("departureDate", departureDate.toString());
-            jsonObject.put("arrivalDate", arrivalDate.toString());
-            jsonObject.put("price", price);
-            jsonObject.put("smoking", (r.nextInt(10) < 1) ? true : false);
-            jsonObject.put("petsAllowed", (r.nextInt(5) < 1) ? true : false);
-            jsonObject.put("seats", Arrays.deepToString(seats));
-
-            jsonFlights.add(jsonObject);
-
-        }
-
-        for (int i = 0; i < 100; i++) { //want to create 500 flight
-
-            Map jsonObject = new LinkedHashMap<>();
-
-            Date departureDate = new Date(ThreadLocalRandom.current().nextLong(between1.getTime(), between2.getTime()));
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(departureDate);
-            calendar.add(Calendar.HOUR_OF_DAY, r.nextInt(12)+12);
-
-            Date arrivalDate = calendar.getTime();
-
-            Double price = Double.parseDouble(new DecimalFormat("#.##").format(ThreadLocalRandom.current().nextDouble(800.00,1650.00)));
-
-            int seats[][] = new int[Plane.getSize()[0]][Plane.getSize()[1]];
-
-            for (int[] seat : seats) 
-                Arrays.fill(seat, 0);
-
-
-            jsonObject.put("uuid", UUID.randomUUID().toString());
-            jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)].toString());
-            jsonObject.put("availableSeats", Plane.getSize()[0]*Plane.getSize()[1]);
-            jsonObject.put("departureCity", "Detroit");
-            jsonObject.put("destinationCity",Utilities.international[r.nextInt(Utilities.international.length)]);
-            jsonObject.put("departureDate", departureDate.toString());
-            jsonObject.put("arrivalDate", arrivalDate.toString());
-            jsonObject.put("price", price);
-            jsonObject.put("smoking", (r.nextInt(10) < 1) ? true : false);
-            jsonObject.put("petsAllowed", (r.nextInt(5) < 1) ? true : false);
-            jsonObject.put("seats", Arrays.deepToString(seats));
-
-            jsonFlights.add(jsonObject);
-
-        }
-        for (int i = 0; i < 100; i++) { //want to create 500 flight
-
-            Map jsonObject = new LinkedHashMap<>();
-
-            Date departureDate = new Date(ThreadLocalRandom.current().nextLong(between1.getTime(), between2.getTime()));
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(departureDate);
-            calendar.add(Calendar.HOUR_OF_DAY, r.nextInt(12)+12);
-
-            Date arrivalDate = calendar.getTime();
-
-            Double price = Double.parseDouble(new DecimalFormat("#.##").format(ThreadLocalRandom.current().nextDouble(800.00,1650.00)));
-
-            int seats[][] = new int[Plane.getSize()[0]][Plane.getSize()[1]];
-
-            for (int[] seat : seats) 
-                Arrays.fill(seat, 0);
-
-
-            jsonObject.put("uuid", UUID.randomUUID().toString());
-            jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)].toString());
-            jsonObject.put("availableSeats", Plane.getSize()[0]*Plane.getSize()[1]);
-            jsonObject.put("departureCity", "Chicago");
-            jsonObject.put("destinationCity",Utilities.international[r.nextInt(Utilities.international.length)]);
-            jsonObject.put("departureDate", departureDate.toString());
-            jsonObject.put("arrivalDate", arrivalDate.toString());
-            jsonObject.put("price", price);
-            jsonObject.put("smoking", (r.nextInt(10) < 1) ? true : false);
-            jsonObject.put("petsAllowed", (r.nextInt(5) < 1) ? true : false);
-            jsonObject.put("seats", Arrays.deepToString(seats));
-
-            jsonFlights.add(jsonObject);
-
-        }
-
-        for (int i = 0; i < 100; i++) { //want to create 500 flight
-
-            Map jsonObject = new LinkedHashMap<>();
-
-            Date departureDate = new Date(ThreadLocalRandom.current().nextLong(between1.getTime(), between2.getTime()));
-
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(departureDate);
-            calendar.add(Calendar.HOUR_OF_DAY, r.nextInt(12)+12);
-
-            Date arrivalDate = calendar.getTime();
-
-            Double price = Double.parseDouble(new DecimalFormat("#.##").format(ThreadLocalRandom.current().nextDouble(800.00,1650.00)));
-
-            int seats[][] = new int[Plane.getSize()[0]][Plane.getSize()[1]];
-
-            for (int[] seat : seats) 
-                Arrays.fill(seat, 0);
-
-
-            jsonObject.put("uuid", UUID.randomUUID().toString());
-            jsonObject.put("airline", Airlines.values()[r.nextInt(Airlines.values().length)].toString());
-            jsonObject.put("availableSeats", Plane.getSize()[0]*Plane.getSize()[1]);
-
-            int randomCity1 = r.nextInt(Utilities.international.length);
-            int randomCity2 = r.nextInt(Utilities.international.length);
-
-            while (randomCity1 == randomCity2)
-                randomCity2 = r.nextInt(Utilities.international.length);
-
-            jsonObject.put("departureCity", Utilities.international[randomCity1]);
-            jsonObject.put("destinationCity",Utilities.international[randomCity2]);
-            jsonObject.put("departureDate", departureDate.toString());
-            jsonObject.put("arrivalDate", arrivalDate.toString());
-            jsonObject.put("price", price);
-            jsonObject.put("smoking", (r.nextInt(10) < 1) ? true : false);
-            jsonObject.put("petsAllowed", (r.nextInt(5) < 1) ? true : false);
-            jsonObject.put("seats", Arrays.deepToString(seats));
+            
 
             jsonFlights.add(jsonObject);
 
@@ -562,5 +361,4 @@ public class Utilities {
         f.write(jsonFlights.toJSONString().replace("},{", "},\n{"));
         f.flush();
     }
-    
 }

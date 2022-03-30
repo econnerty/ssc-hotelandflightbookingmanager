@@ -1,4 +1,1 @@
-[{"type":"registered","username":"joe","creationDate":"Wed Mar 23 08:31:08 EDT 2022","password":"123","dob":"11\/04\/2005","flightBookings":[],"hotelBookings":[]},
-{"type":"business","username":"tom","creationDate":"Wed Mar 23 02:13:46 EDT 2022","password":"1234","dob":"11\/04\/1995","airlines":[],"hotels":[]},
-{"type":"registered","username":"bob","creationDate":"Wed Mar 23 02:14:04 EDT 2022","password":"1234","dob":"02\/03\/2001","flightBookings":[],"hotelBookings":[]},
-{"type":"business","username":"jack","creationDate":"Sat Mar 26 23:54:43 EDT 2022","password":"jack","dob":"11\/30\/0002","airlines":[],"hotels":[]}]
+[]

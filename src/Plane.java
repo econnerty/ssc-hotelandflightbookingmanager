@@ -25,6 +25,8 @@ public class Plane implements src.JSON{
     private boolean smoking;
     private boolean petsAllowed;
 
+    private String[] layovers;
+
     private boolean[][] seats = new boolean[SEAT_ROWS][SEAT_COLUMNS]; //Keeps track of all the available seats whether they are booked or not
 
 
@@ -48,7 +50,7 @@ public class Plane implements src.JSON{
 }
 
     public Plane(UUID uuid, Airlines airline, int availableSeats, double price, Date departureDate, Date arrivalDate, 
-        String departureCity, String destinationCity,boolean smoking, boolean petsAllowed, boolean[][] seats) {
+        String departureCity, String destinationCity,boolean smoking, boolean petsAllowed, boolean[][] seats, String[] layovers) {
 
         this.uuid = uuid;
         this.airline = airline;
@@ -61,6 +63,7 @@ public class Plane implements src.JSON{
         this.seats = seats;
         this.smoking = smoking;
         this.petsAllowed = petsAllowed;
+        this.layovers = layovers;
     }
 
     public void bookSeat(FlightBooking booking) {
@@ -104,6 +107,14 @@ public class Plane implements src.JSON{
         this.arrivalDate = date;
     }
 
+    public int getLayoversCount(){
+        return this.layovers.length;
+    }
+
+    public String[] getLayovers() {
+        return this.layovers;
+    }
+
     public static int[] getSize() {
         return new int[]{Plane.SEAT_COLUMNS, Plane.SEAT_ROWS};
     }
@@ -123,6 +134,10 @@ public class Plane implements src.JSON{
     }
 
     public String getFlightInfo() {
+        String sAirline;
+        String date;
+        String departure;
+        String destination;
         return "\tAirline: " + airline + "\tArrival Date: " + arrivalDate + "\tDeparture City: " + departureCity + "\tDestination: " + destinationCity + "\tPrice: " + price;
     }
 
