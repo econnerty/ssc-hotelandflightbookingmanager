@@ -192,7 +192,7 @@ public class Plane implements src.JSON{
         long longMinutes= flightTime/60000;
         int hours = Math.toIntExact(longMinutes/60);
         int minutes = Math.toIntExact(longMinutes%60);
-        return "\tAirline: " + airline + "\tArrival Date: " + arrivalDate + "\tDeparture City: " + departureCity + "\tDestination: " + destinationCity +  "\tPrice: " + price +  "\tSeats Available: "+ availableSeats + "\tFlight Time: " + hours + " Hours and " + minutes + " minutes\n\tLayovers: "+layovers;
+        return "\tAirline: " + airline + "\tDeparture Date: " + departureDate + "\tDeparture City: " + departureCity + "\tDestination: " + destinationCity +  "\tPrice: " + price +  "\tSeats Available: "+ availableSeats + "\tFlight Time: " + hours + " Hours and " + minutes + " minutes\n\tLayovers: "+layovers;
     }
 
     public void printSeats() {
