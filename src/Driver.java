@@ -125,6 +125,7 @@ public class Driver {
                 registeredUser.setPreferences();
                 break;
             case 2:
+                registeredUser.changePassword();
                 break;
             case 3:
                 break;

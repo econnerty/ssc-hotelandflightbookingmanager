@@ -115,6 +115,13 @@ public class RegisteredUser extends User implements src.JSON{
     public void changePassword() {
         System.out.println("Enter your new password: ");
         Scanner input = new Scanner(System.in);
+        this.password = input.nextLine();
+        try {
+            UserManager.getInstance().updateUser(this);
+        } catch (IOException | ParseException | java.text.ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
     }
 
