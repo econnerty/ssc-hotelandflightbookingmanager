@@ -125,9 +125,10 @@ public class Hotel implements src.JSON{
                 + petsAllowed + ", price=" + price + ", rooms=" + Arrays.toString(rooms) + ", smoking=" + smoking
                 + ", uuid=" + uuid + "]";
     }
-
     public String getHotelInfo() {
-        return "\tHotel: " + hotel + "\tCity: " + city + "\tPrice: " + price;
+        
+        return "\tHotel: " + hotel + "\tCity: " + city + "\tPrice: " + price+"\tAvailable Rooms: "
+            +availableRooms+"\tSmoking Allowed: "+smoking+"\tPets Allowed: "+petsAllowed+"\tRating: "+rating+"/5.";
     }
     
 
