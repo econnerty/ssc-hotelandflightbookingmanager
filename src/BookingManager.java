@@ -50,7 +50,13 @@ public class BookingManager {
     }
 
     public boolean bookFlight(int choice) throws ParseException, java.text.ParseException, FileNotFoundException, IOException{
+
+        if (choice-1 > searchResults.size()){
+            System.out.println("Invalid Choice");
+            return false;
+        }
         System.out.println("Choose a seat in the format for you and each of your guests (A4, A5): ");
+
 
         searchResults.get(choice-1).printSeats(); //its minus one because the user will input 1 but the index is zero
         Scanner input = new Scanner(System.in);
