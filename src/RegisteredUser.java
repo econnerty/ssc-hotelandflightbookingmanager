@@ -22,7 +22,7 @@ public class RegisteredUser extends User implements src.JSON{
     private ArrayList<FlightBooking> flightBookings = new ArrayList<>();
     private ArrayList<HotelBooking> hotelBookings = new ArrayList<>(); 
     private String[] preferences; //Is this the right size?
-    private ArrayList<GuestUser> guests;
+    private ArrayList<GuestUser> guests = new ArrayList<>();
 
     public RegisteredUser(String username, String password, Date dob, Date creationDate) {
         super(username, password, dob, creationDate);
