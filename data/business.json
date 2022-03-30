@@ -1,6 +1,6 @@
 [
-    {"name":"HAWAIIAN_AIRLINES","ratings":3.7,"numRatings":25},
-    {"name":"SPIRIT","ratings":4.9,"numRatings":5},
-    {"name":"FRONTIER","ratings":5.0,"numRatings":15}
+    {"UUID":"8e148e98-8c1d-449e-b069-6cebf2caa6d7","name":"HAWAIIAN_AIRLINES","ratings":3.7,"numRatings":25},
+    {"UUID":"da58b9b7-b38b-4168-9dcd-7f362aec3f3e","name":"SPIRIT","ratings":4.9,"numRatings":5},
+    {"UUID":"a27705b6-08b4-4f37-aeaa-54310b5cd7bb","name":"FRONTIER","ratings":5.0,"numRatings":15}
 ]
     
