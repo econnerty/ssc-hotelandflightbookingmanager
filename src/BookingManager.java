@@ -223,6 +223,7 @@ public class BookingManager {
     }
     private void addHotel(Hotel hotel) throws IOException {
         hotels.put(hotel.getUUID(), hotel);
+        System.out.println(hotels.size());
         Utilities.saveHotels(hotels); //Uncomment this when toJSON OBject is complete
     }
     private double doubleParser(String str) {
