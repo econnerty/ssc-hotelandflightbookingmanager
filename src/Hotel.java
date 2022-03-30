@@ -128,7 +128,7 @@ public class Hotel implements src.JSON{
 
         jsonObject.put("uuid", this.uuid.toString());
         jsonObject.put("availableRooms", this.availableRooms);
-        jsonObject.put("hotel", this.hotel);
+        jsonObject.put("hotel", this.hotel.toString());
         jsonObject.put("price", this.price);
         jsonObject.put("city",this.city);
         jsonObject.put("smoking", this.smoking);

@@ -52,7 +52,7 @@ public class BookingManager {
     
     public void searchHotels(String search) {
         System.out.println("Flight searches for: \""+search+"\"");
-        searchResultsHotel = bookingManager.getHotels(search);
+        searchResultsHotel = bookingManager.getHotelBookings(search);
         int i = 1;
         for(Hotel hotel : searchResultsHotel){
             System.out.println(i + hotel.getHotelInfo());
@@ -204,7 +204,7 @@ public class BookingManager {
         return results;
     }
 
-    public ArrayList<Hotel> getHotels(String search) {
+    public ArrayList<Hotel> getHotelBookings(String search) {
         search = search.toLowerCase();
         ArrayList<Hotel> results = new ArrayList<Hotel>();
         if(search == "" || search == " ")
