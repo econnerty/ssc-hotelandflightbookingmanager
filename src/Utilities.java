@@ -38,7 +38,7 @@ public class Utilities {
 
     private static Utilities utilities;
     private static final String[] cities = new String[]{"San Francisco", "New York City", "Los Angeles", "Austin", 
-    "Chicago", "Denver", "Portland", "Seattle", "Washington D.C.", "Atlanta", "Raleigh", "New Orleans",
+    "Chicago", "Denver", "Portland", "Washington D.C.", "Atlanta", "Raleigh", "New Orleans",
     "San Diego", "Jacksonville", "Tallahasee", "Charlotte", "Charleston", "Columbia", "San Antonio", "Baltimore", "Kansas City",
     "Philadelphia", "Detroit", "Indianapolis", "San Jose", "Milwaukee", "Louisville", "Sacramento",
     "Memphis", "Oklahoma City", "Tucson", "El Paso", "Tulsa", "Fort Worth", "Mesa", "Arlington", "Bakersfield",
@@ -221,8 +221,19 @@ public class Utilities {
             JSONArray layovers = (JSONArray) jsonObject.get("layovers");
             String[] sLayovers = new String[layovers.size()];
 
-            int i = 0;
             
+
+            JSONArray jsonSeats = (JSONArray) jsonObject.get("seats");
+
+        
+            for (int p = 0; p < jsonSeats.size(); p++) {
+                JSONArray jsonSeats2 = (JSONArray) jsonSeats.get(p);
+                for (int j = 0; j < jsonSeats2.size(); j++){
+                    seats[p][j] = Integer.parseInt(jsonSeats2.get(j).toString()) != 0;
+                }
+            }
+            
+            int i = 0;
             for (Object object2 : layovers) {
                 sLayovers[i] = object2.toString();
                 i++;
@@ -314,6 +325,18 @@ public class Utilities {
 
     }
 
+    public static void savePlanes(HashMap<UUID, Plane> planes) throws IOException{
+        JSONArray jsonPlanes = new JSONArray();
+
+        for (Plane plane : planes.values()) {
+            jsonPlanes.add(plane.toJsonObject());
+        }
+
+        FileWriter f = new FileWriter(PLANE_JSON_PATH);
+        f.write(jsonPlanes.toJSONString().replace("},{", "},\n{"));
+        f.flush();
+    }
+
     //TODO Make sure flight has a different destination than its departure city
     
     public static void generateFlights() throws FileNotFoundException, IOException, java.text.ParseException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
@@ -344,7 +367,7 @@ public class Utilities {
 
             Date arrivalDate = calendar.getTime();
 
-            int seats[][] = new int[Plane.getSize()[0]][Plane.getSize()[1]];
+            int[][] seats = new int[Plane.getSize()[0]][Plane.getSize()[1]];
 
             for (int[] seat : seats) 
                 Arrays.fill(seat, 0);
@@ -368,7 +391,16 @@ public class Utilities {
             jsonObject.put("price", price);
             jsonObject.put("smoking", (r.nextInt(10) < 1) ? true : false);
             jsonObject.put("petsAllowed", (r.nextInt(5) < 1) ? true : false);
-            jsonObject.put("seats", Arrays.deepToString(seats));
+
+            JSONArray jsonSeats = new JSONArray();
+            for (int p = 0; p < seats.length; p++) {
+                JSONArray arr = new JSONArray();
+                for (int j = 0; j < seats[p].length; j++) {
+                    arr.add(seats[p][j]);
+                }
+                jsonSeats.add(arr);
+            }
+            jsonObject.put("seats", jsonSeats);
             
 
             jsonFlights.add(jsonObject);

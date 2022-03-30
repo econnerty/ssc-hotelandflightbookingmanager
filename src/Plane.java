@@ -2,9 +2,12 @@ package src;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
+
+import org.json.simple.JSONArray;
 
 public class Plane implements src.JSON{
 
@@ -67,10 +70,12 @@ public class Plane implements src.JSON{
         this.layovers = layovers;
     }
 
-    public void bookSeat(FlightBooking booking) {
-        
+    public boolean bookSeat(FlightBooking booking) {
+        if (this.seats[booking.getIndex()[0]][booking.getIndex()[1]] == true)
+            return false;
         this.seats[booking.getIndex()[0]][booking.getIndex()[1]] = true;
-        availableSeats--;
+        this.availableSeats--;
+        return true;
     }
 
     public String getDestinationCity(){
@@ -125,7 +130,42 @@ public class Plane implements src.JSON{
     }
 
     public Map toJsonObject() {
-        return null;
+        
+        Map jsonObject = new LinkedHashMap<>();
+
+        jsonObject.put("uuid", this.uuid.toString());
+        jsonObject.put("airline", this.airline.toString());
+        jsonObject.put("availableSeats", this.availableSeats);
+        jsonObject.put("departureCity", this.departureCity);
+        jsonObject.put("destinationCity",this.destinationCity);
+        jsonObject.put("departureDate", this.departureDate.toString());
+        jsonObject.put("arrivalDate", this.arrivalDate.toString());
+
+        JSONArray jsonLayovers = new JSONArray();
+
+        for (String layover : layovers) {
+            jsonLayovers.add(layover);
+        }
+
+        jsonObject.put("layovers", jsonLayovers);
+        jsonObject.put("price", this.price);
+        jsonObject.put("smoking", this.smoking);
+        jsonObject.put("petsAllowed", this.petsAllowed);
+        JSONArray jsonSeats = new JSONArray();
+            for (int p = 0; p < this.seats.length; p++) {
+                JSONArray arr = new JSONArray();
+                for (int j = 0; j < this.seats[p].length; j++) {
+                    if (seats[p][j] == true)
+                        arr.add("1");
+                    else
+                        arr.add("0");
+                }
+                jsonSeats.add(arr);
+            }
+            jsonObject.put("seats", jsonSeats);
+            
+
+        return jsonObject;
     }
 
 

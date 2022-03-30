@@ -49,7 +49,7 @@ public class BookingManager {
         }
     }
 
-    public void bookFlight(int choice) throws ParseException, java.text.ParseException, FileNotFoundException, IOException{
+    public boolean bookFlight(int choice) throws ParseException, java.text.ParseException, FileNotFoundException, IOException{
         System.out.println("Choose a seat in the format for you and each of your guests (A4, A5): ");
 
         searchResults.get(choice-1).printSeats();
@@ -73,33 +73,57 @@ public class BookingManager {
         }
 
         for (String seat : seats){
+            FlightBooking booking;
+            Plane plane;
             switch (seat.charAt(0)) {
                 case 'A':
-                    int[] index = {1, Integer.parseInt(String.valueOf(seat.charAt(1)))};
-                    registeredUser.addFlightBooking(new FlightBooking(searchResults.get(choice-1).getUUID(), index));
+                    int[] index = {0, Integer.parseInt(String.valueOf(seat.charAt(1)))-1};
+                    booking = new FlightBooking(searchResults.get(choice-1).getUUID(), index);
+                    plane = searchResults.get(choice-1);
+                    if (!plane.bookSeat(booking))
+                        return false;
+                    addPlane(plane);
+                    registeredUser.addFlightBooking(booking);
                     break;
                 case 'B':
-                    int[] index2 = {1, Integer.parseInt(String.valueOf(seat.charAt(1)))};
-                    registeredUser.addFlightBooking(new FlightBooking(searchResults.get(choice-1).getUUID(), index2));
+                    int[] index2 = {1, Integer.parseInt(String.valueOf(seat.charAt(1)))-1};
+                    booking = new FlightBooking(searchResults.get(choice-1).getUUID(), index2);
+                    plane = searchResults.get(choice-1);
+                    if (!plane.bookSeat(booking))
+                        return false;
+                    addPlane(plane);
+                    registeredUser.addFlightBooking(booking);
                     break;
                 case 'C':
-                    int[] index3 = {1, Integer.parseInt(String.valueOf(seat.charAt(1)))};
-                    registeredUser.addFlightBooking(new FlightBooking(searchResults.get(choice-1).getUUID(), index3));
+                    int[] index3 = {2, Integer.parseInt(String.valueOf(seat.charAt(1)))-1};
+                    booking = new FlightBooking(searchResults.get(choice-1).getUUID(), index3);
+                    plane = searchResults.get(choice-1);
+                    if (!plane.bookSeat(booking))
+                        return false;
+                    addPlane(plane);
+                    registeredUser.addFlightBooking(booking);
                     break;
                 case 'D':
-                    int[] index4 = {1, Integer.parseInt(String.valueOf(seat.charAt(1)))};
-                    registeredUser.addFlightBooking(new FlightBooking(searchResults.get(choice-1).getUUID(), index4));
+                    int[] index4 = {3, Integer.parseInt(String.valueOf(seat.charAt(1)))-1};
+                    booking = new FlightBooking(searchResults.get(choice-1).getUUID(), index4);
+                    plane = searchResults.get(choice-1);
+                    if (!plane.bookSeat(booking))
+                        return false;
+                    addPlane(plane);
+                    registeredUser.addFlightBooking(booking);
                     break;
                 default:
                     break;
 
             }
-            try {
-                UserManager.getInstance().updateUser(registeredUser);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
         }
+        try {
+            UserManager.getInstance().updateUser(registeredUser);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 
     public HashMap<UUID,Plane> getPlanes(){
@@ -138,6 +162,11 @@ public class BookingManager {
             }
         }
         return results;
+    }
+
+    public void addPlane(Plane plane) throws IOException {
+        planes.put(plane.getUUID(), plane);
+        Utilities.savePlanes(planes);
     }
     private double doubleParser(String str) {
         double val;

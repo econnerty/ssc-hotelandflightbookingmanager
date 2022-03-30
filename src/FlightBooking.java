@@ -40,7 +40,7 @@ public class FlightBooking extends Booking {
                     ret += 'D';
                     break;
             }
-            ret += index[1];
+            ret += index[1]+1;
         } catch (IOException | ParseException | java.text.ParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

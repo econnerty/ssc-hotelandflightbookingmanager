@@ -64,13 +64,14 @@ public class ApplicationManager {
         bookingManager.searchFlights(search);
     }
 
-    public void bookFlight(int choice) {
+    public boolean bookFlight(int choice) {
         try {
-            bookingManager.bookFlight(choice);
+            return bookingManager.bookFlight(choice);
         } catch (ParseException | java.text.ParseException | IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        return false;
     }
 
     public void searchHotels(String search){
