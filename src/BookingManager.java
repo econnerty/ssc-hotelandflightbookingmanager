@@ -97,9 +97,13 @@ public class BookingManager {
         for (String seat : seats){
             FlightBooking booking;
             Plane plane;
+            int number = Integer.parseInt(seat.substring(1,seat.length()))-1;
+            if (number >= 20)
+                return false; //input validation
+            System.out.println(number);
             switch (seat.charAt(0)) {
                 case 'A':
-                    int[] index = {0, Integer.parseInt(String.valueOf(seat.charAt(1)))-1};
+                    int[] index = {0, number};
                     booking = new FlightBooking(searchResults.get(choice-1).getUUID(), index);
                     plane = searchResults.get(choice-1);
                     if (!plane.bookSeat(booking))
@@ -108,7 +112,7 @@ public class BookingManager {
                     registeredUser.addFlightBooking(booking);
                     break;
                 case 'B':
-                    int[] index2 = {1, Integer.parseInt(String.valueOf(seat.charAt(1)))-1};
+                    int[] index2 = {1, number};
                     booking = new FlightBooking(searchResults.get(choice-1).getUUID(), index2);
                     plane = searchResults.get(choice-1);
                     if (!plane.bookSeat(booking))
@@ -117,7 +121,7 @@ public class BookingManager {
                     registeredUser.addFlightBooking(booking);
                     break;
                 case 'C':
-                    int[] index3 = {2, Integer.parseInt(String.valueOf(seat.charAt(1)))-1};
+                    int[] index3 = {2, number};
                     booking = new FlightBooking(searchResults.get(choice-1).getUUID(), index3);
                     plane = searchResults.get(choice-1);
                     if (!plane.bookSeat(booking))
@@ -126,7 +130,7 @@ public class BookingManager {
                     registeredUser.addFlightBooking(booking);
                     break;
                 case 'D':
-                    int[] index4 = {3, Integer.parseInt(String.valueOf(seat.charAt(1)))-1};
+                    int[] index4 = {3, number};
                     booking = new FlightBooking(searchResults.get(choice-1).getUUID(), index4);
                     plane = searchResults.get(choice-1);
                     if (!plane.bookSeat(booking))
