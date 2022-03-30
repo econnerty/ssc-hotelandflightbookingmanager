@@ -2,7 +2,10 @@ package src;
 
 import java.util.Arrays;
 import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.UUID;
+
+import org.json.simple.JSONArray;
 
 public class Hotel implements src.JSON{
 
@@ -116,7 +119,17 @@ public class Hotel implements src.JSON{
     }
 
     public Map toJsonObject() {
-        return null;
+        Map jsonObject = new LinkedHashMap<>();
+
+        jsonObject.put("uuid", this.uuid.toString());
+        jsonObject.put("availableRooms", this.availableRooms);
+        jsonObject.put("hotel", this.hotel);
+        jsonObject.put("price", this.price);
+        jsonObject.put("city",this.city);
+        jsonObject.put("smoking", this.smoking);
+        jsonObject.put("petsAllowed", this.petsAllowed);
+        jsonObject.put("rating",this.rating);
+        return jsonObject;
     }
 
     @Override
@@ -127,6 +140,7 @@ public class Hotel implements src.JSON{
     }
 
     public String getHotelInfo() {
+
         return "\tHotel: " + hotel + "\tCity: " + city + "\tPrice: " + price;
     }
     
