@@ -209,7 +209,6 @@ public class Utilities {
             
             for (Object object2 : layovers) {
                 sLayovers[i] = object2.toString();
-                System.out.println("LOAD layover " + object2.toString());
                 i++;
             }
 
