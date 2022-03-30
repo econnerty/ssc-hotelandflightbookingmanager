@@ -51,7 +51,7 @@ public class BookingManager {
 
     public boolean bookFlight(int choice) throws ParseException, java.text.ParseException, FileNotFoundException, IOException{
 
-        if (choice-1 > searchResults.size()){
+        if (choice-1 >= searchResults.size()){
             System.out.println("Invalid Choice");
             return false;
         }
