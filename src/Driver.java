@@ -100,6 +100,7 @@ public class Driver {
                 break;
             case 7:
                 appManager.close();
+                input.close();
                 return false;
             default:
                 break;
@@ -157,6 +158,7 @@ public class Driver {
 
         appManager = ApplicationManager.getInstance();
         Utilities.getInstance();
+        //Utilities.generateFlights();
 
         while(run());
         
