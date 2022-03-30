@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public class Hotel implements src.JSON{
 
-    private static final int FLOORS = 6; //Hard Coded Hotel Size
+    private static final int FLOORS = 3; //Hard Coded Hotel Size
     private static final int LENGTH = 50; //Hard Coded Hotel size
     private static final int WIDTH = 2; //Hard Coded Hotel size
 
@@ -21,6 +21,8 @@ public class Hotel implements src.JSON{
     private boolean smoking;
     private boolean petsAllowed;
 
+    private double rating;
+
     private boolean[][][] rooms = new boolean[LENGTH][WIDTH][FLOORS]; //Keeps track of all the available rooms whether they are booked or not
 
 
@@ -29,7 +31,7 @@ public class Hotel implements src.JSON{
         clearRooms();
     }
 
-    public Hotel(UUID uuid, int availableRooms, Hotels hotel, double price, String city, boolean smoking, boolean petsAllowed) {
+    public Hotel(UUID uuid, int availableRooms, Hotels hotel, double price, String city, boolean smoking, boolean petsAllowed, double rating) {
         
         this.uuid = uuid;
         this.availableRooms = availableRooms;
@@ -38,11 +40,12 @@ public class Hotel implements src.JSON{
         this.city = city;
         this.smoking = smoking;
         this.petsAllowed = petsAllowed;
+        this.rating = rating;
         clearRooms();
 
     }
 
-    public Hotel(UUID uuid, int availableRooms, Hotels hotel, double price, String city, boolean smoking, boolean petsAllowed, boolean[][][] rooms) {
+    public Hotel(UUID uuid, int availableRooms, Hotels hotel, double price, String city, boolean smoking, boolean petsAllowed, boolean[][][] rooms, double rating) {
 
         this.uuid = uuid;
         this.availableRooms = availableRooms;
@@ -52,6 +55,7 @@ public class Hotel implements src.JSON{
         this.smoking = smoking;
         this.petsAllowed = petsAllowed;
         this.rooms = rooms;
+        this.rating = rating;
 
     }
     public void bookRoom(HotelBooking booking) {
