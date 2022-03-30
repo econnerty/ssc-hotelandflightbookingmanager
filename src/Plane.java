@@ -144,8 +144,10 @@ public class Plane implements src.JSON{
         String departure;
         String destination;
         long flightTime = arrivalDate.getTime() - departureDate.getTime();
-        
-        return "\tAirline: " + airline + "\tArrival Date: " + arrivalDate + "\tDeparture City: " + departureCity + "\tDestination: " + destinationCity + "\tPrice: " + price + "\tFlight Time: " + flightTime;
+        long longMinutes= flightTime/60000;
+        int hours = Math.toIntExact(longMinutes/60);
+        int minutes = Math.toIntExact(longMinutes%60);
+        return "\tAirline: " + airline + "\tArrival Date: " + arrivalDate + "\tDeparture City: " + departureCity + "\tDestination: " + destinationCity + "\tPrice: " + price + "\tFlight Time: " + hours + " Hours and " + minutes + " minutes";
     }
 
     public void printSeats() {
