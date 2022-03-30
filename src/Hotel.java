@@ -66,10 +66,17 @@ public class Hotel implements src.JSON{
         this.amenities = amenities;
 
     }
-    public void bookRoom(HotelBooking booking) {
+    public boolean bookRoom(HotelBooking booking) {
+
         
         this.rooms[booking.getIndex()[0]][booking.getIndex()[1]][booking.getIndex()[2]] = true; //this needs to be fixed.
         availableRooms--;
+
+        if (availableRooms < 0){
+            availableRooms++;
+            return false;
+        }
+        return true;
     }
 
     private void clearRooms() {
