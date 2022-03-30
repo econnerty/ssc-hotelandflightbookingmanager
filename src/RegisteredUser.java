@@ -210,7 +210,7 @@ public class RegisteredUser extends User implements src.JSON{
 
     public String menuString() {
 
-        return "\nWelcome, "+this.username+"!\n1. Set/Change Preferences\n2. Change Password\n3. View Past Bookings\n4. View Current Bookings\n5. Search/Book a Flight\n6. Search/Book a Hotel\n7. Add a friend\n8. Remove a friend\n9. Log Out\n\nWhat would you like to do?";
+        return "\nWelcome, "+this.username+"!\n1. Set/Change Preferences\n2. Change Password\n3. View Past Bookings\n4. View Current Bookings\n5. Search/Book a Flight\n6. Search/Book a Hotel\n7. Add a friend\n8. Remove a friend\n9. Print Itinerary\n10. Log Out\n\nWhat would you like to do?";
         
     }
 

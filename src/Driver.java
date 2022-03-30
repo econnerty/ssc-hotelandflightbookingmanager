@@ -172,7 +172,7 @@ public class Driver {
                 registeredUser.removeFriend(input.nextLine());
                 break;
 
-            case 9:
+            case 10:
                 appManager.logout();
                 currentUser = appManager.getCurrentUser();
                 break;
