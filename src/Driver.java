@@ -138,6 +138,7 @@ public class Driver {
                 String in = input.nextLine();
                 if (!in.equalsIgnoreCase("back"))
                     appManager.bookFlight(Integer.parseInt(in));
+                break;
             case 6:
             case 8:
                 appManager.logout();

@@ -16,7 +16,7 @@ public class ApplicationManager {
     private static UserManager userManager;
     private static BookingManager bookingManager;
 
-    private static ArrayList<Plane> searchResults;
+
 
     private ApplicationManager() throws FileNotFoundException, IOException, ParseException, java.text.ParseException{
         Utilities.getInstance();
@@ -61,52 +61,15 @@ public class ApplicationManager {
 
 
     public void searchFlights(String search){
-        System.out.println("Flight searches for: \""+search+"\"");
-        searchResults = bookingManager.getFlights(search);
-        int i = 1;
-        for(Plane plane : searchResults){
-            System.out.println(i + plane.getFlightInfo());
-            i++;
-        }
-        
+        bookingManager.searchFlights(search);
     }
 
     public void bookFlight(int choice) {
-        System.out.println("Choose a seat in the format (A4, A5): ");
-
-        searchResults.get(choice-1).printSeats();
-        Scanner input = new Scanner(System.in);
-        String seats[] = input.nextLine().split(",");
-
-        RegisteredUser registeredUser = (RegisteredUser) userManager.getCurrentUser();
-
-        for (String seat : seats){
-            switch (seat.charAt(0)) {
-                case 'A':
-                    int[] index = {1, Integer.parseInt(seat.substring(1,1))};
-                    registeredUser.addFlightBooking(new FlightBooking(searchResults.get(choice-1).getUUID(), index));
-                    break;
-                case 'B':
-                    int[] index2 = {1, Integer.parseInt(seat.substring(1,1))};
-                    registeredUser.addFlightBooking(new FlightBooking(searchResults.get(choice-1).getUUID(), index2));
-                    break;
-                case 'C':
-                    int[] index3 = {1, Integer.parseInt(seat.substring(1,1))};
-                    registeredUser.addFlightBooking(new FlightBooking(searchResults.get(choice-1).getUUID(), index3));
-                    break;
-                case 'D':
-                    int[] index4 = {1, Integer.parseInt(seat.substring(1,1))};
-                    registeredUser.addFlightBooking(new FlightBooking(searchResults.get(choice-1).getUUID(), index4));
-                    break;
-                default:
-                    break;
-
-            }
-            try {
-                userManager.updateUser(registeredUser);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try {
+            bookingManager.bookFlight(choice);
+        } catch (ParseException | java.text.ParseException | IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
     }
 
