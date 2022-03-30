@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 
 //import javax.lang.model.util.ElementScanner14;
 
@@ -14,6 +15,8 @@ public class ApplicationManager {
     private static ApplicationManager appManager;
     private static UserManager userManager;
     private static BookingManager bookingManager;
+
+    private static ArrayList<Plane> searchResults;
 
     private ApplicationManager() throws FileNotFoundException, IOException, ParseException, java.text.ParseException{
         Utilities.getInstance();
@@ -59,12 +62,52 @@ public class ApplicationManager {
 
     public void searchFlights(String search){
         System.out.println("Flight searches for: \""+search+"\"");
+        searchResults = bookingManager.getFlights(search);
         int i = 1;
-        for(Plane plane : bookingManager.getFlights(search)){
-            System.out.println(i + "\t"+ plane.getFlightInfo());
+        for(Plane plane : searchResults){
+            System.out.println(i + plane.getFlightInfo());
             i++;
         }
         
+    }
+
+    public void bookFlight(int choice) {
+        System.out.println("Choose a seat in the format (A4, A5): ");
+
+        searchResults.get(choice-1).printSeats();
+        Scanner input = new Scanner(System.in);
+        String seats[] = input.nextLine().split(",");
+
+        RegisteredUser registeredUser = (RegisteredUser) userManager.getCurrentUser();
+
+        for (String seat : seats){
+            switch (seat.charAt(0)) {
+                case 'A':
+                    int[] index = {1, Integer.parseInt(seat.substring(1,1))};
+                    registeredUser.addFlightBooking(new FlightBooking(searchResults.get(choice-1).getUUID(), index));
+                    break;
+                case 'B':
+                    int[] index2 = {1, Integer.parseInt(seat.substring(1,1))};
+                    registeredUser.addFlightBooking(new FlightBooking(searchResults.get(choice-1).getUUID(), index2));
+                    break;
+                case 'C':
+                    int[] index3 = {1, Integer.parseInt(seat.substring(1,1))};
+                    registeredUser.addFlightBooking(new FlightBooking(searchResults.get(choice-1).getUUID(), index3));
+                    break;
+                case 'D':
+                    int[] index4 = {1, Integer.parseInt(seat.substring(1,1))};
+                    registeredUser.addFlightBooking(new FlightBooking(searchResults.get(choice-1).getUUID(), index4));
+                    break;
+                default:
+                    break;
+
+            }
+            try {
+                userManager.updateUser(registeredUser);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void searchHotels(String search){

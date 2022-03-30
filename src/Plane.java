@@ -27,7 +27,7 @@ public class Plane implements src.JSON{
 
     private String[] layovers;
 
-    private boolean[][] seats = new boolean[SEAT_ROWS][SEAT_COLUMNS]; //Keeps track of all the available seats whether they are booked or not
+    private boolean[][] seats = new boolean[SEAT_COLUMNS][SEAT_ROWS]; //Keeps track of all the available seats whether they are booked or not
 
 
     public Plane(UUID uuid) {
@@ -81,6 +81,10 @@ public class Plane implements src.JSON{
             Arrays.fill(seat, false);
 
         this.availableSeats = SEAT_COLUMNS*SEAT_ROWS;
+    }
+
+    public UUID getUUID() {
+        return this.uuid;
     }
 
     public void setAirline(Airlines airline) {
@@ -146,7 +150,7 @@ public class Plane implements src.JSON{
         
         String out = "";
         
-        System.out.println("    A         B                 D          E         ");
+        System.out.println("    A         B                 C          D         ");
 
         for (int i = 0; i < seats.length; i++){
             int j = 0;

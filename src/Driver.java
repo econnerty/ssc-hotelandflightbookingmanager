@@ -131,6 +131,14 @@ public class Driver {
                 break;
             case 4:
                 break;
+            case 5:
+                System.out.print("Search Flights: ");
+                appManager.searchFlights(input.nextLine());
+                System.out.println("Pick the flight you would like to book, or 'back' ");
+                String in = input.nextLine();
+                if (!in.equalsIgnoreCase("back"))
+                    appManager.bookFlight(Integer.parseInt(in));
+            case 6:
             case 8:
                 appManager.logout();
                 currentUser = appManager.getCurrentUser();
