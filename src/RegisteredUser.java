@@ -60,12 +60,12 @@ public class RegisteredUser extends User implements src.JSON{
                 write += "\tFlight Booking:\n";
                 write += "\tYour departure date is: "+BookingManager.getInstance().getPlanes().get(flightBooking.getUUID()).getDepartureDate().toString()+"\n";
                 write += "\tYour arrival date is: "+BookingManager.getInstance().getPlanes().get(flightBooking.getUUID()).getArrivalDate().toString()+" at "+BookingManager.getInstance().getPlanes().get(flightBooking.getUUID()).getDepartureCity()+"\n";
-                write +="\tand will be arriving at "+BookingManager.getInstance().getPlanes().get(flightBooking.getUUID()).getDestinationCity()+"\n";
+                write +="\tand will be arriving at "+BookingManager.getInstance().getPlanes().get(flightBooking.getUUID()).getDestinationCity()+"\n\n";
     		  }
     	      for(HotelBooking hotelBooking : hotelBookings) {
                 write += "\tHotel Booking: \n";
                 write += "\tYou have booked a hotel at " + BookingManager.getInstance().getHotels().get(hotelBooking.getUUID()).getName() + " in "+ BookingManager.getInstance().getHotels().get(hotelBooking.getUUID()).getCity() + "\n" ;
-                write +="\tYour booking date is: "+Utilities.dobFormat.format(hotelBooking.getDate())+"\n";
+                write +="\tYour booking date is: "+Utilities.dobFormat.format(hotelBooking.getDate())+"\n\n";
     		  }
               myWriter.write(write);
     	      myWriter.close();
