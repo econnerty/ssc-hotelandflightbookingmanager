@@ -81,6 +81,10 @@ public class Plane implements src.JSON{
     public String getDestinationCity(){
         return this.destinationCity;
     }
+    public String getDepartureCity(){
+        return this.departureCity;
+    }
+
 
     private void clearSeats() {
         for (boolean[] seat : seats) 

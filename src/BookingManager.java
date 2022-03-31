@@ -40,9 +40,9 @@ public class BookingManager {
 
     }
 
-    public void searchFlights(String search) {
-        System.out.println("Flight searches for: \""+search+"\"");
-        searchResults = bookingManager.getFlights(search);
+    public void searchFlights(String departure, String destination) {
+        System.out.println("Flight searches for: \""+departure+"\" to \"" + destination + "\"");
+        searchResults = bookingManager.getFlights(departure, destination);
         int i = 1;
         for(Plane plane : searchResults){
             System.out.println(i + plane.getFlightInfo());
@@ -193,16 +193,16 @@ public class BookingManager {
         return this.hotels;
     }
 
-    public ArrayList<Plane> getFlights(String search) {
+    public ArrayList<Plane> getFlights(String departure, String destination) {
 
-        search = search.toLowerCase();
+        departure = departure.toLowerCase();
+        destination = destination.toLowerCase();
 
-        String query[] = search.split(" ");
         ArrayList<Plane> results = new ArrayList<Plane>();
-        if(search == "" || search == " ")
+        if(departure == "" || departure == " " || destination == "" || destination == " ")
             return results;
         for (Plane plane : planes.values()) {//iterate through each archive in planes.
-            if (plane.getDestinationCity().toLowerCase().contains(search)|| search.equalsIgnoreCase(plane.getDestinationCity())){
+            if ((plane.getDestinationCity().toLowerCase().contains(destination) || destination.equalsIgnoreCase(plane.getDestinationCity())) && (plane.getDepartureCity().toLowerCase().contains(departure) || departure.equalsIgnoreCase(plane.getDepartureCity())) ){
                 results.add(plane);
             }
 

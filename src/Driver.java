@@ -86,8 +86,11 @@ public class Driver {
                 
                 break;
             case 3:
-                System.out.print("Search Flights: ");
-                appManager.searchFlights(input.nextLine());
+                System.out.print("Enter the departure city: ");
+                String departure = input.nextLine();
+                System.out.print("Enter the destination city: ");
+                String destination = input.nextLine();
+                appManager.searchFlights(departure,destination);
                 break;
             case 4:
                 System.out.print("Search Hotels: ");
@@ -135,8 +138,11 @@ public class Driver {
                     System.out.println(booking.toString()+"\n");
                 break;
             case 5:
-                System.out.print("Search Flights: ");
-                appManager.searchFlights(input.nextLine());
+                System.out.print("Enter the departure city: ");
+                String departure = input.nextLine();
+                System.out.print("Enter the destination city: ");
+                String destination = input.nextLine();
+                appManager.searchFlights(departure,destination);
                 System.out.println("Pick the flight you would like to book, or 'back' ");
                 String in = input.nextLine();
                 if (!in.equalsIgnoreCase("back"))

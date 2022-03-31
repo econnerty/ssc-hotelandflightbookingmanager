@@ -62,8 +62,8 @@ public class ApplicationManager {
     }
 
 
-    public void searchFlights(String search){
-        bookingManager.searchFlights(search);
+    public void searchFlights(String departure, String destination){
+        bookingManager.searchFlights(departure, destination);
     }
 
 
