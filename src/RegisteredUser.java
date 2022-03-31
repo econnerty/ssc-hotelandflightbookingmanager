@@ -16,25 +16,52 @@ import org.json.simple.parser.ParseException;
 
 import java.util.ArrayList;
 
-
+/**
+ * This class create user that is registered
+ */
 public class RegisteredUser extends User implements src.JSON{
 
     private ArrayList<FlightBooking> flightBookings = new ArrayList<>();
     private ArrayList<HotelBooking> hotelBookings = new ArrayList<>(); 
-    private String[] preferences; //Is this the right size?
+    private String[] preferences; 
     private ArrayList<GuestUser> guests = new ArrayList<>();
-
+    /**
+     * This is constructing the Registered user
+     * @param username this the username of the user
+     * @param password this the password of the user
+     * @param dob date of birth of the user
+     * @param creationDate date of creation of account
+     */
     public RegisteredUser(String username, String password, Date dob, Date creationDate) {
         super(username, password, dob, creationDate);
     }
-
+    /**
+     * This is constructing the Registered user
+     * @param username this the username of the user
+     * @param password this the password of the user
+     * @param dob date of birth of the user
+     * @param creationDate date of creation of account
+     * @param flightbookings is the flights the user has booked
+     * @param hotelbooking is the hotels the user has booked
+     * @param guests is amount of guest the user is booking for
+     */
     public RegisteredUser(String username, String password, Date dob, Date creationDate, ArrayList<FlightBooking> flightBookings, ArrayList<HotelBooking> hotelBookings, ArrayList<GuestUser> guests) {
         super(username, password, dob, creationDate);
         this.flightBookings = flightBookings;
         this.hotelBookings = hotelBookings;
         this.guests = guests;
     }
-
+    /**
+     * This is constructing the Registered user
+     * @param username this the username of the user
+     * @param password this the password of the user
+     * @param dob date of birth of the user
+     * @param creationDate date of creation of account
+     * @param flightbookings is the flights the user has booked
+     * @param hotelbooking is the hotels the user has booked
+     * @param preferences this the preferences that the user wants for flights and hotels
+     * @param guests is amount of guest the user is booking for
+     */
     public RegisteredUser(String username, String password, Date dob, Date creationDate, ArrayList<FlightBooking> flightBookings, ArrayList<HotelBooking> hotelBookings, String[] preferences, ArrayList<GuestUser> guests) {
         super(username, password, dob, creationDate);
         this.flightBookings = flightBookings;
@@ -42,15 +69,25 @@ public class RegisteredUser extends User implements src.JSON{
         this.preferences = preferences;
         this.guests = guests;
     }
-
+    /**
+     * This is the flights that the user has
+     * @return this return the flights of the user
+     */
     public ArrayList<FlightBooking> getFlightBookings() {
         return this.flightBookings;
     }
-
+    /**
+     * This is the flights that the user has
+     * @return this return the flights of the user
+     */
     public ArrayList<HotelBooking> getHotelBookings() {
         return this.hotelBookings;
     }
-
+    /**
+     * This prints out the itinerary
+     * @throws ParseException
+     * @throwsjava.text.ParseException
+     */
     public void itinerary() throws ParseException, java.text.ParseException {
         String write = "";
     	try {
@@ -58,14 +95,14 @@ public class RegisteredUser extends User implements src.JSON{
               write += "Itinerary for " + this.username + ": \n\n";
     	      for(FlightBooking flightBooking: flightBookings) {
                 write += "\tFlight Booking:\n";
-                write += "\tYour departure date is: "+BookingManager.getInstance().getPlanes().get(flightBooking.getUUID()).getDepartureDate().toString()+" at "+BookingManager.getInstance().getPlanes().get(flightBooking.getUUID()).getDepartureCity()+" airport\n";
-                write += "\tYour arrival date is: "+BookingManager.getInstance().getPlanes().get(flightBooking.getUUID()).getArrivalDate().toString();
-                write +=" with the destination city "+BookingManager.getInstance().getPlanes().get(flightBooking.getUUID()).getDestinationCity()+"\n\n";
+                write += "\tYour departure date is: "+BookingManager.getInstance().getPlanes().get(flightBooking.getUUID()).getDepartureDate().toString()+"\n";
+                write += "\tYour arrival date is: "+BookingManager.getInstance().getPlanes().get(flightBooking.getUUID()).getArrivalDate().toString()+" at "+BookingManager.getInstance().getPlanes().get(flightBooking.getUUID()).getDepartureCity()+"\n";
+                write +="\tand will be arriving at "+BookingManager.getInstance().getPlanes().get(flightBooking.getUUID()).getDestinationCity();
     		  }
     	      for(HotelBooking hotelBooking : hotelBookings) {
                 write += "\tHotel Booking: \n";
                 write += "\tYou have booked a hotel at " + BookingManager.getInstance().getHotels().get(hotelBooking.getUUID()).getName() + " in "+ BookingManager.getInstance().getHotels().get(hotelBooking.getUUID()).getCity() + "\n" ;
-                write +="\tYour booking date is: "+Utilities.dobFormat.format(hotelBooking.getDate())+"\n\n";
+                write +="\tYour booking date is: "+Utilities.dobFormat.format(hotelBooking.getDate())+"\n";
     		  }
               myWriter.write(write);
     	      myWriter.close();
@@ -77,7 +114,13 @@ public class RegisteredUser extends User implements src.JSON{
         
   
     }
-
+    /**
+     * This sets the preferences of the registered user
+     * @throws FileNotFoundException
+     * @throws IOException
+     * @throws ParseException
+     * @throws java.text.ParseException
+     */
     public void setPreferences() throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
         //TODO
         Scanner input = new Scanner(System.in);
@@ -145,7 +188,10 @@ public class RegisteredUser extends User implements src.JSON{
         }
         UserManager.getInstance().updateUser(this);
     }
-
+    /**
+     * This allows the user to add friends or guests 
+     * @param name this the name of the friends that user is adding
+     */
     public void addFriends(String name) {
         if (this.guests == null)
             this.guests = new ArrayList<GuestUser>();
@@ -157,7 +203,10 @@ public class RegisteredUser extends User implements src.JSON{
             e.printStackTrace();
         }
     }
-
+    /**
+     * This allows the user to remove friends or guests 
+     * @param name this the name of the friends that user is removing
+     */
     public void removeFriend(String name) {
         if (this.guests == null)
             this.guests = new ArrayList<GuestUser>();
@@ -169,11 +218,16 @@ public class RegisteredUser extends User implements src.JSON{
             e.printStackTrace();
         }
     }
-
+    /**
+     * This is the list of friends or guests that the user has added
+     * @return this return the guests
+     */
     public ArrayList<GuestUser> getFriends() {
         return this.guests;
     }
-
+    /**
+     * This allows the user to change their password
+     */
     public void changePassword() {
         System.out.println("Enter your new password: ");
         Scanner input = new Scanner(System.in);
@@ -187,17 +241,25 @@ public class RegisteredUser extends User implements src.JSON{
 
     }
 
-
+    /**
+     * This allows the user to add a hotel to their booking
+     * @param booking this is the hotel that is being booked
+     */
     public void addHotelBooking(HotelBooking booking) {
     	//TODO
     	hotelBookings.add(booking);
     }
-    
+    /**
+     * This allows the user to add a flight to their booking
+     * @param booking this is the flight that is being booked
+     */
     public void addFlightBooking(FlightBooking booking) {
         //TODO
     	flightBookings.add(booking);
     }
-
+    /**
+     * This allows the user to cancel an unwanted booking
+     */
     public void cancelBooking() {
         //TODO
         Scanner input=new Scanner(System.in);
@@ -234,14 +296,20 @@ public class RegisteredUser extends User implements src.JSON{
     		System.out.println("Invalid answer");
     	}
     }
-
+    /**
+     * This contains the string for the menu
+     * @return this return the string for the menu
+     */
     public String menuString() {
 
         return "\nWelcome, "+this.username+"!\n1. Set/Change Preferences\n2. Change Password\n3. View Past Bookings\n4. View Current Bookings\n5. Search/Book a Flight\n6. Search/Book a Hotel\n7. Add a friend\n8. Remove a friend\n9. Print Itinerary\n10. Log Out\n\nWhat would you like to do?";
         
     }
 
-    
+    /**
+     * This return JSON object which can be written to a JSON file
+     * @return This returns the JSON object 
+     */
     public Map toJsonObject() {
 
         Map jsonObject = new LinkedHashMap<>();
@@ -294,7 +362,10 @@ public class RegisteredUser extends User implements src.JSON{
             
     }
 
-    
+    /**
+     * Returns the string for Registered user
+     * @return this return the string
+     */
     public String toString() {
         String ret = this.username + " " + this.password + " " + this.creationDate.toString() + " ";
 

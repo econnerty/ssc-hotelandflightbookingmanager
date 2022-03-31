@@ -6,13 +6,20 @@ import java.util.Date;
 import java.util.UUID;
 
 import org.json.simple.parser.ParseException;
-
+/**
+ * this contains the information for a hotel booking
+ */
 public class HotelBooking extends Booking {
     
     private int[] index = new int[3];
 
     private Date date;
-
+    /**
+     * This creates hotel booking 
+     * @param uuid this is the ID of the hotel booking
+     * @param int is the specific room that chosen 
+     * @param date is the date the room is booked for
+     */
     public HotelBooking(UUID uuid, int[] index, Date date) {
 
         super(uuid);
@@ -23,14 +30,24 @@ public class HotelBooking extends Booking {
         this.date = date;
 
     }
-
+    /**
+     * this method gets the specific room that is chosen
+     * @return returns the specific room
+     */
     public int[] getIndex(){
         return this.index;
     }
+    /**
+     * this method gets the date the person is staying for
+     * @return returns that date that chosen
+     */
     public Date getDate(){
         return this.date;
     }
-
+    /**
+     * This constructor return a string of the hotel booking
+     * @return returns the string of the hotel booking
+     */
     public String toString() {
         String ret = "";
 

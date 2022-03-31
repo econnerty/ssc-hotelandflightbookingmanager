@@ -1,6 +1,7 @@
 package src;
 
 import java.io.FileNotFoundException;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,6 +10,9 @@ import java.util.Scanner;
 import java.util.UUID;
 
 import org.json.simple.parser.ParseException;
+/**
+ * Booking Manager class manages all the bookings
+ */
 
 public class BookingManager {
 
@@ -22,7 +26,13 @@ public class BookingManager {
     private static ArrayList<Plane> searchResults;
     private static ArrayList<Hotel> searchResultsHotel;
 
-
+    /**
+     * private constructor
+     * @throws FileNotFoundException
+     * @throws IOException
+     * @throws ParseException
+     * @throws java.text.ParseException
+     */
     private BookingManager() throws FileNotFoundException, IOException, ParseException, java.text.ParseException{
 
         planes = Utilities.loadPlanes(); //This should allow us to get the full list of planes from the JSON
@@ -31,7 +41,14 @@ public class BookingManager {
 
 
     }
-
+    /**
+    * gets the instance of booking manager
+    * @return 
+    * @throws FileNotFoundException
+    * @throws IOException
+    * @throws ParseException
+    * @throws java.text.ParseException
+    */
     public static BookingManager getInstance() throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
 
         if (bookingManager == null)
@@ -40,7 +57,11 @@ public class BookingManager {
         return bookingManager;   
 
     }
-
+    /**
+     * This is used to search flights
+     * @param departure is the city that plan is leaving from
+     * @param destination is where the plan is landing
+     */
     public void searchFlights(String departure, String destination) {
         System.out.println("Flight searches for: \""+departure+"\" to \"" + destination + "\"");
         searchResults = bookingManager.getFlights(departure, destination);
@@ -50,7 +71,10 @@ public class BookingManager {
             i++;
         }
     }
-    
+    /**
+     * This is used to search flights
+     * @param search is the city that user is looking for
+     */
     public void searchHotels(String search) {
         System.out.println("Flight searches for: \""+search+"\"");
         searchResultsHotel = bookingManager.getHotelBookings(search);
@@ -60,7 +84,11 @@ public class BookingManager {
             i++;
         }
     }
-
+    /**
+     * books flights
+     * @param choice is the flight you choose
+     * @return boolean it returns if booking the flight was successful
+     */
     public boolean bookFlight(int choice) throws ParseException, java.text.ParseException, FileNotFoundException, IOException{
 
         if (choice >= searchResults.size()){
@@ -70,7 +98,7 @@ public class BookingManager {
         System.out.println("Choose a seat in the format for you and each of your guests (A4, A5): ");
 
 
-        searchResults.get(choice-1).printSeats(); //its minus one because the user will input 1 but the index is zero
+        searchResults.get(choice-1).printSeats();
         Scanner input = new Scanner(System.in);
         
 
@@ -151,7 +179,11 @@ public class BookingManager {
         }
         return true;
     }
-
+    /**
+     * books hotels 
+     * @param choice is the hotel you choose
+     * @return boolean it returns if booking the hotel was successful
+     */
     public boolean bookHotel(int choice) throws ParseException, java.text.ParseException, FileNotFoundException, IOException{
 
         if (choice >= searchResultsHotel.size()){
@@ -188,14 +220,26 @@ public class BookingManager {
         return false;
       
     }
-
+    /**
+     * This constructor gets the planes
+     * @return This returns the plane
+     */
     public HashMap<UUID,Plane> getPlanes(){
         return this.planes;
     }
+    /**
+     * This constructor gets the hotels
+     * @return This returns the hotels
+     */
     public HashMap<UUID, Hotel> getHotels(){
         return this.hotels;
     }
-
+    /**
+     * This constructor gets the flights that match the given parameters 
+     * @param departure gets the plane that has the specific departure date 
+     * @param destination gets the plane that has the specific destination date 
+     * @return This returns the results for the search for a flight
+     */
     public ArrayList<Plane> getFlights(String departure, String destination) {
 
         departure = departure.toLowerCase();
@@ -213,7 +257,11 @@ public class BookingManager {
  
         return results;
     }
-
+    /**
+     * This constructor gets the flights that match the given parameters 
+     * @param search gets the hotels within the city that is searched
+     * @return This returns the results for the search for a a hotel
+     */
     public ArrayList<Hotel> getHotelBookings(String search) {
         search = search.toLowerCase();
         ArrayList<Hotel> results = new ArrayList<Hotel>();
@@ -226,23 +274,20 @@ public class BookingManager {
         }
         return results;
     }
-
+    /**
+     * This constructor saves a plan to a JSON file
+     * @throws IOException
+     */
     private void addPlane(Plane plane) throws IOException {
         planes.put(plane.getUUID(), plane);
         Utilities.savePlanes(planes);
     }
+    /**
+     * This constructor saves a hotel to a JSON file
+     * @throws IOException
+     */
     private void addHotel(Hotel hotel) throws IOException {
         hotels.put(hotel.getUUID(), hotel);
         Utilities.saveHotels(hotels); //Uncomment this when toJSON OBject is complete
-    }
-    private double doubleParser(String str) {
-        double val;
-        try {
-            val = Double.parseDouble(str);
-        }
-        catch (NumberFormatException e) {
-            val = -1;
-        }
-        return val;
     }
 }

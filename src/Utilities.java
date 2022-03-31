@@ -13,7 +13,11 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 
-
+/**
+ * This class reads and writes JSON files
+ * @author User
+ *
+ */
 public class Utilities {
 
     private static final String USER_JSON_PATH = "data/users.json";
@@ -55,7 +59,7 @@ public class Utilities {
     "Vienna", "Johor Bahru", "Jaipur", "Cancun", "Berlin", "Cairo", "Moscow", "Venice", "Madrid", "Ha Long", "Riyadh",
     "Dublin", "Florence", "Jerusalem", "Hanoi", "Toronto", "Johannesburg", "Sydney", "Munich", "Jakarta", "Beijing",
     "Saint Petersburgh", "Brussels", "Mugla", "Buenos Aires", "Chiba", "Frankfurt am Main", "Stockholm", "Lima", "Da Nang",
-    "Batam", "Nice", "Fukuoka", "Abu Dhabi", "Jeju", "Porto", "Rhodes", "Rio de Janeiro", /*what this*/"Krabi"/*the fuck is this*//*um hello*//*bitch*/, "Bangalore", "Mexico City",
+    "Batam", "Nice", "Fukuoka", "Abu Dhabi", "Jeju", "Porto", "Rhodes", "Rio de Janeiro","Krabi", "Bangalore", "Mexico City",
     "Punta Cana", "Sao Paulo", "Zurich", "Montreal", "Dusseldorf", "Chengdu", "Edinburgh", "Tehran", "Hamburg", "Cape Town",
     "Manila", "Bogota", "Xi'an", "Beirut", "Geneva", "Colombo", "Xiamen", "Bucharest", "Casablanca", "Sofia", "Dalian",
     "Montevideo","Budapest", "Lisbon", "Dammam", "Penang Island", "Heraklion", "Kyoto", "Zhuhai",
@@ -64,14 +68,7 @@ public class Utilities {
     "Portsmouth", "Preston", "Ely", "Gloucester", "Hereford", "Durham", "Truro", "Salford", "Lancaster", "Naples", "Bologna", "Verona",
     "Turin", "Palermo", "Pisa" ,"Ravenna", "Trieste", "Parma", "Rimini", "Padua", "Cagliri", "Pompeii", "Brescia", "Bergamo", "Modena",
     "Hat Yai", "Nonthaburi", "Thani", "Pak Kret", "Hua Hin", "Song", "Pai", "Pattan", "Nan", "Phrae", "Nong Khai", "Phayao"};
-    //bish u can stop now/ /bish//uwu
-    //bish we need to just write the code for the random stufff, also we need to randomize the airlines and hotel which we only have 2  of those rn
-    //hmmm can u separate the internationalones uwu .....//girl pls//girllistenn t
-    //
-//boston//chorleston//atlanta//london//bangkok bitch r we doing international//tokyo//paris//russia//beijing//bitch//shesaidtodointernational bitch fuck u said russia HAHAAH//nowcalculatethedistancetoeachcitysowecandoit
-    //hmmm can u separate the internationalones uwu .....//girl pls//girllistenn t
-    //
-//boston//chorleston//atlanta//london//bangkok bitch r we doing international//tokyo//paris//russia//beijing//bitch//shesaidtodointernational bitch fuck u said russia HAHAAH//nowcalculatethedistancetoeachcitysowecandoit
+   
     private Utilities() {
 
         try {md = MessageDigest.getInstance("SHA-256");} 
@@ -79,7 +76,10 @@ public class Utilities {
 
         JSONParser = new JSONParser();
     }
-
+    /**
+     * This gets the instance of the Utilities
+     * @return this return the utilities
+     */
     public static Utilities getInstance() {
         
         if (utilities == null)
@@ -88,7 +88,13 @@ public class Utilities {
         return Utilities.utilities;
         
     }
-
+    /**
+     * This loads the users that are in the hashmap
+     * @throws FileNotFoundException
+     * @throws IOException
+     * @throws ParseException
+     * @throws java.text.ParseException
+  */
     public static HashMap<String, User> loadUsers() throws FileNotFoundException, IOException, ParseException, java.text.ParseException{
 
         File file = new File(USER_JSON_PATH);
@@ -182,7 +188,13 @@ public class Utilities {
 
         return users;
     }
-
+    /**
+     * This loads the planes that are contained in the hashmap
+     * @throws FileNotFoundException
+     * @throws IOException
+     * @throws ParseException
+     * @throws java.text.ParseException
+     */
     public static HashMap<UUID, Plane> loadPlanes() throws FileNotFoundException, IOException, ParseException, java.text.ParseException{
 
 
@@ -212,12 +224,10 @@ public class Utilities {
             boolean[][] seats = new boolean[Plane.getSize()[0]][Plane.getSize()[1]];
             String destinationCity = jsonObject.get("destinationCity").toString();
             String departureCity = jsonObject.get("departureCity").toString();
-            Date departureDate = dateFormat.parse(jsonObject.get("departureDate").toString()); //this is supposed to be a date tho i hate u :pensive:
-            //i am sad why it red
+            Date departureDate = dateFormat.parse(jsonObject.get("departureDate").toString());
             Date arrivalDate = dateFormat.parse(jsonObject.get("arrivalDate").toString());
             Double price = Double.parseDouble(jsonObject.get("price").toString());
-            boolean smoking = Boolean.parseBoolean(jsonObject.get("smoking").toString());
-//stop follow me :pensive: girl
+            boolean smoking = Boolean.parseBoolean(jsonObject.get("smoking").toString();
             boolean petsAllowed = Boolean.parseBoolean(jsonObject.get("petsAllowed").toString());
             JSONArray layovers = (JSONArray) jsonObject.get("layovers");
             String[] sLayovers = new String[layovers.size()];
@@ -249,7 +259,13 @@ public class Utilities {
  
         return planes;
     }
-
+    /**
+     * This loads the hotels that are contained in the hashmap 
+     * @throws FileNotFoundException
+     * @throws IOException
+     * @throws ParseException
+     * @throws java.text.ParseException
+     */
     public static HashMap<UUID, Hotel> loadHotels() throws FileNotFoundException, IOException, ParseException, java.text.ParseException{
 
         File file = new File(HOTEL_JSON_PATH);
@@ -291,7 +307,13 @@ public class Utilities {
         }
         return hotels;
     }
-
+    /**
+     * This loads the Businesses that are contained in the hashmap
+     * @throws FileNotFoundException
+     * @throws IOException
+     * @throws ParseException
+     * @throws java.text.ParseException
+     */
     public static HashMap<UUID, Business> loadBusinesses() throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
         File file = new File(BUSINESS_JSON_PATH);
 
@@ -320,7 +342,11 @@ public class Utilities {
         }
         return businesses;
     }
-
+    /** 
+     * This is saving the users to the JSON file
+     * @param users these are the users that were created
+     * @throws IOException
+     */
     public static void saveUsers(HashMap<String, User> users) throws IOException {
 
         JSONArray jsonUsers = new JSONArray();
@@ -334,7 +360,11 @@ public class Utilities {
         f.flush();
 
     }
-
+    /** 
+     * This is saving the flights to the JSON file
+     * @param planes these are the flights that were created by the user
+     * @throws IOException
+     */
     public static void savePlanes(HashMap<UUID, Plane> planes) throws IOException{
         JSONArray jsonPlanes = new JSONArray();
 
@@ -346,7 +376,11 @@ public class Utilities {
         f.write(jsonPlanes.toJSONString().replace("},{", "},\n{"));
         f.flush();
     }
-
+    /** 
+     * This is saving the hotels to the JSON file
+     * @param hotels these are the hotels that were created by the user
+     * @throws IOException
+     */
     public static void saveHotels(HashMap<UUID, Hotel> hotels) throws IOException{
         JSONArray jsonHotels = new JSONArray();
 
@@ -360,7 +394,16 @@ public class Utilities {
     }
 
     //TODO Make sure flight has a different destination than its departure city
-    
+    /**
+     * This generates random flights in the JSON file
+     * @throws FileNotFoundException
+     * @throws IOException
+     * @throws java.text.ParseException
+     * @throws NoSuchFieldException
+     * @throws SecurityException
+     * @throws IllegalArgumentException
+     * @throws IllegalAccessException
+     */
     public static void generateFlights() throws FileNotFoundException, IOException, java.text.ParseException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
         JSONArray jsonFlights = new JSONArray();
 

@@ -115,57 +115,103 @@ public class Hotel implements src.JSON{
         this.availableRooms = FLOORS*LENGTH*WIDTH;
     }
     /**
-     * this method returns the amount of availbe rooms.
-     * @return returns the amount of availbe rooms.
+     * this method gets the amount of available rooms.
+     * @return returns the amount of available rooms.
      */
     public int getAvailableRooms() {
         return this.availableRooms;
     }
-
+    /**
+     * this method gets the UUID
+     * @return returns the UUID
+     */
     public UUID getUUID() {
         return this.uuid;
     }
-
+    /**
+     * this method gets the name of hotel 
+     * @return returns the name of the hotel
+     */
     public String getName() {
         return this.hotel.name();
     }
-
+    /**
+     * this method sets the hotel 
+     * @return returns the hotel
+     */
     public void setHotel() {
         //this.hotel=hotel;
     }
-
+    /**
+     * this method sets the price of the hotel
+     * @return returns the set hotel price
+     */
     public void setPrice(Double price) {
         this.price=price;
     }
+    /**
+     * this method gets the price of the hotel
+     * @return returns the price of the hotel
+     */
     public double getPrice() {
         return this.price;
     }
-
+    /**
+     * this method sets the city of the hotel
+     * @return returns the city that hotel is set in
+     */
     public void setCity(String city) {
         this.city=city;
     }
+    /**
+     * this method gets the city of the hotel
+     * @return returns the city that hotel is located in
+     */
     public String getCity() {
         return this.city;
     }
-
+    /**
+     * this method sets if the hotel allows smoking
+     * @param boolean determines true or false if the hotel accepts smoking
+     * @return return if the hotel allows smoking
+     */
     public void setSmoking(Boolean smoking) {
         this.smoking=smoking;
     }
+    /**
+     * this method gets if smoking is allowed
+     * @return returns if smoking is allowed
+     */
     public Boolean getSmoking() {
         return this.smoking;
     }
-
+    /**
+     * this method sets if the hotel allows pets
+     * @param boolean determines true or false if the hotel accepts pets
+     * @return return if the hotel allows pets
+     */
     public void setPets(Boolean petsAllowed) {
         this.petsAllowed=petsAllowed;
     }
+    /**
+     * this method gets if pets are allowed
+     * @return returns if pets are allowed
+     */
     public Boolean getPetsAllowed() {
         return this.petsAllowed;
     }
-
+    /**
+     * this method gets the size of the hotel
+     * @param int it number of floors, length and witdth 
+     * @return this return the floors, length and width of the hotel
+     */
     public static int[] getSize() {
         return new int[]{Hotel.FLOORS, Hotel.LENGTH, Hotel.WIDTH};
     }
-
+    /**
+     * this return the JSON object that can be written to a JSON file
+     * @return this return the JSON object
+     */
     public Map toJsonObject() {
         Map jsonObject = new LinkedHashMap<>();
 
@@ -186,13 +232,20 @@ public class Hotel implements src.JSON{
         jsonObject.put("amenities", jsonAmenities);
         return jsonObject;
     }
-
+    /**
+     * Returns a string of the hotel 
+     * @return returns the string of the hotel
+     */
     @Override
     public String toString() {
         return "Hotel [availableRooms=" + availableRooms + ", city=" + city + ", hotel=" + hotel + ", petsAllowed="
                 + petsAllowed + ", price=" + price + ", rooms=" + Arrays.toString(rooms) + ", smoking=" + smoking
                 + ", uuid=" + uuid + "]";
     }
+    /**
+     * Return a formatted string of the hotel info
+     * @return this return the info of the hotel
+     */
     public String getHotelInfo() {
         
         String ret = "\tHotel: " + hotel + "\tCity: " + city + "\tPrice: " + price+"\tAvailable Rooms: "

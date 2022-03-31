@@ -12,7 +12,9 @@ import java.util.HashMap;
 import java.util.UUID;
 
 import java.util.Scanner;
-
+/**
+ * This contains the main method and UI for the program 
+ */
 public class Driver {
 
     private static User currentUser;
@@ -21,7 +23,14 @@ public class Driver {
     private static final String[] types = {"Business", "Registered"};
 
     private static final Scanner input = new Scanner(System.in);
-
+    /**
+     * This constructor runs the program 
+     *  @param boolean this return true if the program is still running
+     *  @throws FileNotFoundException
+     *  @throws IOException
+     *  @throws ParseException
+     *  @throws java.text.ParseException
+     */
     private static boolean run() throws java.text.ParseException, IOException, ParseException{
 
         currentUser = appManager.getCurrentUser();
@@ -35,7 +44,12 @@ public class Driver {
 
         return false;
     }
-
+    /**
+     * This is the main menu for the guest user 
+     * @param boolean this return true if the main menu is still running
+     * @throws IOException
+     * @throws java.text.ParseException
+     */
     public static boolean mainMenu() throws IOException, java.text.ParseException {
         //cheapest flights
 
@@ -109,7 +123,14 @@ public class Driver {
         return true;
     }
 
-
+    /**
+     * This is the main menu for the registered user 
+     * @param boolean this return true if the main menu is still running
+     * @throws FileNotFoundException
+     * @throws IOException
+     * @throws ParseException
+     * @throws java.text.ParseException
+     */
     public static boolean registeredMainMenu() throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
         
         //cheapest flights
@@ -191,9 +212,12 @@ public class Driver {
         }
         return true;
     }
-
+    /**
+     * This is the main menu for the business user 
+     * @param boolean this return true if the main menu is still running
+     */
     public static boolean businessMainMenu() {
-        //cheapest flights
+   
 
         System.out.println(currentUser.menuString());
 
@@ -213,7 +237,6 @@ public class Driver {
         }
         return true;
     }
-    
     public static void main(String args[]) throws FileNotFoundException, IOException, ParseException, java.text.ParseException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 
         appManager = ApplicationManager.getInstance();

@@ -11,7 +11,7 @@ import java.util.UUID;
  */
 public abstract class User {
 
-    //protected UUID uuid; //why do we need uuid if all the usernames are unique
+    
     protected String username;
     protected String password; //This should be the hashed password if we have time for that
     protected Date dob;
