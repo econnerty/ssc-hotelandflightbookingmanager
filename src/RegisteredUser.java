@@ -53,7 +53,7 @@ public class RegisteredUser extends User implements src.JSON{
 
     public void itinerary() {
     	try {
-    	      FileWriter myWriter = new FileWriter("schedule");
+    	      FileWriter myWriter = new FileWriter("itinerary.txt");
     	      for(int i=0;i<flightBookings.size();i++) {
     			  myWriter.write(flightBookings.get(i).toString());
     		  }
@@ -63,9 +63,10 @@ public class RegisteredUser extends User implements src.JSON{
     	      myWriter.close();
     	      System.out.println("Your itinerary has been created!");
     	    } catch (IOException e) {
-    	      System.out.println("An error occurred.");
+                System.out.println("Something went wrong printing your itinerary!");
     	      e.printStackTrace();
     	    }
+  
     }
 
     public void setPreferences() throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
@@ -269,6 +270,7 @@ public class RegisteredUser extends User implements src.JSON{
                 jsonHotel.add(String.valueOf(booking.getIndex()[0]));
                 jsonHotel.add(String.valueOf(booking.getIndex()[1]));
                 jsonHotel.add(String.valueOf(booking.getIndex()[2]));
+                jsonHotel.add(Utilities.dobFormat.format(booking.getDate()));
             }
         jsonObject.put("hotelBookings", jsonHotel);
 

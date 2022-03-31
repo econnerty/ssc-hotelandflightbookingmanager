@@ -3,6 +3,7 @@ package src;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.UUID;
@@ -157,10 +158,12 @@ public class BookingManager {
             System.out.println("Invalid Choice");
             return false;
         }
-        //System.out.println("Choose a seat in the format for you and each of your guests (A4, A5): ");
+        System.out.println("Enter the date in the format MM/dd/yyyy: ");
+        Scanner input = new Scanner(System.in);
+        String sDate = input.nextLine();
 
+        Date date = Utilities.dobFormat.parse(sDate);
 
-        //searchResults.get(choice-1).printSeats(); //its minus one because the user will input 1 but the index is zero
         
 
 
@@ -168,10 +171,10 @@ public class BookingManager {
 
         Hotel hotel = searchResultsHotel.get(choice-1);
 
-        if (hotel.bookRoom(new HotelBooking(searchResultsHotel.get(choice-1).getUUID(), new int[]{0,0,0}))) {
+        if (hotel.bookRoom(new HotelBooking(searchResultsHotel.get(choice-1).getUUID(), new int[]{0,0,0},date))) {
             addHotel(hotel);
 
-            registeredUser.addHotelBooking(new HotelBooking(searchResultsHotel.get(choice-1).getUUID(), new int[]{0,0,0}));
+            registeredUser.addHotelBooking(new HotelBooking(searchResultsHotel.get(choice-1).getUUID(), new int[]{0,0,0},date));
             
 
             

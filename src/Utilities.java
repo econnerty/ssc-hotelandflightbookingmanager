@@ -140,9 +140,10 @@ public class Utilities {
                     flightBookings.add(new FlightBooking(UUID.fromString(jsonFlightBookings.get(i).toString()), index));
                 }
 
-                for(int i = 0; i < jsonHotelBookings.size(); i+=4) { //the way the json is stored, we have to jump forward by 4 to get to the next uuid
+                for(int i = 0; i < jsonHotelBookings.size(); i+=5) { //the way the json is stored, we have to jump forward by 4 to get to the next uuid
                     int [] index = {Integer.parseInt(jsonHotelBookings.get(i+1).toString()), Integer.parseInt(jsonHotelBookings.get(i+2).toString()), Integer.parseInt(jsonHotelBookings.get(i+3).toString())};
-                    hotelBookings.add(new HotelBooking(UUID.fromString(jsonHotelBookings.get(i).toString()), index));
+                    Date date = dobFormat.parse(jsonHotelBookings.get(i+4).toString());
+                    hotelBookings.add(new HotelBooking(UUID.fromString(jsonHotelBookings.get(i).toString()), index, date));
                 }
 
                 for (int i = 0; i < jsonGuests.size(); i++) {

@@ -180,7 +180,8 @@ public class Driver {
                 }
                 registeredUser.removeFriend(input.nextLine());
                 break;
-
+            case 9:
+                registeredUser.itinerary();
             case 10:
                 appManager.logout();
                 currentUser = appManager.getCurrentUser();
