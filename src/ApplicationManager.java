@@ -60,8 +60,7 @@ public class ApplicationManager {
         Utilities.savePlanes(bookingManager.getPlanes());
         Utilities.saveUsers(userManager.getUsers());
     }
-
-
+    
     public void searchFlights(String departure, String destination){
         bookingManager.searchFlights(departure, destination);
     }
