@@ -60,7 +60,7 @@ public class RegisteredUser extends User implements src.JSON{
                 write += "\tFlight Booking:\n";
                 write += "\tYour departure date is: "+BookingManager.getInstance().getPlanes().get(flightBooking.getUUID()).getDepartureDate().toString()+"\n";
                 write += "\tYour arrival date is: "+BookingManager.getInstance().getPlanes().get(flightBooking.getUUID()).getArrivalDate().toString()+" at "+BookingManager.getInstance().getPlanes().get(flightBooking.getUUID()).getDepartureCity()+"\n";
-                write +="\tand will be arriving at "+BookingManager.getInstance().getPlanes().get(flightBooking.getUUID()).getDestinationCity();
+                write +="\tand will be arriving at "+BookingManager.getInstance().getPlanes().get(flightBooking.getUUID()).getDestinationCity()+"\n";
     		  }
     	      for(HotelBooking hotelBooking : hotelBookings) {
                 write += "\tHotel Booking: \n";

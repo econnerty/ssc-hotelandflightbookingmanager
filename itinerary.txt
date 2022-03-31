@@ -1,2 +1,11 @@
 Itinerary for tom: 
 
+	Flight Booking:
+	Your departure date is: Thu May 05 20:06:08 EDT 2022
+	Your arrival date is: Fri May 06 06:04:23 EDT 2022 at Columbia
+	and will be arriving at Seattle	Flight Booking:
+	Your departure date is: Thu May 05 20:06:08 EDT 2022
+	Your arrival date is: Fri May 06 06:04:23 EDT 2022 at Columbia
+	and will be arriving at Seattle	Hotel Booking: 
+	You have booked a hotel at HAMPTON_INN in Seattle
+	Your booking date is: 05/02/2022

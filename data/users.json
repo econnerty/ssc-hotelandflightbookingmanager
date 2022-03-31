@@ -1,1 +1,1 @@
-[{"type":"registered","username":"tom","creationDate":"Wed Mar 30 20:20:37 EDT 2022","password":"1234","dob":"11\/04\/1995","preferences":[],"flightBookings":[],"hotelBookings":[],"guests":[]}]
+[{"type":"registered","username":"tom","creationDate":"Wed Mar 30 20:20:37 EDT 2022","password":"1234","dob":"11\/04\/1995","preferences":[],"flightBookings":["954bbc5b-6f1e-4006-853f-45234dbac478","12","0","954bbc5b-6f1e-4006-853f-45234dbac478","12","1"],"hotelBookings":["9c8de780-aeb0-442b-b87e-8f92547bd7f5","0","0","0","05\/02\/2022"],"guests":["bob"]}]
