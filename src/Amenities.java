@@ -1,7 +1,7 @@
 package src;
 
 public enum Amenities {
-	DOUBLE_BEDS,
+	TWO_DOUBLE_BEDS,
 	TWENTYFOUR_HOUR_PARKING,
 	POOL,
 	BAR,

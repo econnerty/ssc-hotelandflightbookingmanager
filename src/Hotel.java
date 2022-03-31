@@ -159,8 +159,13 @@ public class Hotel implements src.JSON{
     }
     public String getHotelInfo() {
         
-        return "\tHotel: " + hotel + "\tCity: " + city + "\tPrice: " + price+"\tAvailable Rooms: "
-            +availableRooms+"\tSmoking Allowed: "+smoking+"\tPets Allowed: "+petsAllowed+"\tRating: "+rating+"/5.";
+        String ret = "\tHotel: " + hotel + "\tCity: " + city + "\tPrice: " + price+"\tAvailable Rooms: "
+            +availableRooms+"\tSmoking Allowed: "+smoking+"\tPets Allowed: "+petsAllowed+"\tRating: "+rating+"/5." + "\tAmenities:\n\t ";
+
+        for (Amenities amenity : amenities) {
+            ret += amenity.name() + ", ";
+        }
+        return ret;
     }
     
 
