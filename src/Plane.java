@@ -97,6 +97,14 @@ public class Plane implements src.JSON{
         return this.uuid;
     }
 
+    public Date getDepartureDate() {
+        return this.departureDate;
+    }
+    public Date getArrivalDate() {
+        return this.arrivalDate;
+    }
+
+
     public void setAirline(Airlines airline) {
         this.airline = airline;
     }

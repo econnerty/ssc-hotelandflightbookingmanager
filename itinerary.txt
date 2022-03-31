@@ -1,2 +1,4 @@
-	Hotel: WYNDHAM	City: Seattle	Price: 174.67	Available Rooms: 199	Smoking Allowed: false	Pets Allowed: false	Rating: 4.5/5.	Amenities:
-	 TWENTYFOUR_HOUR_PARKING, BAR, ON_SITE_PARKING, MINI_FRIDGE, FREE_BREAKFAST, BATHROBES, FREE_WIFI, SPA, HAIR_TOOLS, CLOTHING_IRON, LAUNDRY_SERVICES, NEWSPAPER, 
+Itinerary for tom: 
+	 Hotel Booking: 
+You have booked a hotel at HOLIDAY_INNin Seattle
+Your booking date is: 04/15/2022

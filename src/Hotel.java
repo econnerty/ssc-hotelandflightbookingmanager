@@ -94,6 +94,10 @@ public class Hotel implements src.JSON{
         return this.uuid;
     }
 
+    public String getName() {
+        return this.hotel.name();
+    }
+
     public void setHotel() {
         //this.hotel=hotel;
     }
