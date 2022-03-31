@@ -1,4 +1,2 @@
 Itinerary for tom: 
-	 Hotel Booking: 
-You have booked a hotel at HOLIDAY_INNin Seattle
-Your booking date is: 04/15/2022
+
