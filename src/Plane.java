@@ -201,9 +201,18 @@ public class Plane implements src.JSON{
 
     public void printSeats() {
         String out = "";
-        System.out.println("  A          B          C          D  ");
+        int N = 1;
+        System.out.println("    A      B      C      D ");
         for(int row=0;row<seats.length;row++) {
             for(int col=0;col<seats[row].length;col++) {
+                if(col==0&&N<10) {
+                    out+=(N+"   ");
+                    N++;
+                }
+                else if(col==0&&N>=10) {
+                    out+=(N+"  ");
+                    N++;
+                }
                 if(seats[row][col]==true) {
                     out+=("+"+"      ");
                 }
