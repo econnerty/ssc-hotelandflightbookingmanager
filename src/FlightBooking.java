@@ -26,7 +26,7 @@ public class FlightBooking extends Booking {
         String ret = "";
         try {
             ret += BookingManager.getInstance().getPlanes().get(this.uuid).getFlightInfo() + "\n\t Your seat is ";
-            switch (index[0]) {
+            switch (index[1]) {
                 case 0:
                     ret += 'A';
                     break;
@@ -40,7 +40,7 @@ public class FlightBooking extends Booking {
                     ret += 'D';
                     break;
             }
-            ret += index[1]+1;
+            ret += index[0]+1;
         } catch (IOException | ParseException | java.text.ParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

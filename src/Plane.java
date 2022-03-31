@@ -11,8 +11,8 @@ import org.json.simple.JSONArray;
 
 public class Plane implements src.JSON{
 
-    private static final int SEAT_COLUMNS = 20; //Hard Coded Plane Size
-    private static final int SEAT_ROWS = 4; //Hard Coded plane size
+    private static final int SEAT_COLUMNS = 4; //Hard Coded Plane Size
+    private static final int SEAT_ROWS = 20; //Hard Coded plane size
 
     private UUID uuid;
 
@@ -31,7 +31,7 @@ public class Plane implements src.JSON{
 
     private String[] layovers;
 
-    private boolean[][] seats = new boolean[SEAT_COLUMNS][SEAT_ROWS]; //Keeps track of all the available seats whether they are booked or not
+    private boolean[][] seats = new boolean[SEAT_ROWS][SEAT_COLUMNS]; //Keeps track of all the available seats whether they are booked or not
 
 
     public Plane(UUID uuid) {
@@ -126,7 +126,7 @@ public class Plane implements src.JSON{
     }
 
     public static int[] getSize() {
-        return new int[]{Plane.SEAT_COLUMNS, Plane.SEAT_ROWS};
+        return new int[]{Plane.SEAT_ROWS, Plane.SEAT_COLUMNS};
     }
 
     public Map toJsonObject() {
@@ -156,9 +156,9 @@ public class Plane implements src.JSON{
                 JSONArray arr = new JSONArray();
                 for (int j = 0; j < this.seats[p].length; j++) {
                     if (seats[p][j] == true)
-                        arr.add("1");
+                        arr.add(1);
                     else
-                        arr.add("0");
+                        arr.add(0);
                 }
                 jsonSeats.add(arr);
             }
