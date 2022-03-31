@@ -130,9 +130,9 @@ public class Driver {
             case 4:
                 System.out.println("Current Bookings: ");
                 for (FlightBooking booking : registeredUser.getFlightBookings())
-                    System.out.println(booking.toString());
+                    System.out.println(booking.toString()+"\n");
                 for (HotelBooking booking : registeredUser.getHotelBookings())
-                    System.out.println(booking.toString());
+                    System.out.println(booking.toString()+"\n");
                 break;
             case 5:
                 System.out.print("Search Flights: ");
