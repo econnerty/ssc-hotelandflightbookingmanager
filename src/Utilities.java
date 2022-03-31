@@ -227,7 +227,7 @@ public class Utilities {
             Date departureDate = dateFormat.parse(jsonObject.get("departureDate").toString());
             Date arrivalDate = dateFormat.parse(jsonObject.get("arrivalDate").toString());
             Double price = Double.parseDouble(jsonObject.get("price").toString());
-            boolean smoking = Boolean.parseBoolean(jsonObject.get("smoking").toString();
+            boolean smoking = Boolean.parseBoolean(jsonObject.get("smoking").toString());
             boolean petsAllowed = Boolean.parseBoolean(jsonObject.get("petsAllowed").toString());
             JSONArray layovers = (JSONArray) jsonObject.get("layovers");
             String[] sLayovers = new String[layovers.size()];
