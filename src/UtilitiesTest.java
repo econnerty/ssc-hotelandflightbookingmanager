@@ -18,7 +18,7 @@ class UtilitiesTest {
     private HashMap<String, User> users;
 
     @BeforeEach
-    public void oneTimesetup() {
+    public void oneTimeSetup() {
         utils = Utilities.getInstance();
     }
 
