@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 class UtilitiesTest {
     private Utilities utils;
     private HashMap<UUID, Plane> planes;
-    private HashMap<UUID, Hotels> hotels;
+    private HashMap<UUID, Hotel> hotels;
     private HashMap<String, User> users;
 
     @BeforeEach
@@ -44,6 +44,17 @@ class UtilitiesTest {
         assertEquals("tom", users.get("tom").getUsername()); //Tom is a user in our json and should be in the hashmap
 
     }
+
+    @Test
+    void testLoadHotels() throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
+
+        hotels = utils.loadHotels();
+
+        assertNotNull(hotels);
+        assertEquals(4, hotels.size()); //There are 4 hotels in our json file
+
+    }
+
 
 
 
