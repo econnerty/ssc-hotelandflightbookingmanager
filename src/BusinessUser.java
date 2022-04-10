@@ -1,5 +1,4 @@
 package src;
-
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -15,7 +14,6 @@ public class BusinessUser extends User implements src.JSON {
 
     private Airlines[] airlines; //enum for airlines
     private Hotels[] hotels; //enum for hotels
-
     /**
      * BusinessUser constructor
      * @param username
@@ -26,7 +24,6 @@ public class BusinessUser extends User implements src.JSON {
     public BusinessUser(String username, String password, Date dob, Date creationDate) {
         super(username, password, dob, creationDate);
     }
- 
     /**
      * BusinessUser Constructor with different parameters
      * @param username
@@ -41,7 +38,6 @@ public class BusinessUser extends User implements src.JSON {
         this.airlines = airlines;
         this.hotels = hotels;
     }
-
     /**
      * prints details of BusinessUser as string
      */

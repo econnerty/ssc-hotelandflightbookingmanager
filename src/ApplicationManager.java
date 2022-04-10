@@ -1,26 +1,19 @@
 package src;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
-
 //import javax.lang.model.util.ElementScanner14;
-
 import org.json.simple.parser.ParseException;
 
 /**
  * Application Manager class manages the whole application
  */
-
 public class ApplicationManager {
-
     private static ApplicationManager appManager;
     private static UserManager userManager;
     private static BookingManager bookingManager;
-
-
     /**
      * private constructor
      * @throws FileNotFoundException
@@ -33,7 +26,6 @@ public class ApplicationManager {
         userManager = UserManager.getInstance();
         bookingManager = BookingManager.getInstance();
     }
-
     /**
      * gets instance of Application Manager class
      * @return
@@ -43,14 +35,10 @@ public class ApplicationManager {
      * @throws java.text.ParseException
      */
     public static ApplicationManager getInstance() throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
-
         if (appManager == null)
             appManager = new ApplicationManager();
-
         return appManager;
-        
     }
-
     /**
      * signs up a new User
      * @param username
@@ -61,23 +49,17 @@ public class ApplicationManager {
      * @throws IOException
      */
     public boolean signUp(String username, String password, Date dob, String type) throws IOException{
-
+        
         User user;
-
         Date creationDate = new Date();
-
         if (type.equalsIgnoreCase("Registered"))
             user = new RegisteredUser(username, password, dob, creationDate);
         else if (type.equalsIgnoreCase("Business"))
             user = new BusinessUser(username, password, dob, creationDate);
         else
             return false;
-
-
         return userManager.addUser(username,user);
-        
     }
-
     /**
      * logs out current user
      * @throws IOException
@@ -85,7 +67,6 @@ public class ApplicationManager {
     public void logout() throws IOException {
         userManager.logout();
     }
-
     /**
      * closes application
      * @throws IOException
@@ -95,8 +76,6 @@ public class ApplicationManager {
         Utilities.savePlanes(bookingManager.getPlanes());
         Utilities.saveUsers(userManager.getUsers());
     }
-
-
     /**
      * searches for flights based on parameters
      * @param departure city to be departed from
@@ -105,7 +84,6 @@ public class ApplicationManager {
     public void searchFlights(String departure, String destination){
         bookingManager.searchFlights(departure, destination);
     }
-
     /**
      * searches for hotels based on parameters
      * @param search destination for which the hotel will be
@@ -113,13 +91,13 @@ public class ApplicationManager {
     public void searchHotels(String search){
         bookingManager.searchHotels(search);   
     }
-
     /**
      * books flights
      * @param choice number of booking
      * @return boolean value to see if the choice exists
      */
     public boolean bookFlight(int choice) {
+
         try {
             return bookingManager.bookFlight(choice);
         } catch (ParseException | java.text.ParseException | IOException e) {
@@ -128,13 +106,13 @@ public class ApplicationManager {
         }
         return false;
     }
-
     /**
      * books hotels
      * @param choice number of booking
      * @return boolean value to see if the choice exists
      */
     public boolean bookHotel(int choice) {
+
         try {
             return bookingManager.bookHotel(choice);
         } catch (ParseException | java.text.ParseException | IOException e) {
@@ -143,7 +121,6 @@ public class ApplicationManager {
         }
         return false;
     }
-
     /**
      * logs existing user in
      * @param username user name
@@ -153,7 +130,6 @@ public class ApplicationManager {
     public boolean login(String username, String password) {
         return (userManager.login(username, password));
     }
-
     /**
      * returns current user
      * @return the User currently on the application

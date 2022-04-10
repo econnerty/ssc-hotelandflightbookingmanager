@@ -25,7 +25,6 @@ class HotelTest {
 
     @Test
     void testRoomBooking() {
-        
+
     }
-    
 }

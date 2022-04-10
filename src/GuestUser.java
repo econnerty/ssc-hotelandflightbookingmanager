@@ -1,5 +1,4 @@
 package src;
-
 import java.util.Map;
 /**
  * GuestUser class extends User, which implements JSON
@@ -25,10 +24,8 @@ public class GuestUser extends User implements src.JSON {
      * main menu for Guest Users
      * @return String
      */
-    public String menuString(){
-
+    public String menuString() {
         return "Hello, " +this.username+"!\n1. Sign Up\n2. Log In\n3. Search Flights\n4. Search Hotels\n5. Review a Hotel/Airlines\n6. Exit\n\nWhat would you like to do?"; 
-    
     }
 
     /**
@@ -47,9 +44,6 @@ public class GuestUser extends User implements src.JSON {
      * for writing to JSON (none because it is guest)
      */
     public Map toJsonObject() {
-
         return null;
-        
     }
-    
 }
