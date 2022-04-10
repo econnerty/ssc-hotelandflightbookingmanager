@@ -50,8 +50,8 @@ public class ApplicationManagerTest {
         appManager.logout();
         assertEquals(appManager.getCurrentUser().getUsername(), "Guest");
     }
-    @Test
+    /*@Test
     public void testSearch() throws IOException {
         assertEquals(expected, actual);
-    }
+    }*/
 }
