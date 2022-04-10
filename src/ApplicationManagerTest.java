@@ -1,3 +1,6 @@
+/**
+ * @author Shaine Moore
+ */
 package src;
 import static org.junit.jupiter.api.Assertions.*;
 import java.io.FileNotFoundException;
@@ -53,6 +56,13 @@ public class ApplicationManagerTest {
     public void testSearchHotels(){
         appManager.searchHotels("seattle");
         assertTrue(bookingManager.getHotelSearchResults().size() == 4); //There are 4 hotels in our json for Seatle.
-
     }
+    /*@Test
+    public void testBookHotel() { //requres input from terminal, cannot automate.
+        appManager.searchHotels("seattle");
+    }
+    @Test 
+    public void testBookFlight() { //requres input from terminal, cannot automate.
+        appManager.searchFlights("columbia", "seattle");
+    }*/
 }
