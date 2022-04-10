@@ -25,13 +25,21 @@ class BookingManagerTest {
     private static ArrayList<Plane> searchResults;
     private static ArrayList<Hotel> searchResultsHotel;
 
-    @BeforeClass
-    public void oneTimeSetup() throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
+    @BeforeEach
+    public void setup() throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
+        Utilities.getInstance();
         bookingManager = BookingManager.getInstance();
         
         planes = Utilities.loadPlanes(); //This should allow us to get the full list of planes from the JSON
         hotels = Utilities.loadHotels(); //This should allow us to get the full list of hotels from the JSON
         businesses = Utilities.loadBusinesses();
+
+    }
+
+    @Test
+    public void testSearchFlights(){
+        bookingManager.searchFlights("columbia", "seattle");
+        assertTrue(bookingManager.getSearchResults().size() == 4); //There are 4 flights from columbia to seattle
 
     }
 
