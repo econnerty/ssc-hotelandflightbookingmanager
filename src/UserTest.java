@@ -11,10 +11,14 @@ import org.junit.jupiter.api.Test;
 
 class UserTest {
     private User user;
+    private UserManager userman;
+    private RegisteredUser reg;
+    private GuestUser guest;
+    private BusinessUser business;
 
     @BeforeEach
     public void setup() {
-        
+       
     }
 
     @AfterEach
@@ -24,7 +28,7 @@ class UserTest {
 
     @Test
     void testValidUsers() {
-
+        
     }
 
     @Test 
