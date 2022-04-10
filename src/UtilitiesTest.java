@@ -36,7 +36,12 @@ class UtilitiesTest {
     }
 
     @Test
-    void testLoadUsers() {
+    void testLoadUsers() throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
+
+        users = utils.loadUsers();
+
+        assertNotNull(users);
+        assertEquals("tom", users.get("tom").getUsername()); //Tom is a user in our json and should be in the hashmap
 
     }
 
