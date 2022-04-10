@@ -183,6 +183,9 @@ public class BookingManager {
     public ArrayList<Plane> getSearchResults() {
         return this.searchResults;
     }
+    public ArrayList<Hotel> getHotelSearchResults() {
+        return this.searchResultsHotel;
+    }
 
     /**
      * books hotels 

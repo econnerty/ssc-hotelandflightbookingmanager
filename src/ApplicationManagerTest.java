@@ -49,10 +49,10 @@ public class ApplicationManagerTest {
         appManager.searchFlights("columbia", "seattle");
         assertTrue(bookingManager.getSearchResults().size() == 4); //There are 4 flights from columbia to seattle
     }
-    /*@Test
+    @Test
     public void testSearchHotels(){
         appManager.searchHotels("seattle");
-        assertTrue(bookingManager.getSearchResults().size() == 4); //There are 4 flights from columbia to seattle
+        assertTrue(bookingManager.getHotelSearchResults().size() == 4); //There are 4 hotels in our json for Seatle.
 
-    }*/
+    }
 }
