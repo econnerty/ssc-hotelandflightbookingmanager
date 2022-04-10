@@ -44,8 +44,15 @@ public class ApplicationManagerTest {
         appManager.logout();
         assertEquals(appManager.getCurrentUser().getUsername(), "Guest");
     }
+    @Test
+    public void testSearchFlights(){
+        appManager.searchFlights("columbia", "seattle");
+        assertTrue(bookingManager.getSearchResults().size() == 4); //There are 4 flights from columbia to seattle
+    }
     /*@Test
-    public void testSearch() throws IOException {
-        assertEquals(expected, actual);
+    public void testSearchHotels(){
+        appManager.searchHotels("seattle");
+        assertTrue(bookingManager.getSearchResults().size() == 4); //There are 4 flights from columbia to seattle
+
     }*/
 }
