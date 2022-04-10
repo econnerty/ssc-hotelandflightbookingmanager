@@ -42,6 +42,12 @@ class BookingManagerTest {
         assertTrue(bookingManager.getSearchResults().size() == 4); //There are 4 flights from columbia to seattle
 
     }
+    @Test
+    public void testSearchHotels(){
+        bookingManager.searchHotels("seattle");
+        assertTrue(bookingManager.getHotelSearchResults().size() == 4); //There are 4 flights from columbia to seattle
+
+    }
 
     @AfterEach
     public void tearDown() {
