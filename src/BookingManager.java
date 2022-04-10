@@ -179,6 +179,14 @@ public class BookingManager {
         }
         return true;
     }
+
+    public ArrayList<Plane> getSearchResults() {
+        return this.searchResults;
+    }
+    public ArrayList<Hotel> getHotelSearchResults() {
+        return this.searchResultsHotel;
+    }
+
     /**
      * books hotels 
      * @param choice is the hotel you choose

@@ -1,27 +1,20 @@
 package src;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
 import org.json.simple.parser.ParseException;
-
 import java.util.ArrayList;
 import java.util.Currency;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.UUID;
-
 import java.util.Scanner;
 /**
  * This contains the main method and UI for the program 
  */
 public class Driver {
-
     private static User currentUser;
     private static ApplicationManager appManager;
-
     private static final String[] types = {"Business", "Registered"};
-
     private static final Scanner input = new Scanner(System.in);
     /**
      * This constructor runs the program 
@@ -32,16 +25,13 @@ public class Driver {
      *  @throws java.text.ParseException
      */
     private static boolean run() throws java.text.ParseException, IOException, ParseException{
-
         currentUser = appManager.getCurrentUser();
-
         if (currentUser.getClass() == GuestUser.class)
             return mainMenu();
         else if (currentUser.getClass() == BusinessUser.class)
             return businessMainMenu();
         else if (currentUser.getClass() == RegisteredUser.class)
             return registeredMainMenu();
-
         return false;
     }
     /**
@@ -52,32 +42,21 @@ public class Driver {
      */
     public static boolean mainMenu() throws IOException, java.text.ParseException {
         //cheapest flights
-
         System.out.println(currentUser.menuString());
-
         int action = Integer.parseInt(input.nextLine());
-
         String username;
         String password;
-
-
         switch (action) {
             case 1:
                 System.out.println("Please enter your desired username: ");
                 username = input.nextLine();
-
                 System.out.println("Please enter your desired password: ");
                 password = input.nextLine();
-
                 System.out.println("Please enter your DOB in the format MM/dd/yyyy: ");
                 String inputDOB = input.nextLine();
-
                 Date dob = Utilities.dobFormat.parse(inputDOB);
-
                 System.out.println("Is this a Business account (1) or a Regular account (2)?");
                 int userType = Integer.parseInt(input.nextLine());
-
-
                 if (appManager.signUp(username, password, dob, types[userType-1])) {
                     System.out.println("Sign Up Succesful!\n");
                     currentUser = appManager.getCurrentUser();
@@ -90,14 +69,11 @@ public class Driver {
                 username = input.nextLine();
                 System.out.println("Enter your password: ");
                 password = input.nextLine();
-                
                 if (!appManager.login(username, password))
                     System.out.println("Either the username or password was incorrect.");
                 else
                     currentUser = appManager.getCurrentUser();
-
                 System.out.println("\n-----------------------------------------------");
-                
                 break;
             case 3:
                 System.out.print("Enter the departure city: ");
@@ -122,7 +98,6 @@ public class Driver {
         }
         return true;
     }
-
     /**
      * This is the main menu for the registered user 
      * @param boolean this return true if the main menu is still running
@@ -132,16 +107,10 @@ public class Driver {
      * @throws java.text.ParseException
      */
     public static boolean registeredMainMenu() throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
-        
         //cheapest flights
-
         RegisteredUser registeredUser = (RegisteredUser) currentUser;
-
-
         System.out.println(currentUser.menuString());
-
         int action = Integer.parseInt(input.nextLine());
-
         switch (action) {
             case 1:
                 registeredUser.setPreferences();
@@ -178,10 +147,7 @@ public class Driver {
                 if(!hot.equalsIgnoreCase("back"));
                     if(!appManager.bookHotel(Integer.parseInt(hot)))
                         System.out.println("No more rooms or somethin");
-
                 break;
-
-
             case 7:
                 while (true) {
                     System.out.println("What is your friend's name?");
@@ -217,12 +183,8 @@ public class Driver {
      * @param boolean this return true if the main menu is still running
      */
     public static boolean businessMainMenu() {
-   
-
         System.out.println(currentUser.menuString());
-
         int action = Integer.parseInt(input.nextLine());
-
         switch (action) {
             case 1:
                 break;
@@ -238,15 +200,8 @@ public class Driver {
         return true;
     }
     public static void main(String args[]) throws FileNotFoundException, IOException, ParseException, java.text.ParseException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-
         appManager = ApplicationManager.getInstance();
         Utilities.getInstance();
-
         while(run());
-        
-            
     }
-
-
-
 }

@@ -1,5 +1,4 @@
 package src;
-
 public enum Airlines {
     DELTA, 
     JET_BLUE,
@@ -88,6 +87,5 @@ public enum Airlines {
     TUIFLY,
     TUNIS_AIRLINES,
     IRVINE,
-//its me on yhe phone bishh irvine. wtf u mean it doesnt compile hoeass// uh this shit is red//dumbaz
     SSP
 }

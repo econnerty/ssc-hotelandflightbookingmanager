@@ -1,12 +1,10 @@
 package src;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.LinkedHashMap;
 import java.util.UUID;
 import java.util.concurrent.ArrayBlockingQueue;
-
 import org.json.simple.JSONArray;
 /**
  * this class holds the information for each hotel.
@@ -19,7 +17,6 @@ public class Hotel implements src.JSON{
 
     private UUID uuid;
     
-
     private int availableRooms = FLOORS*LENGTH*WIDTH; //Max rooms available
     private Hotels hotel; //Enum for hotel
     private double price; //Price for each room in the Hotel
@@ -250,17 +247,13 @@ public class Hotel implements src.JSON{
         
         String ret = "\tHotel: " + hotel + "\tCity: " + city + "\tPrice: " + price+"\tAvailable Rooms: "
             +availableRooms+"\tSmoking Allowed: "+smoking+"\tPets Allowed: "+petsAllowed+"\tRating: "+rating+"/5." + "\tAmenities:\n\t ";
-
         for (Amenities amenity : amenities) {
             ret += amenity.name() + ", ";
         }
         return ret;
     }
-    
-
     /*//TODO Print out all the available rooms, whether they are booked or not, and the index that they are located at
     public String toString() {
         return "";
     }*/
-    
 }

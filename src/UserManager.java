@@ -57,7 +57,14 @@ public class UserManager {
     public void saveUsers(User user) throws IOException {
         Utilities.saveUsers(users);
     }
-
+    public void removeUser(String username) throws IOException {
+        users.remove(username);
+        Utilities.saveUsers(users);
+    }
+    public void removeCurrentUser() throws IOException {
+        users.remove(currentUser.getUsername());
+        Utilities.saveUsers(users);
+    }
     /**
      * It determines if the user is logged in
      * @param username This is the user name of the user
