@@ -1,4 +1,4 @@
-package src;
+package tests;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.FileNotFoundException;
@@ -10,6 +10,11 @@ import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import src.Hotel;
+import src.Plane;
+import src.User;
+import src.Utilities;
 
 class UtilitiesTest {
     private Utilities utils;

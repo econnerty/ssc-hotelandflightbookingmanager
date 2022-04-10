@@ -1,6 +1,4 @@
 package src;
-
-
 public enum Hotels {
     MARRIOTT,
     HILTON,
@@ -101,4 +99,4 @@ public enum Hotels {
     CITY_LODGE,
     SHILO_INNS,
     SHAHPURA
-}//it me on my ohone bish//boooooooooooooo ooo
+}

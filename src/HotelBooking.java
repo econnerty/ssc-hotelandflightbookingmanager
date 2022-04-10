@@ -1,10 +1,8 @@
 package src;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Date;
 import java.util.UUID;
-
 import org.json.simple.parser.ParseException;
 /**
  * this contains the information for a hotel booking
@@ -23,12 +21,9 @@ public class HotelBooking extends Booking {
     public HotelBooking(UUID uuid, int[] index, Date date) {
 
         super(uuid);
-
         if (index.length == 3)
             this.index = index;
-
         this.date = date;
-
     }
     /**
      * this method gets the specific room that is chosen
@@ -66,10 +61,6 @@ public class HotelBooking extends Booking {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
         return ret;
     }
-    
-    
-
 }

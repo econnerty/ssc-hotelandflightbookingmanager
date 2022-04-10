@@ -1,5 +1,4 @@
 package src;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.UUID;
@@ -9,7 +8,6 @@ import org.json.simple.parser.ParseException;
  * FlightBooking class that extends Booking - 
  * specific for flights
  */
-
 public class FlightBooking extends Booking {
 
     private int[] index = new int[2];
@@ -21,10 +19,8 @@ public class FlightBooking extends Booking {
      */
     public FlightBooking(UUID uuid, int[] index) {
         super(uuid);
-        
         if (index.length == 2)
             this.index = index;
-
     }
 
     /**
@@ -64,5 +60,4 @@ public class FlightBooking extends Booking {
         }
         return ret;
     }
-    
 }
