@@ -1,7 +1,7 @@
 /**
  * @author Shaine Moore
  */
-package src;
+package tests;
 import static org.junit.jupiter.api.Assertions.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -12,6 +12,11 @@ import org.junit.BeforeClass;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import src.ApplicationManager;
+import src.BookingManager;
+import src.UserManager;
+import src.Utilities;
 public class ApplicationManagerTest {
     private static ApplicationManager appManager;
     private static UserManager userManager;

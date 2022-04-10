@@ -1,16 +1,14 @@
-package src;
+package tests;
 import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.io.IOException;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
-    private User user;
+import src.Plane;
+
+class PlaneTest {
+    private Plane plane;
 
     @BeforeEach
     public void setup() {
@@ -23,13 +21,16 @@ class UserTest {
     }
 
     @Test
-    void testValidUsers() {
+    void testValidPlanes() {
 
     }
 
-    @Test 
-    void testWrongPassword() {
+    @Test
+    void testBookingSeat() {
 
     }
+
+
+
     
 }

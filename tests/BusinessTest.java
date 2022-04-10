@@ -1,12 +1,14 @@
-package src;
+package tests;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class PlaneTest {
-    private Plane plane;
+import src.Business;
+
+class BusinessTest {
+    private Business business;
 
     @BeforeEach
     public void setup() {
@@ -19,16 +21,17 @@ class PlaneTest {
     }
 
     @Test
-    void testValidPlanes() {
+    void testValidBusiness() {
 
     }
 
     @Test
-    void testBookingSeat() {
+    void testAddingRating() {
 
     }
 
-
-
-    
+    @Test
+    void testSetRating() {
+        
+    }
 }

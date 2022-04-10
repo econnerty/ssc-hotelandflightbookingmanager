@@ -1,4 +1,4 @@
-package src;
+package tests;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.FileNotFoundException;
@@ -12,6 +12,12 @@ import org.junit.BeforeClass;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import src.BookingManager;
+import src.Business;
+import src.Hotel;
+import src.Plane;
+import src.Utilities;
 
 class BookingManagerTest {
     
