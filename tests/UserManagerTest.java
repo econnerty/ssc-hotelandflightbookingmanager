@@ -54,7 +54,7 @@ class UserManagerTest {
 	 @Test
 	 	public void testaddUser() throws IOException{
 		 userManager.addUser("bob", currentUser);
-		 assertEquals("bob", userManager.getUsers());
+		 assertEquals("bob", userManager.getUsers().get("bob").getUsername());
 		 userManager.removeUser("bob");
 	 }
 	
