@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.io.IOException;
+import org.json.simple.parser.ParseException;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,6 +20,8 @@ import src.BusinessUser;
 import src.FlightBooking;
 import src.HotelBooking;
 import src.UserManager;
+import src.Utilities;
+import java.util.*;
 
 
 class UserTest {
@@ -27,13 +30,15 @@ class UserTest {
     private GuestUser guest;
     private BusinessUser business;
     private UserManager app;
+    private Utilities util;
 
 
     @BeforeEach
-    public void setup() throws IOException {
+    public void setup() throws IOException, ParseException {
        reguser = new RegisteredUser("ooga", "booga", null, null,new ArrayList<FlightBooking>(),new ArrayList<HotelBooking>(), new ArrayList<GuestUser>());
-       app.addUser("ooga", reguser);
+       util = util.getInstance();
        business = new BusinessUser("weewaw", "yeehaw", null, null);
+
     }
 
     @AfterEach
@@ -73,24 +78,6 @@ class UserTest {
     void testPasswordBusinessUser() {
         business = new BusinessUser(null, "", null, null);
         assertEquals("Invalid", business.getPassword());
-    }
-
-    @Test
-    void testAddFriends() {
-        reguser.addFriends("Grace");
-        assertEquals("Grace", reguser.getFriends());
-    }
-
-    @Test
-    void testNullAddFriends() {
-        reguser.addFriends(null);
-        assertEquals(null, reguser.getFriends());
-    }
-
-    @Test
-    void testNullRemoveFriends() {
-        reguser.removeFriend("Grace");
-        assertEquals(null, reguser.getFriends());
     }
 
     
