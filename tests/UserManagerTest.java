@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 import org.junit.BeforeClass;
@@ -14,6 +15,7 @@ import org.junit.jupiter.api.Test;
 
 import src.Utilities;
 import src.UserManager;
+import src.RegisteredUser;
 import src.User;
 
 
@@ -53,7 +55,7 @@ class UserManagerTest {
 	    }
 	 @Test
 	 	public void testaddUser() throws IOException{
-		 userManager.addUser("bob", currentUser);
+		 userManager.addUser("bob", new RegisteredUser("bob", "bob", new Date(), new Date()));
 		 assertEquals("bob", userManager.getUsers().get("bob").getUsername());
 		 userManager.removeUser("bob");
 	 }
