@@ -12,6 +12,11 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import src.Utilities;
+import src.UserManager;
+import src.User;
+
+
 class UserManagerTest {
 
 	private static UserManager userManager;
@@ -20,7 +25,7 @@ class UserManagerTest {
 	 private static HashMap<String, User> users; //We will store all the users inside this hashmap. The UUID will be the key.
 
 	@BeforeEach
-	public void setup() throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
+	public void setup() throws FileNotFoundException, IOException, ParseException, java.text.ParseException, org.json.simple.parser.ParseException {
 		Utilities.getInstance();
 		userManager = UserManager.getInstance();
 		
@@ -34,7 +39,7 @@ class UserManagerTest {
 	}
 	
 	@Test
-	public void testChangePassword() {
+	public void testChangePassword() throws IOException {
 		userManager.changePassword("1234","4321");
 		assertEquals("4321", userManager.getCurrentUser().getPassword());
 		userManager.changePassword("4321", "1234");
