@@ -8,29 +8,34 @@ import org.junit.jupiter.api.Test;
 import src.Plane;
 
 class PlaneTest {
-    private Plane plane;
+	private Plane plane;
+	
+	 @BeforeEach
+	    public void setup() {
+	        plane = new Plane(null, Airlines.AMERICAN_AIRLINES, 80, "Henderson", "Louisville", "Wed Jul 27 00:13:35 EDT 2022", "Wed Jul 27 06:13:35 EDT 2022", "baltimore", 494.6, false, false, null, null);
+	    }
 
-    @BeforeEach
-    public void setup() {
-        
-    }
+	    @AfterEach
+	    public void tearDown() {
 
-    @AfterEach
-    public void tearDown() {
+	    }
 
-    }
+	    @Test
+	   public void testValidPlanes() {
+	    	plane = new Plane(null, null, 0, 0.0, null, null, null, null, false, false, null, null);
+	    	assertEquals("Doesn't exist", plane.getFlightInfo());
+	    	
+	    }
 
-    @Test
-    void testValidPlanes() {
-        
-    }
+	    @Test
+	    public void testFlightDepartureCity() {
+	    	plane = new Plane(null, null, 0, 0.0, null, null, null, null, false, false, null, null);
+	    	assertEquals("Invalid departure dity", plane.getDepartureCity());
 
-    @Test
-    void testBookingSeat() {
+	    }
+	    public void testAmountOfSeats() {
+	    	plane = new Plane(null, null, -40, 0.0, null, null, null, null, false, false, null, null);
+	    	assertEquals("Invalid amount of seats", plane.getSize());
 
-    }
-
-
-
-    
+	    }
 }
