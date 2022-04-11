@@ -1,3 +1,6 @@
+/**
+author: Maeko Maja
+*/
 package tests;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -41,6 +44,6 @@ class BusinessTest {
     @Test
     void testAddingRating() {
         business.addRating("ooga", -1.0);
-        assertEquals(4, business.getnumRatings());
+        assertEquals(3, business.getnumRatings());
     }
 }
