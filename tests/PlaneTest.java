@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import src.Plane;
+import src.Airlines;
 
 class PlaneTest {
 	private Plane plane;
