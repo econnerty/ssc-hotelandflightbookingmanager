@@ -22,7 +22,7 @@ class PlaneTest {
 
     @Test
     void testValidPlanes() {
-
+        
     }
 
     @Test

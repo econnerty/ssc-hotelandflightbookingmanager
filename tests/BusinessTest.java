@@ -1,3 +1,6 @@
+/**
+author: Maeko Maja
+*/
 package tests;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,7 +15,7 @@ class BusinessTest {
 
     @BeforeEach
     public void setup() {
-        
+        business=new Business(null, "ooga", 5, 3);
     }
 
     @AfterEach
@@ -21,17 +24,26 @@ class BusinessTest {
     }
 
     @Test
-    void testValidBusiness() {
+    void testNullValidBusiness() {
+        business = new Business(null,null,0,0);
+        assertEquals(null, business.getName());
+    }
 
+    @Test
+    void testNumRatingValidBusiness() {
+        business = new Business(null,null,0,-1);
+        assertEquals(0, business.getnumRatings());
+    }
+
+    @Test
+    void testRatingValidBusiness() {
+        business = new Business(null,null,-2,0);
+        assertEquals(0, business.getRating());
     }
 
     @Test
     void testAddingRating() {
-
-    }
-
-    @Test
-    void testSetRating() {
-        
+        business.addRating("ooga", -1.0);
+        assertEquals(3, business.getnumRatings());
     }
 }
