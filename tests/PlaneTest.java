@@ -1,19 +1,20 @@
 package tests;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Date;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import src.Plane;
-import src.Airlines;
 
 class PlaneTest {
 	private Plane plane;
 	
 	 @BeforeEach
 	    public void setup() {
-	        plane = new Plane(null, Airlines.AMERICAN_AIRLINES, 80, "Henderson", "Louisville", "Wed Jul 27 00:13:35 EDT 2022", "Wed Jul 27 06:13:35 EDT 2022", "baltimore", 494.6, false, false, null, null);
+	        plane = new Plane(null, Airlines.AMERICAN_AIRLINES, 80, 494.6,new Date(), new Date(), "Henderson", "Louisville", false, false, null, null);
 	    }
 
 	    @AfterEach
