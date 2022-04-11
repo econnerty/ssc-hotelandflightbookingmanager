@@ -25,7 +25,7 @@ class PlaneTest {
 
 	    @Test
 	   public void testValidPlanes() {
-	    	plane = new Plane(null, null, 0, 0.0, null, null, null, null, false, false, null, null);
+	    	//plane = new Plane(null, null, 0, 0.0, null, null, null, null, false, false, null, null);
 	    	assertEquals("Doesn't exist", plane.getFlightInfo());
 	    	
 	    }
