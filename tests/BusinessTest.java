@@ -26,7 +26,7 @@ class BusinessTest {
     @Test
     void testNullValidBusiness() {
         business = new Business(null,null,0,0);
-        assertEquals("", business.getName());
+        assertEquals(null, business.getName());
     }
 
     @Test

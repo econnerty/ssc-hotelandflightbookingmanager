@@ -18,6 +18,7 @@ import src.RegisteredUser;
 import src.BusinessUser;
 import src.FlightBooking;
 import src.HotelBooking;
+import src.UserManager;
 
 
 class UserTest {
@@ -25,11 +26,13 @@ class UserTest {
     private RegisteredUser reguser;
     private GuestUser guest;
     private BusinessUser business;
+    private UserManager app;
 
 
     @BeforeEach
-    public void setup() {
+    public void setup() throws IOException {
        reguser = new RegisteredUser("ooga", "booga", null, null,new ArrayList<FlightBooking>(),new ArrayList<HotelBooking>(), new ArrayList<GuestUser>());
+       app.addUser("ooga", reguser);
        business = new BusinessUser("weewaw", "yeehaw", null, null);
     }
 

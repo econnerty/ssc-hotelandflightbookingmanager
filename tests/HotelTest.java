@@ -29,4 +29,16 @@ class HotelTest {
         hotel = new Hotel(null, 0, null, 0, null, true, true, 0);
         assertEquals("Doesn't exist", hotel.getHotelInfo());
     }
+
+    @Test 
+    void testHotelPrice() {
+        hotel = new Hotel(null, 0, null, -45, null, true, true, 0);
+        assertEquals("Invalid Price", hotel.getPrice());
+    }
+
+    @Test 
+    void testHotelCity() {
+        hotel = new Hotel(null, 0, null, 0, null, true, true, 0);
+        assertEquals("Invalid City", hotel.getCity());
+    }
 }
